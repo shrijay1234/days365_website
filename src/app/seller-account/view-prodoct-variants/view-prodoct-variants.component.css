@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+  }
+  ._tab{
+      font-size: 14px;
+      text-align: center;
+      background: #1e88e5;
+      color:#ffff
+  }
+  ._rows{
+      text-align: center;
+      color:grey
+  }
+  td{
+      align-items: center;
+  }
+  .mat-icon{
+margin: auto;
+  }
+  td,th{
+    width:7.692%
+  }
+  td{
+    
+    word-break: break-all;
+  
+    }
+    @media(max-width:500px){
+      .scrollll{
+        overflow-x: scroll;
+      }
+    }

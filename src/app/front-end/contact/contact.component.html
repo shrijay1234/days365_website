@@ -1,0 +1,112 @@
+<app-front-header></app-front-header>
+
+
+
+
+<div class="hf"
+style=" background-image: url(https://t4.ftcdn.net/jpg/03/36/13/51/240_F_336135111_BzUhV0Q4PbsxodiN8tCFkA1s0tWTUKNV.jpg); background-size: cover;">
+<section class="page-section" id="contact-us">
+    
+
+    <div class="container">
+        <div class="row">
+
+            <div  class="col-md-12 contact-info">
+                <h2 class="text-center text-white pb-4  pt-2" >
+                    <b>Contact  Us</b>
+                </h2>
+                <div  class="row text-center">
+
+                    <address class="col-md-4">
+                        <i
+                            class="fa fa-map-marker i-9x icons-circle text-color light-bg hover-black">
+
+                        </i>
+                        <div  class="title text-center" style=" color: #ffff;">Address</div>
+                        <h6 class="hh text-white text-center">IMPEXICOM PRIVATE LIMITED C&D,<br> SHOP NO. 10 
+                                GREEN VELLY,<br>
+                            SURAT, SURAT-394210 GUJRAT</h6>
+                    </address>
+                    <address class="col-md-4">
+                        <i 
+                            class="fa fa-microphone i-9x icons-circle text-color light-bg hover-black">
+
+                        </i>
+                        <div class="title"  style=" color: #ffff">Phones</div>
+                        
+                            <h6 class="hh text-white text-center">1800-200-6568</h6>
+                        
+                    </address>
+                    <address class=" col-md-4">
+                        <i 
+                            class="fa fa-envelope i-9x icons-circle text-color light-bg hover-black">
+
+                        </i>
+                        <div  class="title "  style=" color: #ffff;">Support</div>
+                        
+                            <h6 class="hh text-white text-center"> <a 
+                                    routerLink='/' style="color:white;">info@days365.com</a>
+                            </h6>
+                        
+                    </address>
+                </div>
+                <hr class="pad-10">
+
+                <div class="row">
+                 
+                    <div class="col-md-5 col-12"><!-- main app container -->
+                      
+                            
+                                       
+                                        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                            <div class="form-group">
+                                              
+                                                <input type="text" formControlName="firstName" placeholder="Name*" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.firstName.errors.required" style="color: red;">First Name is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                            
+                                                <input type="text" formControlName="number" placeholder="Phone* " class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+                                                <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.number.errors.required"  style="color: red;">Number is required</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                 
+                                                <input type="text" formControlName="email" placeholder="Email*" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.email.errors.required" style="color: red;">Email is required</div>
+                                                    <div *ngIf="f.email.errors.email"  style="color: red;">Email must be a valid email address</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" >
+                                            <textarea type="text" formControlName="message" placeholder="Message*" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.message.errors }"></textarea>
+                                            <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                                                <div *ngIf="f.message.errors.required" style="color: red;">Message is required</div>
+                                                
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <button class="btn btn-primary btn-block">Send Now <i class="fa fa-paper-plane" aria-hidden="true" style="padding-left:10px"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>  
+                                    <div class="col-md-7 col-12">
+                                        <div _ngcontent-xrs-c3="" class="map-section">
+                                            
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3719.8191976691974!2d72.78678721441018!3d21.199340187310092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04c33b045bc3b%3A0xd07b400bc56bf480!2s10%2C%20Green%20Valley%20Rd%2C%20Adajan%20Gam%2C%20Adajan%2C%20Surat%2C%20Gujarat%20395009!5e0!3m2!1sen!2sin!4v1632391911358!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen=""></iframe>
+                
+                
+                                           
+                                        </div>
+                                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+    </div>
+    <app-front-footer></app-front-footer>

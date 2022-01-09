@@ -1,0 +1,442 @@
+/*
+Template Name: Material Pro Admin
+Author: Wrappixel
+Email: niravjoshi87@gmail.com
+File: scss
+*/
+
+
+/*============================================================== 
+ For all pages 
+ ============================================================== */
+
+
+/*******************
+ Main container
+*******************/
+
+.main-container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+} 
+
+.mat-drawer-container{
+		background: $bodycolor;
+		
+}
+
+html .page-wrapper{
+    	// background-color: #2b3439;
+		height:calc(100vh - 64px);
+		.page-content{
+				padding: 15px;
+		}
+}
+
+.align-items-center{
+		align-items: center;
+}
+
+/*******************
+Chartistt chart css
+******************/
+.barchrt{
+		.ct-series-a .ct-bar{
+				stroke:$success;
+		}
+		.ct-series-b .ct-bar{
+				stroke:$info;
+		}
+}
+
+.piechart{
+		.ct-series-a .ct-slice-donut{
+				stroke:$info
+		}
+		.ct-series-b .ct-slice-donut{
+				stroke:$success
+		}
+		.ct-series-c .ct-slice-donut{
+				stroke:$purple
+		}
+		.ct-series-d .ct-slice-donut{
+				stroke:$light
+		}
+		.ct-series-e .ct-slice-donut{
+				stroke:$warning
+		}
+}
+
+/*******************/
+/*social-profile-first*/
+/*******************/
+.little-profile{
+	.pro-img, .pro-img:first-child {
+		margin-top: -110px;
+		margin-bottom: 20px;
+	img {
+		width: 128px;
+		height: 128px;
+		-webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+		border-radius: 100%;
+			}
+ }
+}        
+
+.button-row button{
+	margin-bottom: 5px;
+    	margin-right: 5px;
+}
+
+.pl-5 {
+	padding-left: 5px;
+}
+.pr-5 {
+	padding-right: 5px;
+}
+
+// Adding css
+
+.mat-primary{
+	// background-color: #2b3439!important;
+}
+.mat-table {
+    // background-color: #2b3439!important;
+}
+.mat-paginator-container{
+	// background-color: #2b3439!important;
+}
+.page-content{
+	// border-top: 15px solid #4d4d4d;
+	// background-color: #4d4d4d !important;
+}
+.mat-header-cell{
+	text-align: center!important;
+	color: white;
+	border: 1px solid white;
+}
+.mat-card{
+	margin: unset!important;
+}
+.mat-cell{
+	text-align: center!important;
+	color: white;
+	border: 1px solid white;
+}
+.mat-paginator-outer-container{
+	color: white;
+}
+.mat-tab-label-content{
+	color: white!important;
+}
+
+mat-row, mat-header-row, mat-footer-row, th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    border-bottom-color: white!important;
+   
+}
+.mat-table{
+	border: 1px solid white;
+}
+tr.mat-footer-row, tr.mat-row {
+    height: 40px!important;
+}
+tr.mat-header-row {
+    height: 45px!important;
+}
+
+
+
+:host {
+	display: flex;
+	justify-content: center;
+	margin: 100px 0px;
+  }
+
+  .mat-form-field {
+	width: 100%;
+	min-width: 300px;
+  }
+
+  mat-card-title,
+  mat-card-content {
+	display: flex;
+	justify-content: center;
+  }
+
+  .error {
+	padding: 16px;
+	width: 300px;
+	color: white;
+	background-color: red;
+  }
+
+  .button {
+	display: flex;
+	justify-content: flex-end;
+ }
+  .col-form-label{
+	  color: white!important;
+  }
+  .mat-form-field-infix {
+	// border: 1px solid white!important;
+    // padding: 0.4em 0 0.4em 0!important;
+}
+
+thead{
+	color: white;
+}
+tr{
+	color: white;
+	font-size: 14px;
+}
+
+.mlr{
+	margin-top: 2rem;
+    margin-left: 16.0rem;
+}
+
+.mat-form-field-appearance-outline{
+	padding: unset!important;
+}
+
+.mat-form-field-flex {
+	padding: unset!important;
+}
+
+.mat-button {
+   
+    background: #0071bc!important;
+    color: white!important;
+}
+
+.addbutton{
+	float: right;
+	margin-bottom: 1rem;
+}
+
+.height{
+	height: 8rem;
+}
+
+ th{
+	text-align: center;
+}
+tr{
+	text-align: center!important;
+}
+.mat-input-element{
+	color: black!important;
+}
+.mt{
+	color: white!important;
+}
+.border-select{
+	border: 1px solid white;
+}
+.bluea{
+	color: #088ae1!important;
+}
+
+.mat-card {
+    // background: #2b3439!important;
+    // color: rgba(0, 0, 0, 0.87);
+}
+
+.mf{
+	// border:1px solid white;
+	margin: 0.4rem;
+}
+
+
+
+
+
+
+.mat-form-field {
+	display: initial;
+	.mat-form-field-ripple {
+		background-color: #919cbb;
+	}
+}
+.mat-form-field-appearance-outline {
+	.mat-form-field-wrapper {
+		padding: 0;
+	}
+	.mat-form-field-outline {
+		color:gray;
+	}
+}
+.mat-stepper-horizontal {
+	background-color: transparent;
+	color: #919cbb;
+}
+.mat-stepper-vertical {
+	background-color: transparent;
+	color: #919cbb;
+}
+.mat-form-field-infix {
+	color: black;
+	input {
+		&::placeholder {
+			color: black;
+		}
+	}
+}
+.mat-form-field-outline {
+	color: #919cbb;
+}
+.mat-form-field-empty.mat-form-field-label {
+	color: #919cbb;
+}
+.mat-form-field-label {
+	color: #919cbb;
+}
+.mat-form-field-underline {
+	color: #919cbb;
+}
+.mat-input-element {
+	color: #919cbb;
+}
+*::placeholder {
+	color: #919cbb;
+}
+*:focus {
+	color: #919cbb;
+}
+.mat-step-text-label {
+	color: #fff;
+}
+.mat-step-label {
+	font-size: 20px;
+}
+.mat-form-field.mat-primary {
+	.mat-select-arrow {
+		color: #919cbb;
+	}
+}
+.mat-primary {
+	.mat-option.mat-selected {
+		&:not(.mat-option-disabled) {
+			color: #919cbb;
+		}
+	}
+}
+.custom_select.mat-form-field-appearance-legacy {
+	.mat-form-field-underline {
+		display: none;
+	}
+	// .mat-form-field-label {
+	// 	top: 2.2em;
+	// 	left: 12px;
+	// }
+}
+.mat-select-value {
+	color: #919cbb;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-label {
+	font-size: 14px;
+    top: 1.84375em;
+    margin-left: 12px !important;
+    margin-top: 10px !important;
+}
+
+input.mat-input-element {
+    margin-left: 12px!important;
+	padding-top: 0.2rem!important;
+    padding-right: 1.4rem!important;
+	/* margin-top: -0.0625em; */
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+    display: flex;
+    position: absolute;
+    top: 20px!important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.col-form-label {
+    padding-top: calc(.375rem + 22px)!important;
+    padding-bottom: calc(.375rem + 1px);
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 1.5;
+}
+
+.btn-update{
+	padding: 2px 65px!important;
+}
+
+.mt5{
+	padding-top: 2rem;
+}
+
+.widimg{
+	padding: 22px;
+    /* padding: 12px; */
+    width: 82px;
+    /* height: 50px;*/
+}  
+
+
+.mat-select-placeholder {
+	color: #919cbb!important;
+    padding-left: 0.8rem!important;
+    font-size: 14px!important;
+    margin-top: 8px!important;
+}
+
+
+ .mat-select-arrow-wrapper {
+    padding-top: 0.2rem!important;
+    padding-right: 0.2rem!important;
+    /* transform: translateY(-005%); */
+}
+.mat-select-arrow{
+	margin-top: 10px!important;
+}
+
+
+.mat-select-value-text{
+	font-size: 14px!important;
+    margin-left: 0.8rem!important;
+}
+
+.mt55{
+	margin-top: 2rem;
+}
+
+.w180{
+	width: 180px;
+}
+.w35{
+	width: 35px;
+}
+
+.gen-name{
+	color: white;
+}
+
+.mcw{
+	color: white!important;
+}
+.fund-t{
+	margin-top: -10px!important;
+}
+.frg{
+	margin-bottom: unset!important;
+}
+
+.ml-fund{
+	
+}

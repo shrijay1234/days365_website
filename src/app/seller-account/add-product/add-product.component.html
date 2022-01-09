@@ -1,0 +1,227 @@
+
+<div class="container-fluid p-0" style="background-color:#F4F4F4">
+  <app-seller-header></app-seller-header>
+</div>
+<!--(ngSubmit)="onSubmit" this content add to addVariant left side-->
+<form [formGroup]="addVariantForm" (ngSubmit)="onSubmitData()">
+
+  <br>
+  <div formArrayName="arr" *ngFor="let a of addVariantForm.get('arr')['controls']; let i = index"
+        style="border-bottom:1px solid #F0F0F0;  margin-top: 2rem; margin-bottom: 2rem;">
+
+        <div [formGroupName]="i">
+              <div class="container-fluid mr-2 ml-2">
+                    <div class="row">
+                          <div class=" form-group col-6 col-sm-4 col-md-3 " style="margin: 5px 0px;">
+                                <label class="labo" style="text-align:center;">Product id </label>
+                                <input name="productId" formControlName="productId" type="text"  class="yagg" [ngClass]="{ 'is-invalid': submitted && f.productId.errors }" />
+                                <div *ngIf="submitted && f.productId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.productId.errors.required">First Name is required</div>
+                                </div>
+
+                                <input name="title" formControlName="title" type="hidden" class="yagg">
+                          </div>
+
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;" >
+                                <label class="labo">Product Id Type</label>
+                                <mat-select class="lfvv" style="float: right;" placeholder="Select Type" formControlName="productIdType" name="productIdType">
+                                      <mat-option *ngFor="let food of foods" [value]="food.viewValue">
+                                            {{food.viewValue}}
+                                      </mat-option>
+                                </mat-select>
+
+                          </div>
+
+                         
+
+                          <div class=" form-group col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">SKU Id </label>
+                                <input name="SKUId" formControlName="SKUId" type="text" class="yagg"[ngClass]="{ 'is-invalid': submitted && f.SKUId.errors }" />
+                                <div *ngIf="submitted && f.SKUId.errors" class="invalid-feedback">
+                                    <div *ngIf="f.SKUId.errors.required">First Name is required</div>
+                                </div>
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">Flavour</label>
+                              <input name="flavour" formControlName="flavour" type="text" class="yagg">
+                        </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Veg/Non-Veg </label>
+
+                                <!-- <mat-form-field appearance="fill" class="yagg"> -->
+                                    <!-- <mat-label>Select an option</mat-label> -->
+                                    <mat-select placeholder="Select" formControlName="VegNonVegProduct" [(value)]="selected" class="yagg">
+                                      <mat-option>None</mat-option>
+                                      <mat-option value="Vegetarian">Vegetarian</mat-option>
+                                      <mat-option value="Non Vegetarian">Non Vegetarian</mat-option>
+                                      <!-- <mat-option value="option3">Option 3</mat-option> -->
+                                    </mat-select>
+                                  <!-- </mat-form-field> -->
+                                <!-- <input name="color" formControlName="color" type="text" class="yagg"[ngClass]="{ 'is-invalid': submitted && f.color.errors }" /> -->
+                                <div *ngIf="submitted && f.VegNonVegProduct.errors" class="invalid-feedback">
+                                    <div *ngIf="f.VegNonVegProduct.errors.required">First Name is required</div>
+                                </div>
+                          </div>
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Size </label>
+                                <input name="size" formControlName="size" type="text" class="yagg"[ngClass]="{ 'is-invalid': submitted && f.size.errors }" />
+                                <div *ngIf="submitted && f.size.errors" class="invalid-feedback">
+                                    <div *ngIf="f.size.errors.required">First Name is required</div>
+                                </div>
+
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">MRP</label>
+                              <input name="maximumRetailPrice" formControlName="maximumRetailPrice" type="text" class="yagg">
+                          </div>
+
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Your Price</label>
+                                <input name="yourPrice" formControlName="yourPrice" type="number" class="yagg"
+                                [ngClass]="{ 'is-invalid': submitted && f.yourPrice.errors }" />
+                                <div *ngIf="submitted && f.yourPrice.errors" class="invalid-feedback">
+                                    <div *ngIf="f.yourPrice.errors.required">First Name is required</div>
+                                </div>
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">Expiry Date</label>
+                             
+                              <input matInput [matDatepicker]="picker" formControlName="expiryDate" class="_expdata">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                                  
+                          </div>
+
+                          
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Stock </label>
+                                <input name="stock" formControlName="stock" type="number" class="yagg"
+                                [ngClass]="{ 'is-invalid': submitted && f.stock.errors }" />
+                                <div *ngIf="submitted && f.stock.errors" class="invalid-feedback">
+                                    <div *ngIf="f.stock.errors.required">First Name is required</div>
+                                </div>
+                          </div>
+
+<!-- Added extra fields-->
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">Pin Code </label>
+                              <input name="source_pin" formControlName="source_pin" type="text" class="yagg"
+                              [ngClass]="{ 'is-invalid': submitted && f. source_pin.errors }" />
+                              <div *ngIf="submitted && f. source_pin.errors" class="invalid-feedback">
+                                  <div *ngIf="f. source_pin.errors.required"> Pin code Name is required</div>
+                              </div>
+                        </div>
+
+                        <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">length </label>
+                              <input name="length" formControlName="length" type="text" class="yagg"
+                              [ngClass]="{ 'is-invalid': submitted && f.length.errors }" />
+                              <div *ngIf="submitted && f.length.errors" class="invalid-feedback">
+                                  <div *ngIf="f.length.errors.required">length is required</div>
+                              </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">breadth </label>
+                              <input name="breadth" formControlName="breadth" type="text" class="yagg"
+                              [ngClass]="{ 'is-invalid': submitted && f.breadth.errors }" />
+                              <div *ngIf="submitted && f.breadth.errors" class="invalid-feedback">
+                                  <div *ngIf="f.breadth.errors.required">breadth is required</div>
+                              </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">height </label>
+                              <input name="height" formControlName="height" type="text" class="yagg"
+                              [ngClass]="{ 'is-invalid': submitted && f.height.errors }" />
+                              <div *ngIf="submitted && f.height.errors" class="invalid-feedback">
+                                  <div *ngIf="f.height.errors.required">height is required</div>
+                              </div>
+                        </div>
+                        <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                              <label class="labo">weight</label>
+                              <input name="weight" formControlName="weight" type="text" class="yagg"
+                              [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" />
+                              <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                                  <div *ngIf="f.weight.errors.required">weight is required</div>
+                              </div>
+                        </div>
+
+<!-- End extra fields-->
+
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label  class="labo" >Exp.Date Img</label>
+                                <input (change)="fileUploadOnSelect($event,i,'expiryDate_Img')" type="file"  class="form-control-file yagg" id="{{'expiryDate'+i}}" style=" display: inline-block;">
+                                <input  name="expiryDate_Img" formControlName="expiryDate_Img" type="hidden" class="form-control-file yagg">
+                                <img [src]="a.get('expiryDate_Img').value" style="height: 30px; width:50px">
+                                 
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">MRP Img </label>
+                                <input  type="file" class="form-control-file yagg" id="{{'importerMRP'+i}}" style=" display: inline-block;" (change)="fileUploadOnSelect($event,i,'importerMRP_Img')">
+                                <input  name="importerMRP_Img" formControlName="importerMRP_Img" type="hidden"  class="form-control-file yagg" id="{{'importerMRP'+i+'img'}}">
+                                <img [src]="a.get('importerMRP_Img').value" style="height: 30px; width:50px">
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Seal Img</label>
+                                <input type="file" class="form-control-file yagg"
+                                id="{{'productSeal'+i}}" (change)="fileUploadOnSelect($event,i,'productSeal_Img')" style=" display: inline-block;">
+                                <input  name="productSeal_Img" formControlName="productSeal_Img" type="hidden"  class="form-control-file yagg" id="{{'productSeal'+i+'img'}}">
+                                <img [src]="a.get('productSeal_Img').value" style="height: 30px; width:50px">
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Front Img</label>
+                                <input type="file" class="form-control-file yagg"
+                                id="{{'MainImg'+i}}" (change)="fileUploadOnSelect($event,i,'MainImg')" style=" display: inline-block;">
+                                <input name="MainImg" formControlName="MainImg" type="hidden"  class="form-control-file yagg" id="{{'MainImg'+i+'img'}}">
+                                <img [src]="a.get('MainImg').value" style="height: 30px; width:50px">
+                          </div>
+
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">Back Img</label>
+                                <input type="file" class="form-control-file yagg"
+                                id="{{'product1'+i}}" (change)="fileUploadOnSelect($event,i,'product_Img1')" style=" display: inline-block;">
+
+                                <input name="product_Img1" formControlName="product_Img1"  type="hidden"  class="form-control-file yagg" id="{{'product1'+i+'img'}}">
+                                <img [src]="a.get('product_Img1').value" style="height: 30px; width:50px">
+                          </div>
+
+                          <!-- <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">img(2)</label>
+                                <input name="product_Img2" formControlName="product_Img2"  type="file"  class="yagg" class="form-control-file"
+                                id="exampleFormControlFile1" style=" display: inline-block;">
+                          </div>
+                          <div class="col-6 col-sm-4 col-md-3" style="margin: 5px 0px;">
+                                <label class="labo">img(3)</label>
+                                <input name="product_Img3" formControlName="product_Img3"  type="file"  class="yagg" class="form-control-file"
+                                id="exampleFormControlFile1" style=" display: inline-block;">
+                          </div> -->
+                          <div class="col-12 col-sm-4 col-md-12" style="margin: 5px 0px;">
+                                
+                                <button type="button" class="btn btn-danger" [disabled]="removeButton" (click)="removeProductVariant(i)"
+                                      style="float: right; margin-right:10px ; font-size: 12px;">Remove</button>
+                          </div>
+                         
+                    </div>
+              </div>
+        </div>
+  </div>
+
+        <button type="button" class="btn btn-success mb-5" (click)="addProductVariant()"
+              style="margin-left: 20px;">Add New</button>
+              <br>
+              <br>
+              <!-- {{addVariantForm.value | json}} -->
+        <button type="submit" class="btn btn-primary btn-md  _kjhh mb-5" style=" font-size: 18px; "> Submits</button>
+      
+</form>
+<app-seller-footer></app-seller-footer>

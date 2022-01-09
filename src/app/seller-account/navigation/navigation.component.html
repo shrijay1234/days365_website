@@ -1,0 +1,220 @@
+<!--top navigation starts here-->
+    <div fxLayout="row" fxLayoutAlign="start center" fxLayoutAlign.gt-sm="" fxLayoutGap.gt-md="40px" fxLayoutGap.md="20px" style="background-color:#262F4E;">
+        <!--left box of toolbar starts here -->
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <!--side navigation starts here-->
+            <button type="button" fxHide.gt-sm mat-icon-button [matMenuTriggerFor]="sidemenu">
+                <mat-icon class="text-white">menu</mat-icon>
+            </button>
+            <mat-menu #sidemenu="matMenu">
+             <!--------  <a href="#" mat-menu-item>Add Existing Products</a>
+                <a  mat-menu-item [matMenuTriggerFor]="catalogue">Catalogue</a>
+                <mat-menu #catalogue="matMenu">
+                    <a href="#" mat-menu-item>Add Products</a>
+                    <a routerLink="/complete-pending-products" mat-menu-item>Complete Pending Products</a>
+                    <a href="#" mat-menu-item>Viewing Selling Applications</a>
+                </mat-menu>-->
+                <a mat-menu-item [matMenuTriggerFor]="inventory">Inventory</a>
+                <mat-menu #inventory="matMenu">
+                    
+                    <a [routerLink]="'/add-product-not-on-days365'" mat-menu-item>Add a Product</a>
+                    <a [routerLink]="'/viewProductsForAddVariants'" mat-menu-item>Add Product Varients</a>
+                    <!-- <a href="/promoCodeList" mat-menu-item>Promo Code List</a> -->
+                    <a href="/listed-brand" mat-menu-item>Listed Brands</a>
+
+                    <!-- <a href="#" mat-menu-item>Add Products via Upload</a>
+                    <a href="#" mat-menu-item>Inventory Reports</a>
+                    <a href="#" mat-menu-item>Sell Globally</a>
+                    <a href="#" mat-menu-item>Upload Images</a>
+                    <a href="#" mat-menu-item>Upload and Manage Videos</a>
+                    <a href="#" mat-menu-item>Manage Product Documents</a> -->
+                </mat-menu>
+               <!------- <a href="#" mat-menu-item [matMenuTriggerFor]="pricing">Pricing</a>
+                <mat-menu #pricing="matMenu">
+                    <a href="#" mat-menu-item>Pricing Health</a>
+                    <a href="#" mat-menu-item>Manage Pricing</a>
+                    <a href="#" mat-menu-item>Fix Price Alerts</a>
+                    <a href="#" mat-menu-item>Automate Pricing</a>
+                    <a href="#" mat-menu-item>Fee Discounts</a>
+                </mat-menu>-->
+                <a href="#" mat-menu-item [matMenuTriggerFor]="orders">Orders</a>
+                <mat-menu #orders="matMenu">
+                    <a href="#" mat-menu-item>Manage Orders</a>
+                    <a href="#" mat-menu-item>Order Reports</a>
+                    <a href="#" mat-menu-item>Upload Order Related Files</a>
+                    <a href="#" mat-menu-item>Manage Returns</a>
+                    <a href="#" mat-menu-item>Manage SAFE-T Claims</a>
+                </mat-menu>
+              <!-------  <a href="#" mat-menu-item [matMenuTriggerFor]="advertising">Advertising</a>
+                <mat-menu #advertising="matMenu">
+                    <a href="#" mat-menu-item>Campaign Manager</a>
+                    <a href="#" mat-menu-item>A+ Content Manager</a>
+                    <a href="#" mat-menu-item>Deals</a>
+                    <a href="#" mat-menu-item>Coupons</a>
+                    <a href="#" mat-menu-item>Promotions</a>
+                </mat-menu>
+                <a href="#" mat-menu-item [matMenuTriggerFor]="growth">Growth</a>
+                <mat-menu #growth="matMenu">
+                    <a href="#" mat-menu-item>Recommended Programmes</a>
+                    <a href="#" mat-menu-item>Seller Rewards</a>
+                    <a href="#" mat-menu-item>Refer a Friend</a>
+                </mat-menu>
+                <a href="#" mat-menu-item [matMenuTriggerFor]="reports">Reports</a>
+                <mat-menu #reports="matMenu">
+                    <a href="#" mat-menu-item>Payments</a>
+                    <a href="#" mat-menu-item>Selling Coach</a>
+                    <a href="#" mat-menu-item>Business Report</a>
+                    <a href="#" mat-menu-item>Return Reports</a>
+                    <a href="#" mat-menu-item>Custom Reports</a>
+                    <a href="#" mat-menu-item>Tax Document Library</a>
+                </mat-menu>
+                <a href="#" mat-menu-item [matMenuTriggerFor]="performance">Performance</a>
+                <mat-menu #performance="matMenu">
+                    <a href="#" mat-menu-item>Account Health</a>
+                    <a href="#" mat-menu-item>Feedback</a>
+                    <a href="#" mat-menu-item>A-to-Z Guarantee Claims</a>
+                    <a href="#" mat-menu-item>Chargeback Claims</a>
+                    <a href="#" mat-menu-item>Performance Notifications</a>
+                    <a href="#" mat-menu-item>Voice of the Customer</a>
+                    <a href="#" mat-menu-item>STEP (Your Growth Plan)</a>
+                    <a href="#" mat-menu-item>Seller University</a>
+                </mat-menu>
+                <a href="#" mat-menu-item [matMenuTriggerFor]="services">Services</a>
+                <mat-menu #services="matMenu">
+                    <a href="#" mat-menu-item>Explore Services</a>
+                    <a href="#" mat-menu-item>Account Management</a>
+                    <a href="#" mat-menu-item>Accounting</a>
+                    <a href="#" mat-menu-item>Advertising Optimisation</a>
+                    <a href="#" mat-menu-item>cataloging</a>
+                    <a href="#" mat-menu-item>Domestic Shipping</a>
+                    <a href="#" mat-menu-item>Enhanced Brand Content</a>
+                    <a href="#" mat-menu-item>Managing Training</a>
+                    <a href="#" mat-menu-item>Seller Reinstatement</a>
+                    <a href="#" mat-menu-item>Taxes</a>
+                </mat-menu>
+                <a href="#" mat-menu-item [matMenuTriggerFor]="bTwob">B2B</a>
+                <mat-menu #bTwob="matMenu">
+                    <a href="#" mat-menu-item>B2B Central</a>
+                    <a href="#" mat-menu-item>Product Opportunities</a>
+                    <a href="#" mat-menu-item>Manage Quotes</a>
+                </mat-menu>-->
+            </mat-menu>
+            <!--side navigation ends here-->
+            <!--navbar brand starts here-->
+            <a class="navbar-brand text-white font-weight-bold" href="#" fxHide.gt-sm>
+                <img id="logo" src="../.././assets/img/FDays365.png" alt="logo">&nbsp;Days365
+            </a>
+            <!--navbar brand ends here-->
+        </div>
+        <!-- left box of toolbar ends here -->
+        <!-- center box of toolbar starts here -->
+        <div class="sell-nav p-1 text-white" fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="15px" fxHide.lt-md>
+          <!-------  <a href="#" class="text-white">Add Existing Product</a>
+            <a  class="text-white" [matMenuTriggerFor]="catalogue">Catalogue</a>
+            <mat-menu #catalogue="matMenu">
+                <a  href="#" mat-menu-item>Add Products</a>
+                <a routerLink="/complete-pending-products" mat-menu-item>Complete Pending Products</a>
+                <a href="#" mat-menu-item>Viewing Selling Applications</a>
+            </mat-menu>-->
+            <a class="text-white" [matMenuTriggerFor]="inventory">Inventory</a>
+            <mat-menu #inventory="matMenu">
+                <a [routerLink]="'/viewProductsForAddVariants'"  mat-menu-item>Add Inventory</a>
+                <!-- <a href="#" mat-menu-item>Improve Listing Quality</a>
+                <a href="#" mat-menu-item>Inventory Planning</a> -->
+                <a [routerLink]="'/add-product-not-on-days365'" mat-menu-item>Add a Product</a>
+                <!-- <a href="#" mat-menu-item>Add Products via Upload</a>
+                <a href="#" mat-menu-item>Inventory Reports</a>
+                <a href="#" mat-menu-item>Sell Globally</a>
+                <a href="#" mat-menu-item>Upload Images</a>
+                <a href="#" mat-menu-item>Upload and Manage Videos</a>
+                <a href="#" mat-menu-item>Manage Product Documents</a> -->
+            </mat-menu>
+         <!-------  <a href="#" class="text-white" [matMenuTriggerFor]="pricing">Pricing</a>
+            <mat-menu #pricing="matMenu">
+                <a href="#" mat-menu-item>Pricing Health</a>
+                <a href="#" mat-menu-item>Manage Pricing</a>
+                <a href="#" mat-menu-item>Fix Price Alerts</a>
+                <a href="#" mat-menu-item>Automate Pricing</a>
+                <a href="#" mat-menu-item>Fee Discounts</a>
+            </mat-menu>-->
+            <a class="text-white" [matMenuTriggerFor]="orders">Orders</a>
+            <mat-menu #orders="matMenu">
+                <a href="#" mat-menu-item>Manage Orders</a>
+                <a href="#" mat-menu-item>Order Reports</a>
+                <a href="#" mat-menu-item>Upload Order Related Files</a>
+                <a href="#" mat-menu-item>Manage Returns</a>
+                <a href="#" mat-menu-item>Manage SAFE-T Claims</a>
+            </mat-menu>
+            <!-- <a  class="text-white" [matMenuTriggerFor]="status">Status</a> -->
+            <mat-menu #status="matMenu">
+               
+            </mat-menu>
+            <!-----<a href="#" class="text-white" [matMenuTriggerFor]="advertising">Advertising</a>
+            <mat-menu #advertising="matMenu">
+                <a href="#" mat-menu-item>Campaign Manager</a>
+                <a href="#" mat-menu-item>A+ Content Manager</a>
+                <a href="#" mat-menu-item>Deals</a>
+                <a href="#" mat-menu-item>Coupons</a>
+                <a href="#" mat-menu-item>Promotions</a>
+            </mat-menu>
+         <a href="#" class="text-white" [matMenuTriggerFor]="growth">Growth</a>
+            <mat-menu #growth="matMenu">
+                <a href="#" mat-menu-item>Recommended Programmes</a>
+                <a href="#" mat-menu-item>Seller Rewards</a>
+                <a href="#" mat-menu-item>Refer a Friend</a>
+            </mat-menu>
+            <a href="#" class="text-white" [matMenuTriggerFor]="reports">Reports</a>
+            <mat-menu #reports="matMenu">
+                <a href="#" mat-menu-item>Payments</a>
+                <a href="#" mat-menu-item>Selling Coach</a>
+                <a href="#" mat-menu-item>Business Report</a>
+                <a href="#" mat-menu-item>Return Reports</a>
+                <a href="#" mat-menu-item>Custom Reports</a>
+                <a href="#" mat-menu-item>Tax Document Library</a>
+            </mat-menu>
+            <a href="#" class="text-white" [matMenuTriggerFor]="performance">Performance</a>
+            <mat-menu #performance="matMenu">
+                <a href="#" mat-menu-item>Account Health</a>
+                <a href="#" mat-menu-item>Feedback</a>
+                <a href="#" mat-menu-item>A-to-Z Guarantee Claims</a>
+                <a href="#" mat-menu-item>Chargeback Claims</a>
+                <a href="#" mat-menu-item>Performance Notifications</a>
+                <a href="#" mat-menu-item>Voice of the Customer</a>
+                <a href="#" mat-menu-item>STEP (Your Growth Plan)</a>
+                <a href="#" mat-menu-item>Seller University</a>
+            </mat-menu>
+            <a href="#" class="text-white" [matMenuTriggerFor]="services">Services</a>
+            <mat-menu #services="matMenu">
+                <a href="#" mat-menu-item>Explore Services</a>
+                <a href="#" mat-menu-item>Account Management</a>
+                <a href="#" mat-menu-item>Accounting</a>
+                <a href="#" mat-menu-item>Advertising Optimisation</a>
+                <a href="#" mat-menu-item>cataloging</a>
+                <a href="#" mat-menu-item>Domestic Shipping</a>
+                <a href="#" mat-menu-item>Enhanced Brand Content</a>
+                <a href="#" mat-menu-item>Managing Training</a>
+                <a href="#" mat-menu-item>Seller Reinstatement</a>
+                <a href="#" mat-menu-item>Taxes</a>
+            </mat-menu>
+            <a href="#" class="text-white" [matMenuTriggerFor]="bTwob">B2B</a>
+            <mat-menu #bTwob="matMenu">
+                <a href="#" mat-menu-item>B2B Central</a>
+                <a href="#" mat-menu-item>Product Opportunities</a>
+                <a href="#" mat-menu-item>Manage Quotes</a>
+            </mat-menu>
+        </div>-->
+        <!-- center box of toolbar ends here-->
+        <!-- right box of toolbar starts here -->
+        <div class="ml-auto col-lg-2 col-md-3 col-sm-5 col-6" fxHide.gt-sm>
+            <form class="form-inline my-2 my-lg-0">
+                <div class="input-group input-group-sm">
+                    <input id="srch1" type="search" class="form-control" placeholder="Search Product">
+                    <div class="input-group-append">
+                        <button id="srch2" class="btn" type="submit" style="background-color:white;"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- right box of toolbar ends here-->
+    </div>
+<!--top navigation ends here-->

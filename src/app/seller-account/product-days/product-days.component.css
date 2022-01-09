@@ -1,0 +1,27 @@
+table {
+    width: 100%;
+  }
+  ._tab{
+    font-size: 14px;
+    text-align: center; 
+    background: #1e88e5;
+    color:#ffff
+}
+
+.king{
+  text-align: center;
+  color:grey
+}
+td,th{
+  width:12.5%
+}
+td{
+  
+  word-break: break-all;
+
+  }
+ @media(max-width:500px) {
+  ._scrollingf{
+    overflow-x: scroll;
+  }
+ }

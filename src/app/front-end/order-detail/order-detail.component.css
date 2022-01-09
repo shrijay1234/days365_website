@@ -1,0 +1,60 @@
+@media( min-width:480px){
+
+._kangna{
+    float: right;
+}
+._tanmay{
+    padding-top: 1rem;
+} 
+._tanmal{
+  font-size: 20px;
+} 
+.kabam{
+  height: 90px; width:90px;
+
+}
+.kabam img{
+  height: auto; width:110px;
+
+}
+}
+@media( max-width:480px){
+    
+._raman{
+text-align: center;
+}
+._kangna{
+    align-items: center;
+}
+._tanmay{
+    font-size: 14px;
+    margin-bottom: -10px;
+} 
+}
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+._tanuja{
+  font-size: 13px;
+  margin-left: -25px;
+} 
+._tushar{
+  margin-left: -25px;
+  margin-top: -10px;
+}
+.makkk{
+  margin-left: -25px;
+  margin-top: -10px;
+}
+.kabam{
+  height: 40px; width:40px;
+ 
+}
+.kabam img{
+  height: auto; width:70px;
+  margin-right: -30px;
+}

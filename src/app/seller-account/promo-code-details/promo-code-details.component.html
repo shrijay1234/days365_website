@@ -1,0 +1,64 @@
+<div class="container-fluid p-0" style="background-color:#F4F4F4">
+    <app-seller-header></app-seller-header>
+    
+    
+    
+    <div class="example-button-row" style="float: right; margin-bottom:10px; margin-right: 8px;">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+              <form class="d-flex" >
+          
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" (keyup)="applyFilter($event.target.value)"  style="width:20rem;">
+                <!-- <button class="btn btn-outline-success" type="submit" style="background-color: #1e88e5; border:none;color:#fff; padding:0px 20px 0px 20px">Search</button> -->
+              </form>
+            </div>
+          </nav>
+      </div>
+    
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" matSort matSortActive="promoterName" matSortDisableClear>
+          
+        <ng-container matColumnDef="_id">
+          <th mat-header-cell *matHeaderCellDef class="_tab"  [hidden]=true> <b>id</b></th>
+          <td mat-cell *matCellDef="let element" class="_rows" style="float: center;" [hidden]=true> {{element._id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="promoterName">
+          <th mat-header-cell *matHeaderCellDef class="_tab"  mat-sort-header> Promoter Name </th>
+          <td mat-cell *matCellDef="let element" class="king"> {{element.promoterName}} </td>
+        </ng-container>
+      
+        
+        <ng-container matColumnDef="sellerName">
+          <th mat-header-cell *matHeaderCellDef class="_tab"> Seller Name </th>
+          <td mat-cell *matCellDef="let element" class="king"> {{element.sellerName}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="brandName">
+          <th mat-header-cell *matHeaderCellDef class="_tab">Brand Name </th>
+          <td mat-cell *matCellDef="let element" class="king"> {{element.brandName}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="promoCode">
+          <th mat-header-cell *matHeaderCellDef class="_tab"> Promo Code </th>
+          <td mat-cell *matCellDef="let element" class="king"> {{element.promoCode}} </td>
+        </ng-container>
+          
+        <ng-container matColumnDef="percentageOnBrand">
+          <th mat-header-cell *matHeaderCellDef class="_tab"> % On Brand </th>
+          <td mat-cell *matCellDef="let element" class="king"> {{element.percentageOnBrand}} </td>
+        </ng-container>
+        
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef class="_tab"> Created At</th>
+            <td mat-cell *matCellDef="let element" class="king"> {{element.createdAt | date:'short':'IST'}}</td>
+          </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+    </mat-paginator>
+    </div>
+    <app-seller-footer></app-seller-footer>

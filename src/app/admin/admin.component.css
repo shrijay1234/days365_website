@@ -1,0 +1,21 @@
+.position-relative {
+	position: relative;
+}
+
+.add-contact {
+	position: absolute;
+    right: 17px;
+    top: 57px;
+}
+.small-box{
+    padding: 1.5rem!important;
+    display: flex!important;
+}
+
+h3{
+    font-size: 2.5rem!important;
+}
+
+p{
+    font-size: 19px!important;
+}

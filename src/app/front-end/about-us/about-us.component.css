@@ -1,0 +1,19 @@
+ li{
+   list-style: none;
+    font-size: 17px;
+    color: black;
+    
+    
+
+}
+._abut{
+   
+    font-size: 18px;
+
+}
+@media (max-width:500px) {
+    ._abut{
+        font-size: 16px;
+    }
+    
+}

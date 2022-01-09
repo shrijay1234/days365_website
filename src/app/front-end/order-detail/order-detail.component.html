@@ -1,0 +1,154 @@
+<app-front-header></app-front-header>
+
+<div class="container-fluid mb-4" *ngIf="itemdetails">
+  <div class="row">
+    <div class="col-10 mt-2 mb-2" style="margin: auto">
+      <h3 class="ram text-center" style="margin-top: 1rem">
+        <b>Order Details</b>
+      </h3>
+    </div>
+
+    <div
+      class="col-10 mt-2 mb-2"
+      style="margin: auto; box-shadow: 0px 15px 15px 15px #5d86bc38"
+    >
+      <div class="card mt-3 mb-3">
+        <div class="card-header">
+          <b>Order ID- {{ itemdetails["delivaryInfo"]["_id"] }}</b>
+        </div>
+        <div class="card-body">
+          <p style="margin-top: -15px">
+            Date- {{ itemdetails["delivaryInfo"]["createdAt"] }}
+          </p>
+          <p style="margin-top: -15px">
+            Amount- {{ itemdetails["delivaryInfo"]["price"] }}
+          </p>
+          <p style="margin-top: -15px">
+            Quantity- {{ itemdetails["delivaryInfo"]["quentiy"] }}
+          </p>
+          <h5 style="color: black">
+            <b>{{
+              itemdetails["delivaryInfo"]["shippingDetails"][0]["name"]
+            }}</b>
+          </h5>
+          <p>02</p>
+          <p style="margin-top: -15px">
+            {{ itemdetails["delivaryInfo"]["shippingDetails"][0]["address"] }}
+          </p>
+          <p style="margin-top: -15px">
+            {{ itemdetails["delivaryInfo"]["shippingDetails"][0]["city"] }},
+            {{ itemdetails["delivaryInfo"]["shippingDetails"][0]["states"] }}-
+            {{ itemdetails["delivaryInfo"]["shippingDetails"][0]["pincode"] }}
+          </p>
+          <p style="margin-top: -15px">
+            {{ itemdetails["delivaryInfo"]["shippingDetails"][0]["phoneNo"] }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="col-10 mt-2 mb-2"
+      style="margin: auto; box-shadow: 0px 15px 15px 15px #5d86bc38"
+    >
+      <div class="card mt-3 mb-3">
+        <div class="card-header">Order Items</div>
+        <div class="card-body">
+          <div class="container-fluid border-bottom mb-2">
+            <div
+              class="col-md-12 row"
+              *ngFor="let row of itemdetails['orderInfo']"
+            >
+              <div
+                class="col-md-12"
+                *ngFor="let subrow of row.cartData.productVariant"
+              >
+                <div class="row col-md-12" *ngIf="subrow._id == row.varientId">
+                  <div class="col-9 col-sm-6">
+                    <p class="_tanuja" style="color: #ff0084">
+                      <b>{{ subrow.title }}</b>
+                    </p>
+                    <p class="_tushar" style="color: gray">
+                      <b>Pack Size: {{ subrow.size }}</b>
+                    </p>
+                    <p class="card-text makkk">
+                      <b>₹{{ subrow.yourPrice }}</b>
+                    </p>
+                  </div>
+                  <div class="col-3 col-sm-6">
+                    <div
+                      class="card mb-3 kabam"
+                      style="float: right; border: none"
+                    >
+                      <img src="{{ subrow.MainImg }}" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <mat-horizontal-stepper linear #stepper>
+        <mat-step  >
+          Order
+        </mat-step>
+        <mat-step>
+          Packed
+        </mat-step>
+        <mat-step >
+          <mat-icon>home</mat-icon>
+          Shipping
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Delivery ></ng-template>
+          <p>You are now done.</p>
+         
+        </mat-step>
+      </mat-horizontal-stepper> -->
+          <div class="row" *ngIf="trackingdetails.status == 200">
+            <div class="col-md-12">
+              <p>
+                Courier Name:
+                {{
+                  trackingdetails.courier_name
+                    ? trackingdetails.courier_name
+                    : ""
+                }}
+              </p>
+              <p>
+                eway bill number:
+                {{
+                  trackingdetails.ewaybill_number
+                    ? trackingdetails.ewaybill_number
+                    : ""
+                }}
+              </p>
+
+              <h3>Summary:</h3>
+              <div
+                class="col-md-12"
+                *ngFor="let row of trackingdetails['order_status']"
+              >
+                <div
+                  class="col-md-12"
+                  *ngFor="let subrow of row['scan_detail']"
+                >
+                  <p>awbno: {{ subrow["awbno"] }}</p>
+                  <p>Location : {{ subrow["location"] }}</p>
+                  <p>Remarks : {{ subrow["remarks"] }}</p>
+                  <p>Status : {{ subrow["status"] }}</p>
+                  <p>Status Code : {{ subrow["status_code"] }}</p>
+                  <p>Status Description : {{ subrow["status_description"] }}</p>
+                  <p>Updated Date: {{ subrow["updated_date"] }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-front-footer></app-front-footer>

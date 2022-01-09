@@ -1,0 +1,39 @@
+.sell-nav{
+    font-weight:bold;
+    font-size:17px;
+}
+.sell-nav a:hover{
+    background-color:#0366AA;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+#srch1{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+#srch2{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+@media (min-width:361px) and (max-width:1114px) {
+    .navbar-brand{
+        font-size:20px;
+    }
+    .sell-nav{
+        font-size:12px;
+    }
+    #logo{
+        width:50px;
+    }
+}
+@media (max-width:360px) {
+    .navbar-brand{
+        font-size:15px;
+    }
+    #logo{
+        width:20px;
+    }
+}

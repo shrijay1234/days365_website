@@ -1,0 +1,92 @@
+<!-- ============================================================== -->
+<!-- sidebar -->
+<!-- ============================================================== -->
+<div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+    <mat-menu #sdprofile="matMenu" class="mymegamenu">
+        <button mat-menu-item>
+            <mat-icon>settings</mat-icon> Settings
+        </button>
+        <button mat-menu-item>
+            <mat-icon>account_box</mat-icon> Profile
+        </button>
+        <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon> Disable notifications
+        </button>
+        <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon> Sign Out
+        </button>
+    </mat-menu>
+
+</div>
+<mat-nav-list appAccordion>
+    <!-- <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected" group="{{menuitem.state}}">
+        <a class="" appAccordionToggle [routerLink]="['/', menuitem.state]" *ngIf="menuitem.type === 'link'">
+            <mat-icon><img src="assets/images/back.png" alt="user" class="wid"> </mat-icon> 
+            <span>{{ menuitem.name }}</span> 
+            <span fxFlex></span> 
+            <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span> 
+        </a>
+
+        
+    </mat-list-item> -->
+
+
+
+    
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/admin'" appAccordionToggle style="">
+            <!-- <mat-icon></mat-icon>  -->
+            <div class="adc">Dashboard</div>
+        </a>
+    </mat-list-item>
+    <mat-list-item appAccordionLink >
+        <a [routerLink]="'/all-users'" appAccordionToggle style="">
+            <div  class="adc">User Management</div> 
+        </a>
+    </mat-list-item> 
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/market-history'" appAccordionToggle style="">
+            <!-- <mat-icon></mat-icon>  -->
+            <div class="adc">Market History</div>
+        </a>
+    </mat-list-item>
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/members'" appAccordionToggle style="">
+            <!-- <mat-icon></mat-icon>  -->
+            <div class="adc">Member Management</div>
+        </a>
+    </mat-list-item>
+
+
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/order-history'" appAccordionToggle style="">
+
+            <div class="adc">Market</div>
+        </a>
+    </mat-list-item>
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/buy-orders'" appAccordionToggle style="">
+
+            <div class="adc">BUY Orders</div>
+        </a>
+    </mat-list-item>
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/sell-orders'" appAccordionToggle style="">
+
+            <div class="adc">SELL Orders</div>
+        </a>
+    </mat-list-item>
+
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/instant-deposit'" appAccordionToggle style="">
+
+            <div class="adc">Instant Deposit</div>
+        </a>
+    </mat-list-item>
+
+    <mat-list-item appAccordionLink>
+        <a [routerLink]="'/instant-withdraw'" appAccordionToggle style="">
+
+            <div class="adc">Instant Withdraw</div>
+        </a>
+    </mat-list-item>

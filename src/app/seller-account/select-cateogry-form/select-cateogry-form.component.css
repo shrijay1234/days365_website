@@ -1,0 +1,33 @@
+
+#brand{
+    font-size:22px;
+}
+#dlogo{
+    width:65px;
+}
+ul li a{
+    font-size:18px;
+}
+@media (min-width:436px) and (max-width:835px){
+    #brand{
+        font-size:18px;
+        margin-top:10px;
+    }
+    #dlogo{
+        width:50px;
+    }
+    ul li a{
+        font-size:15px;
+    }
+}
+@media (max-width:435px){
+    #brand{
+        font-size:18px;
+    }
+    #dlogo{
+        width:50px;
+    }
+    ul li a{
+        font-size:10px;
+    }
+}

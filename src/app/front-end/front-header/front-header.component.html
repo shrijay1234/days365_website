@@ -1,0 +1,763 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+
+
+<div class="super_container">
+
+
+    <div class="top_bar _topps">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col d-flex flex-row">
+
+                    <div class="top_bar_content ml-auto">
+
+                        <div class="top_bar_user">
+
+                            <div class="user_icon"></div>
+                            <!--<div><a href="#">Fastest Online Shopping Destination</a></div>-->
+                            <div><a href="#">Customer Support : 123-456-6767</a></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- Header Main -->
+
+
+<!-----------------for mobile -->
+    <nav class="navbar  navbar-expand-lg navbar-light " style="background-color:#121921;">
+
+
+
+        <div class="mode_ro ">
+            <a class="pl-2" data-toggle="modal" data-target="#myModalleval">
+                <i class="fas fa-bars" style="color:#fff; width:30px"></i>
+
+            </a>
+        </div>
+        <!-- Modal -->
+        <div class="modal left fade   fakkjh" id="myModalleval" role="dialog" aria-labelledby="#exampleModalLong"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-header">
+
+                        <a (click)="toHome()" class="navbar-brand">
+                            <img src="assets/img/FDays365.png" alt="Los Angeles"
+                                style="width: 40px; "> <span style="width: 67px;
+                            margin-top: -4px;font-size: 20px;  color: #ffff"> Days365 </span></a>
+
+                        <button type="button" class="close  " data-dismiss="modal" aria-label="Close"
+                            style="padding-left: 10px; color:#fff ; outline: none;">
+                            <span aria-hidden="false">&times;</span></button>
+
+                    </div>
+
+                    <div class="modal-body " style="font-size: 16px; background-color:#fff;">
+                        <ul style="padding-left: 10px;">
+                            <li class="list" style="display: block;">
+                                <a [routerLink]="'/'" style="color:#000">Home</a>
+                            </li>
+                            <li class="list" style="margin-top:1rem;color:#000; display: block;"><a [routerLink]="'/about-us'"
+                                    style="color:#000">About Us</a> </li>
+                                    
+                                <li class="list"
+                                    style="margin-top:1rem; border:bottom; border-color:black; display: block;"><a
+                                        [routerLink]="'/my-cart'" style="color:#000">My-Cart</a></li>
+                                <li class="list" style="margin-top:1rem; display: block;"><a [routerLink]="'/wish-list'"
+                                        style="color:#000">Wish-List</a></li>
+
+                            
+
+
+                            <!-- <li class="list" style="margin-top:1rem"><a href="login" style="color:#000">Sign in</a></li> -->
+
+                        </ul>
+
+                    </div>
+
+                </div><!-- modal-content -->
+            </div><!-- modal-dialog -->
+        </div><!-- modal -->
+        
+<!-----------------for desktop-->
+        <div class=" col-lg-2  col-5 ml-0 " style="float:left">
+
+            <div class="logo_container">
+                <div class="logo"><a (click)="toHome()" class="navbar-brand" style="cursor: pointer;"><img src="assets/img/FDays365.png" alt="Los Angeles">
+                        <span class="conte" style="
+                    margin-top: -4px;" (click)="toHome()"> Days365 </span></a>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-7 tab_bar  text-right">
+            <div class=" align-items-center justify-content-end">
+                <!-- <div class="wishlist  d-flex flex-row align-items-center justify-content-end">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text">
+                            <a [matMenuTriggerFor]="menu" class="my-full-width-menu ac">Hello Sakhu</a>
+                            <mat-menu #menu="matMenu">
+
+                                <h5>Your Account</h5>   
+                                <button mat-menu-item >Your Account</button>
+                                <button mat-menu-item>Your Recommendations</button>
+                                <button mat-menu-item routerLink="/wish-list">Your Wishlist</button>
+                                <button mat-menu-item routerLink="/my-order">Your Order</button>
+                                <button mat-menu-item routerLink="/order-detail">Your Order Ddetail</button>
+                                <button mat-menu-item>Your Seller Account</button>
+                            </mat-menu>
+                          
+                        </div>
+                    </div>
+                </div> -->
+                
+                  
+                       
+
+                    
+                
+                   
+                        <div class="wishlist_text" style="display: inline-block;margin-right: 10px; margin-right: 10px;"><a [routerLink]="'/wish-list'"><i class="fa fa-shopping-bag"></i></a></div>
+
+                  
+              
+                
+                    
+                        <div class="wishlist_text" style="display: inline-block; margin-right: 10px;"><a [routerLink]="'/my-cart'"><i class="fa fa-shopping-cart"></i></a></div>
+                   
+                        
+
+            </div>
+        </div>
+        <div class="sihh col-sm-2 col-5 text-right">
+            <!-- <div><a href="login" style="color:#fff">Sign in</a></div> -->
+
+            <button type="button" class="btn btn-pri bm" [routerLink]="'/login'" *ngIf="!isLogin" style="outline: none;">Login</button>
+            <a class="bm" mat-flat-button [matMenuTriggerFor]="beforeMenu" *ngIf="isLogin">
+                <mat-icon style="padding-left:20px;">how_to_reg</mat-icon>
+            </a>
+            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                <button mat-menu-item [routerLink]="'/start-seller'" class="btn-pri" *ngIf='isVendor' style="outline: none; ">Seller
+                    Account</button>
+                <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-profile'"
+                    style="outline: none;">My Profile</button>
+                <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-order'" style="outline: none;">My
+                    Order</button>
+                <!-- <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/order-detail'"
+                    style="outline: none;">Order Detail</button> -->
+
+                <button mat-menu-item type="button" class="btn-pri" (click)="signOut()"
+                    style="outline: none;">Signout</button>
+            </mat-menu>
+
+        </div>
+
+
+        <!-- <div class="col-sm-1">&nbsp;</div> -->
+        <div class=" col-lg-5 col-12 tipico_rp mx-auto my-auto text-center" style="color: #fff;">
+            
+            <div class="_gyux">
+
+                <div class="header_search_content " style="display: flex;">
+                    
+                    <select id="inputState" class="form-selll" style="background-color: #F5F5F5" [(ngModel)]="mainCat">
+                        <option value="" selected>All</option>
+                        <option *ngFor="let category of mainCategories;" [value]="category.category_name">{{category.category_name}}</option>
+                      </select> 
+                    <div class="header_search_form_container">
+                        
+                        <form action="#" class="header_search_form clearfix">
+                            
+                            <input type="search" required="required"
+                                class="header_search_input" placeholder="I am looking for..." [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}">
+                            <div class="custom_dropdown" style="display: none;">
+
+                            </div> <button type="button" class="header_search_button trans_300" (click)="mainCatSearch(mainCat,searchTerm)"><img
+                                    src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1560918770/search.png"
+                                    alt=""></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!-- <div class="col-lg-2 col-7 web_tab order-2 text-lg-left text-right" style="color: #fff;">
+            <div class=" d-flex flex-row align-items-center justify-content-end">
+                <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text">
+                            <a matBadge="0" matBadgeColor="warn" [routerLink]="'/wish-list'"><i class="fa fa-shopping-bag">{{wishlist}}</i></a></div>
+                    </div>
+                </div>
+                <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text"><a matBadge="0" matBadgeColor="warn" [routerLink]="'/my-cart'" ><i class="fa fa-shopping-cart"></i></a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div> -->
+
+
+      
+                <div class="wishlist _mank d-flex flex-row align-items-center justify-content-end">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text"><a href="#">Deliver to</a></div>
+
+                    </div>
+                </div>
+                <div class="wishlist d-flex flex-row align-items-center justify-content-end" style="position: relative;">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text"><a [routerLink]="'/wish-list'"><i class="fa fa-shopping-bag"></i></a></div>
+
+                    </div>
+                    <span id="wishlistinc" class="icon-button__badge wishlistinc" style="position: absolute;top: -16px;right: -15px;width: 20px;height: 20px;background: red;color: #ffffff;display: flex;justify-content: center;align-items: center;border-radius: 50%;">{{wishlist}}</span>
+          
+                </div>
+                <div class="wishlist d-flex flex-row align-items-center justify-content-end"  style="position: relative;">
+                    <div class="wishlist_content">
+                        <div class="wishlist_text"><a [routerLink]="'/my-cart'"><i class="fa fa-shopping-cart" > </i></a></div>
+                    </div>
+                    <span id="cartlistinc" class="icon-button__badge cartlistinc" style="position: absolute;top: -16px;right: -15px;width: 20px;height: 20px;background: red;color: #ffffff;display: flex;justify-content: center;align-items: center;border-radius: 50%;">  {{cartlist}}</span>
+                </div>
+
+
+       
+
+        
+    </nav>
+
+
+
+
+
+
+    <!-- <div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
+                        <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                          <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                             <div class="wishlist_content">
+                                <div class="wishlist_text"><a href="#">ABOUT</a></div>
+                                
+                            </div>
+                        </div> 
+                        <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                          <div class="wishlist_content">
+                             <div class="wishlist_text"><a href="#">BLOG</a></div>
+                             
+                         </div>
+                     </div> 
+                     <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                      <div class="wishlist_content">
+                         <div class="wishlist_text"><a href="#">CART <img src="assets/img/cart.png" style="width: 35px;
+                            margin-left: 10px;"> </a></div>
+                           </div>
+                      </div>  
+                          
+                      <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                        <div class="wishlist_content">
+                             <div class="wishlist_text">
+                              <button type="button" class="btn btn-pri">MY ACCOUNT</button>
+                             </div>
+                           
+                            </div>
+                        </div>  
+                            
+                           
+                        </div>
+                    </div> -->
+
+
+
+
+
+<!--
+
+    <div class="fffffff" style="height: 40px;">
+        <div class="container-fluid" style="background: #0e8ce4;">
+            <div class="row">
+
+                <div class="col d-flex flex-row">
+
+                    <div class="top_bar_contact_item">
+                        <div class="top_bar_icon">
+                            <ul class="standard_dropdown top_bar_dropdown">
+                                <li> <a style="margin-top: -5px;" href="#">HOME<i class="fas fa-chevron-down"></i></a>
+                                </li>
+                                <li> <a style="margin-top: -5px;" href="#">ABOUT US<i
+                                            class="fas fa-chevron-down"></i></a></li>
+                                <li> <a style="margin-top: -5px;" href="#">BRANDS<i class="fas fa-chevron-down"></i></a>
+                                </li>
+                                <li> <a style="margin-top: -5px;" href="#">BLOGS<i class="fas fa-chevron-down"></i></a>
+                                </li>
+                                <li> <a style="margin-top: -5px;" data-toggle="collapse" data-target="#democollapse"
+                                        style="color:#fff">CATEGORY<i class="fas fa-chevron-down"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    <div class="top_bar_content ml-auto fdd">
+
+                        <div class="top_bar_user">
+                            <div class="user_icon"></div>
+                            <div><a href="#">RETURN/ORDERS</a></div>
+                            <div>
+                                <div class="wishlist_text">
+                                    <button type="button" class="btn btn-pri" [routerLink]="'/login'"
+                                        *ngIf="!isLogin">Login</button>
+                                    <button mat-flat-button [matMenuTriggerFor]="beforeMenu" *ngIf="isLogin"
+                                        style="vertical-align: middle;">My
+                                        Account</button>
+                                    <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                        <button mat-menu-item [routerLink]="'/start-seller'" *ngIf='isVendor'>Seller
+                                            Account</button>
+
+                                        <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-order'"
+                                            style="outline: none;">My Order</button>
+                                        <button mat-menu-item type="button" class="btn-pri"
+                                            [routerLink]="'/order-detail'" style="outline: none;">Order Detail</button>
+                                        <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-cart'"
+                                            style="outline: none;">My cart</button>
+                                        <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/wish-list'"
+                                            style="outline: none;">Wish-List</button>
+                                        <button mat-menu-item type="button" class="btn-pri" (click)="signOut()"
+                                            style="outline: none;">Signout</button>
+                                    </mat-menu>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="header_main">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-6 col-sm-3 col-3 order-1 row">
+                        <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                            <div class="wishlist_content">
+                               <div class="wishlist_text"><a href="#">HOME</a></div>
+                               
+                           </div>
+                       </div> 
+                       <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                          <div class="wishlist_content">
+                           <div class="wishlist_text"><a href="#">ABOUT US</a></div>
+                           
+                          </div>
+                        </div>
+                        <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                            <div class="wishlist_content">
+                             <div class="wishlist_text"><a href="#">BRANDS</a></div>
+                             
+                            </div>
+                        </div>
+                        <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                            <div class="wishlist_content">
+                             <div class="wishlist_text"><a href="#">BLOGS</a></div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                 
+
+                    <div class="col-lg-6 col-9 order-lg-3 order-2 text-lg-left text-right">
+                        <div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
+                          <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                             <div class="wishlist_content">
+                                <div class="wishlist_text"><a href="#">RETURN/ORDERS</a></div>
+                                
+                            </div>
+                        </div> 
+                      
+                    
+                          
+                      <div class="wishlist d-flex flex-row align-items-center justify-content-end">
+                        <div class="wishlist_content">
+                           <div class="wishlist_text">
+                              <button type="button" class="btn btn-pri">MY ACCOUNT</button>
+                            
+                            </div>
+                           
+                            </div>
+                        </div>  
+                            
+                           
+                        </div>
+                    </div> 
+
+
+
+                </div>
+            </div>
+        </div> -->
+
+    <!--
+    <div id="democollapse" class="collapse fffffff" style="background-color: #000;color: #fff;">
+        <ul style=" padding-top: 10px;  margin: auto;">
+            <li>
+                <ul>
+                    <a style="color: #fff; display: block;">Health & Nutrition</a>
+                    <li style="color: #fff; display: block;">tanuja</li>
+                    <li style="color: #fff;display: block;">rabu</li>
+                    <li style="color: #fff; display: block;">fdfdf</li>
+                    <li style="color: #fff; display: block;">fdfdf</li>
+                </ul>
+             
+            </li>
+            <mat-menu #menu="matMenu">
+                <button [matMenuTriggerFor]="submenu" mat-menu-item>Sports Nutrition</button>
+                <button [matMenuTriggerFor]="health" mat-menu-item>Health Suppliment</button>
+                <button [matMenuTriggerFor]="good" mat-menu-item>Good For You</button>
+                <button mat-menu-item>Fitness Accessories</button>
+
+            </mat-menu>
+            <mat-menu #submenu="matMenu">
+                <button mat-menu-item>Lean</button>
+                <button mat-menu-item>Mass Gainers</button>
+                <button mat-menu-item>Pre Workout</button>
+                <button mat-menu-item>Post Workout</button>
+                <button mat-menu-item>Whey Protein</button>
+            </mat-menu>
+
+            <mat-menu #health="matMenu">
+                <button mat-menu-item>Multivitamins</button>
+                <button mat-menu-item>Minerals</button>
+                <button mat-menu-item>Omega Fatty Acid</button>
+                <button mat-menu-item>Antioxidants</button>
+                <button mat-menu-item>Coenzyme Q10</button>
+            </mat-menu>
+
+            <mat-menu #good="matMenu">
+                <button mat-menu-item>ACV & Health Drink</button>
+                <button mat-menu-item>Super Food</button>
+                <button mat-menu-item>Tea</button>
+                <button mat-menu-item>Coffee</button>
+                <button mat-menu-item>Nutritionl herbs</button>
+            </mat-menu>
+
+
+
+
+
+            <li style="padding: 15px;"> <a [matMenuTriggerFor]="cloths" style="color: #fff;">Men's Clothing </a></li>
+
+            <mat-menu #cloths="matMenu">
+
+                <button mat-menu-item [matMenuTriggerFor]="mencloths">Clothing</button>
+                <button mat-menu-item [matMenuTriggerFor]="menshoes">Shoes</button>
+                <button mat-menu-item [matMenuTriggerFor]="watch"> Watches</button>
+                <button mat-menu-item> Wallets</button>
+
+            </mat-menu>
+
+            <mat-menu #mencloths="matMenu">
+                <button mat-menu-item>Jeans</button>
+                <button mat-menu-item>T-Shirt</button>
+                <button mat-menu-item>Short's</button>
+                <button mat-menu-item>Masksa</button>
+
+            </mat-menu>
+
+            <mat-menu #menshoes="matMenu">
+                <button mat-menu-item>Casual Shoes</button>
+                <button mat-menu-item>Formal Shoes</button>
+                <button mat-menu-item>Thong Sandals</button>
+                <button mat-menu-item>Ethnic Footwear</button>
+
+            </mat-menu>
+
+            <mat-menu #watch="matMenu">
+                <button mat-menu-item>Wrist Watches</button>
+                <button mat-menu-item>Metalic</button>
+                <button mat-menu-item>Chronographs</button>
+                <button mat-menu-item>Leather</button>
+
+            </mat-menu>
+
+
+
+            <li style="padding: 15px;"> <a [matMenuTriggerFor]="mobile" style="color: #fff;"> Electronics</a></li>
+
+            <mat-menu #mobile="matMenu">
+                <button [matMenuTriggerFor]="mob" mat-menu-item>Mobile Accessories</button>
+                <button [matMenuTriggerFor]="laptop" mat-menu-item>Laptop & Accessories</button>
+                <button [matMenuTriggerFor]="homee" mat-menu-item>Tv & Home Entertenment</button>
+                <button [matMenuTriggerFor]="music" mat-menu-item>Musical Instrument</button>
+                <button [matMenuTriggerFor]="audio" mat-menu-item>Audio</button>
+
+            </mat-menu>
+            <mat-menu #mob="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="asss">Mobile Accessories</button>
+                <button mat-menu-item [matMenuTriggerFor]="brandd">Mobile Beands</button>
+                <button mat-menu-item [matMenuTriggerFor]="dddd">Accessories brand</button>
+            </mat-menu>
+
+            <mat-menu #asss="matMenu">
+                <button mat-menu-item>Cases & Covers</button>
+                <button mat-menu-item>Screen guards</button>
+                <button mat-menu-item>Power Banks</button>
+                <button mat-menu-item>Headsets</button>
+                <button mat-menu-item>Skin Stickers</button>
+                <button mat-menu-item>Replacement Parts</button>
+            </mat-menu>
+            <mat-menu #brandd="matMenu">
+                <button mat-menu-item>Mi</button>
+                <button mat-menu-item>OnePlus</button>
+                <button mat-menu-item>Samsung</button>
+                <button mat-menu-item>Huawei</button>
+                <button mat-menu-item>Micromax</button>
+                <button mat-menu-item>Apple</button>
+            </mat-menu>
+            <mat-menu #dddd="matMenu">
+                <button mat-menu-item>OnePlus</button>
+                <button mat-menu-item>Intex</button>
+                <button mat-menu-item>Mivi</button>
+                <button mat-menu-item>Boat</button>
+                <button mat-menu-item>Syska</button>
+                <button mat-menu-item>Lenovo</button>
+            </mat-menu>
+
+            <mat-menu #laptop="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="lappy">Laptop</button>
+
+
+            </mat-menu>
+            <mat-menu #lappy="matMenu">
+                <button mat-menu-item>Acer</button>
+                <button mat-menu-item>Apple</button>
+                <button mat-menu-item>Dell</button>
+                <button mat-menu-item>Hp</button>
+                <button mat-menu-item>Lenovo</button>
+                <button mat-menu-item>Microsoft Surface</button>
+            </mat-menu>
+
+
+
+            <mat-menu #homee="matMenu">
+                <button mat-menu-item>Television</button>
+                <button mat-menu-item>Shop by brand</button>
+                <button mat-menu-item>Other Home Enterteinment</button>
+
+
+            </mat-menu>
+            <mat-menu #music="matMenu">
+                <button mat-menu-item>Musical Instruments</button>
+                <button mat-menu-item>Sound & Recording</button>
+                <button mat-menu-item>Shop by brand</button>
+
+            </mat-menu>
+            <mat-menu #audio="matMenu">
+                <button mat-menu-item>arphones</button>
+                <button mat-menu-item>Wireless headphones</button>
+                <button mat-menu-item>Speakers</button>
+                <button mat-menu-item>Bluetooth speakers</button>
+                <button mat-menu-item>Sony</button>
+                <button mat-menu-item>JBL</button>
+                <button mat-menu-item>MP3 & other media players</button>
+                <button mat-menu-item>Noise</button>
+                <button mat-menu-item>Headphones with mic</button>
+                <button mat-menu-item>Multimedia speakers</button>
+                <button mat-menu-item>Soundbars</button>
+                <button mat-menu-item>On & Over ear headphones</button>
+
+
+
+            </mat-menu>
+
+
+
+            <li style="padding: 15px;"> <a [matMenuTriggerFor]="Jewelry" style="color: #fff;">Jewelry and
+                    Accessories</a></li>
+            <mat-menu #Jewelry="matMenu">
+
+                <button mat-menu-item [matMenuTriggerFor]="mencloths">Clothing</button>
+                <button mat-menu-item [matMenuTriggerFor]="menshoes">Shoes</button>
+                <button mat-menu-item [matMenuTriggerFor]="watch"> Watches</button>
+                <button mat-menu-item> Wallets</button>
+
+            </mat-menu>
+
+            <mat-menu #mencloths="matMenu">
+                <button mat-menu-item>Jeans</button>
+                <button mat-menu-item>T-Shirt</button>
+                <button mat-menu-item>Short's</button>
+                <button mat-menu-item>Masksa</button>
+
+            </mat-menu>
+
+            <li style="padding: 15px;"> <a [matMenuTriggerFor]="childcare" style="color: #fff;">Child Care</a></li>
+            <mat-menu #childcare="matMenu">
+
+                <button mat-menu-item [matMenuTriggerFor]="babytoy">Toys & Baby Products</button>
+                <button mat-menu-item [matMenuTriggerFor]="kidsfash">Kids' Fashion</button>
+
+            </mat-menu>
+
+            <mat-menu #babytoy="matMenu">
+                <button mat-menu-item>Toys & Games</button>
+                <button mat-menu-item>Baby Products</button>
+                <button mat-menu-item>Dipers</button>
+                <button mat-menu-item>Toys Gift Store</button>
+
+            </mat-menu>
+            <mat-menu #kidsfash="matMenu">
+                <button mat-menu-item>Kids' Clothing</button>
+                <button mat-menu-item>Kids' Shoes</button>
+                <button mat-menu-item>School Bags</button>
+                <button mat-menu-item>Kids Watches</button>
+
+            </mat-menu>
+
+            <li style="padding: 15px;"> <a [matMenuTriggerFor]="Appliances" style="color: #fff;">Home Appliances</a>
+            </li>
+            <mat-menu #Appliances="matMenu">
+
+                <button mat-menu-item [matMenuTriggerFor]="mencloths">Home Decoration</button>
+                <button mat-menu-item [matMenuTriggerFor]="menshoes">Tv </button>
+                <button mat-menu-item [matMenuTriggerFor]="watch"> Fridge</button>
+                <button mat-menu-item> Cooler</button>
+
+            </mat-menu>
+
+
+        </ul>
+
+
+
+
+    </div>
+</div>-->
+
+
+<div class="container-fluid"style="background: #0e8ce4; ">
+<div class="navbar navbar-light navbar-expand-md  fffffff"  style=" height: 40px; vertical-align: middle;  position:static;
+
+
+width: 100% !important;
+left: 0;
+z-index: 20;">
+   
+      
+      
+        <div class="navbar-collapse collapse" style=" position: absolute;
+    
+        right: 0;
+        width: 100% !important;
+        left: 0;
+        z-index: 20;">
+            <ul class="nav navbar-nav ">
+               
+                <!-- <li class="nav-item"> <a (click)="toHome()" class="nav-link" style="color: #ffff; cursor: pointer;">HOME</a>
+                </li> -->
+                <!-- <li class="dropdown menu-large  nav-item"> <a  href="#"  class="dropdown-toggle nav-link" data-toggle="dropdown" style="color: #ffff;">BRANDS</a>
+
+                    <ul class="dropdown-menu megamenu " style="margin-top:-10px" (click)="$event.stopPropagation()" >
+                        <div class="row" *ngIf="brands && brands.length"> 
+                            <li class="col-lg-2 col-3 dropdown-item"  *ngFor="let brand of brands; index as i;">
+                                <ul  style="padding-left: 0px;">
+                                    <li class="dropdown-header" style="padding-left: 0px !important; cursor: pointer;"  (click)="brandChange(brand)" [ngClass]="{'selected':brand===selectedBrand}">{{brand | uppercase}}</li>
+                                    
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                          
+                        </div>
+                    </ul>
+                </li> -->
+
+             
+
+
+
+                <!-- <li class="dropdown menu-large nav-item"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" style="color: #ffff;">CATEGORIES</a>
+
+                    
+                    <ul class="dropdown-menu megamenu " style="margin-top:-10px;"  (click)="$event.stopPropagation()">
+                        <p *ngIf="parentCat" class="text-center" [ngClass]="{'selected':parentCat.name===selectedCategory}">{{parentCat.name | uppercase}}</p>
+                        <br>
+
+                        <div class="row" *ngIf="categories && categories.length"> 
+
+
+                            <li class="col-lg-2 col-3 dropdown-item" *ngFor="let category of categories; index as i;">
+                                <ul style="padding-left: 0px;">
+                                    <li class="dropdown-header" style="padding-left: 0px !important; cursor: pointer;" (click)="!category.parent.is_leaf && getSubCategories(category.parent._id); categoryChange(category.parent.category_name )" [ngClass]="{'selected':category.parent.category_name===selectedCategory}">{{category.parent.category_name | uppercase}}</li>
+                                    <li style="padding-left: 0px;"><a href="#" *ngFor="let subcat of category.subCats; index as j;" (click)="!subcat.is_leaf && getSubCategories(subcat._id); categoryChange(subcat.category_name)" style="padding-left: 0px;" [ngClass]="{'selected':subcat.category_name===selectedCategory}">{{subcat.category_name}}</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+
+                        </div>
+                    </ul>
+                </li> -->
+
+
+                <li class="nav-item"> <a [routerLink]="'/about-us'" class="nav-link" style="color: #ffff;">ABOUT US</a></li>
+
+   
+            </ul>
+
+
+
+
+
+
+
+            <div class="top_bar_content ml-auto fdd" >
+
+                <div class="top_bar_user">
+                   <!--<div class="user_icon"></div>
+                    <div><a href="#" style="vertical-align: middle;">RETURN/ORDERS</a></div>-->
+                    <div>
+                        <div class="wishlist_text">
+                            <button type="button" class="btn btn-pri" [routerLink]="'/login'"
+                                *ngIf="!isLogin" style="vertical-align: -webkit-baseline-middle;">Login</button>
+                                &nbsp;
+                                <button type="button" class="btn btn-pri" [routerLink]="'/sign-up'"
+                                *ngIf="!isLogin" style="vertical-align: -webkit-baseline-middle;">Signup</button>
+
+                            <button mat-flat-button [matMenuTriggerFor]="beforeMenu" *ngIf="isLogin" class="_vbn"
+                                style="vertical-align: -webkit-baseline-middle; font-weight: 500; outline: none;">My
+                                Account</button>
+                            <mat-menu #beforeMenu="matMenu" xPosition="before">
+                                <button mat-menu-item [routerLink]="'/start-seller'" *ngIf='isVendor' style="text-align: left;">Seller
+                                    Account</button>
+
+                                <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-order'"
+                                    style="outline: none;">My Order</button>
+                                
+                                <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/my-cart'"
+                                    style="outline: none;">My cart</button>
+                                <button mat-menu-item type="button" class="btn-pri" [routerLink]="'/wish-list'"
+                                    style="outline: none;">Wish-List</button>
+                                <button mat-menu-item type="button" class="btn-pri" (click)="signOut()"
+                                    style="outline: none;">Signout</button>
+                            </mat-menu>
+                        </div>
+                    </div>
+
+                
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>

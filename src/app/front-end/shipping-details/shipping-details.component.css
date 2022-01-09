@@ -1,0 +1,222 @@
+._error{
+    color:red;
+    font-size: 11px;
+}
+.accordion-section .panel-default > .panel-heading {
+    border: 0;
+    background: #000;
+    padding: 0;
+    height:2.4rem;
+}
+
+.accordion-section .panel-default .panel-title a {
+    display: block;
+    font-size: 1rem;
+    color:#fff;
+   margin-top:-8px;
+}
+.accordion-section .panel-default .panel-title a:after {
+    font-family: 'FontAwesome';
+    font-style: normal;
+    font-size: 1.2em;
+    content: "Edit";
+    color: #fff;
+    float: right;
+    
+}
+.accordion-section .panel-default .panel-title a.collapsed:after {
+    content: "Edit";
+}
+.accordion-section .panel-default .panel-body {
+    font-size: 1.2rem;
+}
+
+form{
+    margin-top:1rem;
+}
+label{
+    font-size:14px
+}
+input{
+    
+    font-size:16px;  
+    border:red;
+    
+}
+ input:focus{
+    outline:none;
+}
+._vml{
+margin-top:32px;
+}
+
+@media(min-width:480px){
+.mannuj{
+    margin-left: 1.3rem;
+
+}
+._makhjl{
+    margin-left: 3rem;
+}
+.mahnjn{
+    width:8rem; 
+    margin-left: 2rem;
+}
+.rajni{
+    width:20rem;
+     margin-left: 2rem;
+    
+}
+.natka{margin-top: 10px;
+
+}
+.rkpoo{
+    font-size:18px ;
+}
+
+.gabvn{
+    margin-left: 1.6rem;;
+}
+.int{
+    margin-left: 3rem;
+
+}
+.tanbi{
+    margin-left: 2.5rem;
+}
+.ravi{
+    width:20rem;
+    margin-left: 3rem;
+}
+
+.banwari{
+    margin-left: 3rem;
+}
+.malik{
+    width:7rem;
+
+}
+.tanshri{
+width:8rem; margin-left: 2rem;}
+.panch{
+    margin-left:3rem;
+    font-size:16px; 
+}
+.yamnk{
+    font-size: 16px;;
+    }
+}
+@media(max-width:480px){
+    .stit{
+        margin-left: 1rem;
+    }
+    .panch{
+    
+        font-size:14px; 
+    }
+    ._makhjl{
+        margin-left: 2rem;
+    }
+    ._cat{
+    margin-top: 10px;
+    }
+    .yamnk{
+    font-size: 14px;;
+    }
+    .tanshri{
+        width:10rem;
+        margin-left:2rem
+    }
+   .ravi{
+    width:10rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+   }
+   .bakbn{
+       margin-bottom: 2rem;
+   }
+   .malik{
+    width:10rem;
+    margin-left: 1rem;
+
+}
+   .mahnjn{
+       width: 10rem;
+       margin-left: 2rem;
+   }
+   .vimlu{
+       margin-left: 26px;
+   }
+   
+   .rajni{
+    width:8rem;
+     margin-left: 1rem;
+     margin-top: 1rem;
+   }
+.rkpoo{
+    font-size:10px ;
+}
+.tanb{
+    margin-top: 1rem;
+
+}
+ 
+.inth{
+    width:9rem;
+    margin-left: 2rem;
+}
+.int{
+    margin-left: 2rem;
+
+width:9rem
+
+}
+.tanbi{
+    margin:0;
+}
+
+}
+input{
+    
+    border:1px solid black;
+}
+select{
+    margin: auto;
+}
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+  
+  .example-radio-button {
+    margin: 5px;
+  }
+  ._3Uc2dx {
+    margin-top: 2px;
+}._2jIO64 {
+    display: block;
+    margin-left: 18px;
+    width: calc(100% - 34px);
+}
+._2Fn-Ln:not(._3iI7Qn) {
+    display: block;
+}._30jOKh {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 25px;
+}
+._2Fn-Ln:not(._3iI7Qn) {
+    display: block;
+}
+._30jOKh {
+    border-bottom: 1px solid #f0f0f0;
+    padding: 16px 25px;
+}
+._2Fn-Ln:not(._3iI7Qn) {
+    display: block;
+}
+._1OFgXD, ._2Tms4C {
+    margin-top: 16px;
+}
+
+

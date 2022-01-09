@@ -1,0 +1,476 @@
+<app-front-header></app-front-header>
+
+<div class="container-fluid mt-1.2 bg-light higki ">
+    <div class="row">
+        <div class="col-sm-8">
+            <section class="accordion-section clearfix mt-3" aria-label="Question Accordions">
+                <div class="container">
+
+
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        <div class="panel panel-default" style="background-color:  #ebedef">
+                            <div class="panel-heading p-3 mb-3" role="tab" id="heading0">
+                                <h3 class="panel-title">
+                                    <a class="collapsed" role="button" title="" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse0" aria-expanded="true"
+                                        aria-controls="collapse0">
+                                        Customer Details
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse0" class="panel-collapse collapse" [ngClass]="{'show':activeAccordion==1}" role="tabpanel"
+                                aria-labelledby="heading0">
+                                <div class="panel-body  px-3">
+
+
+
+                                    <!-- <a href="login" style="font-size:16px; color:black;"><b>Order as a
+                                            guest</b></a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="login"
+                                        style="font-size:16px; color:black;"> <b>Sign in</b></a> -->
+
+
+
+                                    <!-- main app container -->
+                                    <div class="jumbotron ">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class=" col-12">
+
+                                                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12"> Social Title</label>
+
+
+                                                            <div class=" col-sm-9 col-12">
+                                                                <select formControlName="title" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.title.errors }"
+                                                                    style="border:  1px solid black;">
+                                                                    <option value="">Select</option>
+                                                                    <option value="Mr">Mr</option>
+                                                                    <option value="Mrs">Mrs</option>
+                                                                    <option value="Miss">Miss</option>
+                                                                    <option value="Ms">Ms</option>
+                                                                </select>
+                                                                <div *ngIf="submitted && f.title.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="f.title.errors.required">Please select title</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12"> First Name</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text " formControlName="firstName"
+                                                                    placeholder="First Name" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                                                <div *ngIf="submitted && f.firstName.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="f.firstName.errors.required">First name
+                                                                        is required</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12">Last Name</label>
+
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="lastName"
+                                                                    placeholder="Last Name" class="form-control"
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                                                <div *ngIf="submitted && f.lastName.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="f.lastName.errors.required">Last name is
+                                                                        required</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12">Email</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="email"
+                                                                    placeholder="Email" class="form-control"
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                                                <div *ngIf="submitted && f.email.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error" *ngIf="f.email.errors.required">
+                                                                        Email is required</div>
+                                                                    <div class="_error" *ngIf="f.email.errors.email">
+                                                                        Email must be a valid email address</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-9">Mobile No</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="mobile" formControlName="mobile"
+                                                                    placeholder="Mobile Number" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && f.mobile.errors }" />
+                                                                <div *ngIf="submitted && f.mobile.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="f.mobile.errors.required">Mobile number
+                                                                        is required </div>
+                                                                    <div class="_error"
+                                                                        *ngIf="f.mobile.errors.minlength">Number must be
+                                                                        at least 10 characters</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <button class="btn btn-primary"
+                                                                style=" float:right;">Continue</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default" *ngIf="customerDetailsValidated"
+                            style="background-color:  #ebedef">
+                            <div class="panel-heading p-3 mb-3" role="tab" id="heading1">
+                                <h3 class="panel-title">
+                                    <a class="collapsed" role="button" title="" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse1" aria-expanded="true"
+                                        aria-controls="collapse1">
+                                        Delivery Address
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse1" class="panel-collapse collapse" [ngClass]="{'show':activeAccordion==2}" role="tabpanel"
+                                aria-labelledby="heading1">
+                                <div class="panel-body px-3 " style="height: auto;">
+
+                                    <!-- main app container -->
+                                    <div class="jumbotron">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-12">
+
+                                                    <form [formGroup]="registerationForm" (ngSubmit)="inSubmit()">
+                                                        <div class="form-group row mb-2">
+
+                                                            <label class="col-12 col-sm-3">First Name</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="firstName"
+                                                                    placeholder="First Name" class="form-control"
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.firstName.errors }" />
+                                                                <div *ngIf="submitted && g.firstName.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.firstName.errors.required">First name
+                                                                        is required</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row  mb-2">
+                                                            <label class="col-12 col-sm-3">Last Name</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="lastName"
+                                                                    placeholder="Last Name" class="form-control"
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.lastName.errors }" />
+                                                                <div *ngIf="submitted && g.lastName.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.lastName.errors.required">Last name is
+                                                                        required</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row  mb-2">
+                                                            <label class="col-12 col-sm-3">Email</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="email"
+                                                                    placeholder="Email" class="form-control"
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.email.errors }" />
+                                                                <div *ngIf="submitted && g.email.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error" *ngIf="g.email.errors.required">
+                                                                        Email is required</div>
+                                                                    <div class="_error" *ngIf="g.email.errors.email">
+                                                                        Email must be a valid email address</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-12 col-sm-3">Mobile No</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="mobile" formControlName="mobile"
+                                                                    placeholder="Mobile Number" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.mobile.errors }" />
+                                                                <div *ngIf="submitted && g.mobile.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.mobile.errors.required">Mobile number
+                                                                        is required </div>
+                                                                    <div class="_error"
+                                                                        *ngIf="g.mobile.errors.minlength">Number must be
+                                                                        at least 10 characters</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-12 col-sm-3">Address</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="address"
+                                                                    placeholder="Address" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.address.errors }" />
+                                                                <div *ngIf="submitted && g.address.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.address.errors.required">
+                                                                       Address is required </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12"> State</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <select formControlName="state"
+                                                                    placeholder="Select State" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.state.errors }"
+                                                                    style="border:  1px solid black;">
+                                                                    <option value="Mr">UK</option>
+                                                                    <option value="Mrs">UP</option>
+                                                                    <option value="Miss">Mp</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12">City</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="text" formControlName="city"
+                                                                    placeholder="City" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.city.errors }" />
+                                                                <div *ngIf="submitted && g.city.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.city.errors.required">City name
+                                                                        is required </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group row mb-2">
+                                                            <label class="col-sm-3 col-12">Pin Code</label>
+                                                            <div class=" col-sm-9 col-12">
+                                                                <input type="mobile" formControlName="pin"
+                                                                    placeholder="Pincode" class="form-control "
+                                                                    [ngClass]="{ 'is-invalid': submitted && g.pin.errors }" />
+                                                                <div *ngIf="submitted && g.pin.errors"
+                                                                    class="invalid-feedback">
+                                                                    <div class="_error"
+                                                                        *ngIf="g.pin.errors.required">Pincode
+                                                                        is required </div>
+                                                                    
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group" style="float: right;">
+                                                            <button class="btn btn-primary">Continue</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- credits -->
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default" *ngIf="deliveryAddressFilled"
+                            style="background-color:  #ebedef">
+                            <div class="panel-heading p-3 mb-3" role="tab" id="heading2">
+                                <h3 class="panel-title">
+                                    <a class="collapsed" role="button" title="" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse2" aria-expanded="true"
+                                        aria-controls="collapse2">
+                                        Shipping Method
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse2" class="panel-collapse collapse" [ngClass]="{'show':activeAccordion==3}" role="tabpanel"
+                                aria-labelledby="heading2">
+                                <div class="panel-body px-3  text-dark" style="height:8rem">
+                                    <form [formGroup]="deliveryMethodForm" (ngSubmit)="deliveryMethodSubmit()">
+                                        <div class="form-group row mb-2">
+                                            <div class="form-group row mb-2">
+                                                <label class="col-sm-3 col-12">Express Delivery</label>
+                                                <div class=" col-sm-9 col-12">
+                                                    <input type="radio" formControlName="delivery_method"
+                                                        value="express" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && h.delivery_method.errors }" />
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mb-2">
+                                                <label class="col-sm-3 col-12">Standard Delivery</label>
+                                                <div class=" col-sm-9 col-12">
+                                                    <input type="radio" formControlName="delivery_method"
+                                                        value="standard" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && h.delivery_method.errors }" />
+                                                    
+                                                </div>
+                                            </div>
+                                            <div *ngIf="submitted && h.delivery_method.errors" class="invalid-feedback">
+                                                <div class="_error" *ngIf="h.delivery_method.errors.required">Delivery method is required</div>
+                                            </div>
+                                            <br>
+
+                                            <button class="btn" style="float: right; background-color: #0e8ce4;color:#fff;">Continue</button>
+                                        
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default" *ngIf="deliveryMethodSelected"  style="background-color:  #ebedef; ">
+                            <div class="panel-heading p-3 mb-3" role="tab" id="heading3">
+                                <h3 class="panel-title">
+                                    <a class="collapsed" role="button" title="" data-toggle="collapse"
+                                        data-parent="#accordion" href="#collapse3" aria-expanded="true"
+                                        aria-controls="collapse3">
+                                        Payment Mode
+                                    </a>
+                                </h3>
+                            </div>
+                            <div id="collapse3" class="panel-collapse collapse" [ngClass]="{'show':activeAccordion==4}" role="tabpanel"
+                                aria-labelledby="heading3">
+                                <div class="panel-body px-3 ">
+                                    
+                                    <button class="btn" style="float: right; background-color: #0e8ce4;color:#fff;" (click)="pay()">Pay Now</button>
+                                    <br/>
+                                    <form #form ngNoForm 
+                                        id="nonseamless" 
+                                        method="post"
+                                        name="redirect" 
+                                        action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction">
+                                        <input type="hidden" id="encRequest" name="encRequest" [ngModel]="encRequest">
+                                        <input type="hidden" name="access_code" id="access_code" [ngModel]="accessCode">
+                                    </form>
+                                    <div class="card">
+                                        <div class="container mt-4 mb-2">
+
+                                            <div class="row">
+                                                <h3 style="color: #428bca; font-weight: bold;">Price Details</h3>
+                                                <div class="col-12 mt-2" style="color: black; font-size: 14px;">
+                                                    <span style="float: left; font-weight: 500;">Product Price</span>
+                                                    <span style="float: right;font-weight: 500;">₹ {{total}}</span>
+                                                </div>
+                                                <div class="col-12 mt-2" style="color: black; font-size: 14px;">
+                                                    <span style="float: left; font-weight: 500;">Delivery Charges</span>
+                                                    <span style="float: right; font-weight: 500;">₹ 0</span>
+                                                </div>
+                                            
+                                                <div class="col-12 mt-3"
+                                                    style="color: black; font-size: 14px; font-weight: bold;">
+                                                    <span style="float: left;">Order Total</span>
+                                                    <span style="float: right;">₹ {{grandTotal}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
+
+        <div class="col-sm-4  col-12 mt-1 mb-2">
+            <div class="card">
+                <div class="container border-bottom">
+                    <div class="row" *ngFor="let row of cartitems; index as index">
+                        <div class="col-md-12" *ngFor="let subrow of row.cartData.productVariant">
+                            <div class="row border-bottom pb-2" *ngIf="subrow._id==row.varientId">
+                                <div class="col-md-7 col-6 mt-3">
+                                    <p style="color:#0e8ce4; "><b>{{subrow.title}}</b></p>
+                                    <p style="font-size: 14px; margin-top:-17px ;">{{row.cartData.brandName}}</p>
+                                    <p style="margin-top: -17px;">Qty:{{row.quantity}}</p>
+                                    <p style="margin-top:-17px ;"><b>Rs. {{subrow.yourPrice}}</b></p>
+                                </div>
+                                <div class="col-md-5 col-6">
+                                    <div class="card" style="height:auto; margin-top:40px ;">
+                                        <img src="{{subrow.MainImg}}" >
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="card" style=" margin-top:2px">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="margin-top:4px;">
+                            <p style="color: #0e8ce4;">Total</p>
+                        </div>
+
+                        <div class="col-6 text-right" style="margin-top:4px">
+                            <p style="color: #0e8ce4;">Rs. {{total}}</p>
+                        </div>
+                    </div>
+                    <div class="conatiner-fluid pb-1 ">
+                        <button class="btn rkpoo" style=" color:#fff; background-color: #0e8ce4;">Apply
+                            Coupon</button>&nbsp;
+
+
+
+                        <button class="btn" style=" width:8rem;  height:2.2rem; padding-bottom: 2px;  font-size:18px; color:#fff;  
+                            "></button>
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+<app-front-footer></app-front-footer>

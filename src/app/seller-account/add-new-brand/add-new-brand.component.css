@@ -1,0 +1,16 @@
+#srch1{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+#srch2{
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+@media (max-width:440px){
+    .fnt{
+        font-size:10px;
+    }
+}
+
+

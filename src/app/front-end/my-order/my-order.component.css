@@ -1,0 +1,68 @@
+@media( min-width:480px){
+
+    ._mayank{height: auto; width:110px;
+        padding-left: 5px;
+      
+    }
+    ._tanmal{
+        padding-top: 1rem;
+    } 
+    ._rav{
+      float: right;
+margin-right: -20px;
+  }
+}
+@media( max-width:480px){
+    
+
+    ._mayank{height: 40px; width:40px;
+        margin-left:-40px; 
+        float: left;
+
+    }
+    ._rav{
+        float: right;
+        font-size: 11px;
+margin-right: -30px;
+    }
+   ._tanmal{
+       font-size: 13px;
+   } 
+}
+section {
+    display: table;
+  }
+  ._tushar{
+    font-size: 13px;
+    color: black; 
+    margin-top:-10px
+    
+  }
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }
+  

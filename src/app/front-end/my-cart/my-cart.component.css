@@ -1,0 +1,85 @@
+li{
+  display:inline-block;
+}
+.ngar{
+  color:black;
+}
+.vjay{
+  color:black;
+}
+@media ( width: 768px) {
+  .rfghj{font-size: 10px;}
+  
+
+  .ngar {
+    font-size: 9px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .vjay {
+    font-size: 9px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+    
+  .haamm{
+    padding-left:20px ;
+  }
+  .ccaca{
+    padding-left: 20px;
+  }
+}
+@media ( width:360px) {
+  .kabb{
+    margin-bottom: 1rem;
+  }
+  .btn .moh{
+  margin-right: 1rem;
+  }
+
+ 
+
+
+}
+@media ( width: 1024px) {
+.ngar {
+font-size: 11px;
+margin: 0px;
+padding: 0px;
+
+}
+
+}
+@media(width:383px){
+  .ggjjjj{
+    margin-top: 4px;
+  }
+}
+
+
+@media ( width: 411px) {
+  .kabb{
+    margin-bottom: 1rem;
+  }
+
+      
+    
+}
+
+@media ( min-width: 480px) {
+  .vjay{
+    padding-top: 50px;
+  }
+.rajj{
+  margin-top: 7px;
+}
+.baaa{
+  margin-top: 7px;
+}
+}
+@media ( max-width: 480px) {
+  .fonn{
+    margin-left: 50px;
+
+  }
+}

@@ -1,0 +1,107 @@
+<div class="container-fluid p-0" style="background-color:#F4F4F4">
+    <!--header starts here-->
+    <app-seller-header></app-seller-header>
+    <!--header starts here-->
+
+    <!--main body starts here-->
+    <main class="row">
+        <div class=" col-12 col-md-4">
+            <img id="bucket" class="img-fluid" src="../../../assets/images/bucket.png" alt="carry bucket">
+        </div>
+        <div class=" col-12 col-md-8" fxLayout="column" fxLayoutAlign="center center">
+           <div class="font-weight-bold text-dark" >
+                <p fxHide.lt-md style="font-size: 27px; font-weight: bold;">Start Adding Products</p>
+                <p fxHide.gt-sm style="font-size: 27px; font-weight: bold;">Start Adding Products</p>
+            </div>
+           <!-------t-- <div class="font-weight-bold text-dark">
+                <h2 fxHide.lt-md>Find your product in Days365's catalogue</h2>
+                <h5 fxHide.gt-sm>Find your product in Days365's catalogue</h5>
+            </div>
+            <div class="mt-2" fxLayout fxLayoutAlign="center">
+                <div class="input-group">
+                    <input fxHide.lt-md type="search" class="form-control border border-primary border-right-0" placeholder="Search Product" style="width:500px">
+                    <input fxHide.gt-sm type="search" class="form-control border border-primary border-right-0" placeholder="Search Product" style="width:200px">
+                    
+                    <div class="input-group-append">
+                        <button class="btn text-info border border-primary border-left-0 bg-white" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>-->
+            <div class=" font-weight-bold" fxLayout.gt-md="row" fxLayout.lt-sm="column" fxLayoutGap.gt-md="100px">
+                <div class="text-center">
+                    <a routerLink="/add-product-not-on-days365">Add products not on Days365</a>
+                </div>
+                <div class="text-center">
+                    <a [routerLink]="'/brand'">Register your Brand on Days365</a>
+                </div>
+            </div>
+           
+        </div>
+       
+    </main>
+    
+</div>
+<!-------t--<div class="container-fluid">
+<section>
+        <div class="text-center mt-5">
+            <h3 style="color:#ACBE2E">About adding products</h3>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Adding Products</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Volume Listing</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Categories Requiring Approval</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Create Variations</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+        </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">What is a GTIN?</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">GTIN Exemption Status</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Product Image Guidance</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+            <div class="col-lg-3 col-6 mb-5">
+                <h5 class="text-center" style="color:#ACBE2E">Create Variations</h5>
+                <h6 class="text-center">
+                    <a href="#">Learn how to use spreadsheets to upload your inventory and more.</a>
+                </h6>
+            </div>
+        </div>
+    </section>
+</div>-->
+    <!--main body ends here--> 
+
+<!--footer starts here-->
+<app-seller-footer></app-seller-footer>
+<!--footer starts here-->

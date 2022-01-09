@@ -1,0 +1,429 @@
+<!--header starts here-->
+<div class="container-fluid" style="background-color:#262F4E;">
+    <div class="row">
+        <div class="col-md-3 text-center font-weight-bold">
+            <a id="brand" class="navbar-brand font-weight-bold text-white" href="#">
+                <img id="dlogo" src="../.././assets/img/FDays365.png" alt="logo">&nbsp;Days365
+            </a>
+        </div>
+        <div class="col-md-9 mt-sm-4">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item p-0">
+                    <a class="nav-link active" data-toggle="tab" href="#vitalInfo">Vital Info</a>
+                </li>
+                <li class="nav-item p-0">
+                    <a class="nav-link" data-toggle="tab" href="#offer">Offer</a>
+                </li>
+                <!-- <li class="nav-item p-0">
+                    <a class="nav-link" data-toggle="tab" href="#images">Images</a>
+                </li> -->
+                <li class="nav-item p-0">
+                    <a class="nav-link" data-toggle="tab" href="#description">Description</a>
+                </li>
+                <li class="nav-item p-0">
+                    <a class="nav-link" data-toggle="tab" href="#keywords">Keywords</a>
+                </li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+<!--header ends here-->
+
+<!--select category form starts here-->
+<div class="container col-lg-7 mx-auto" style="height:1500px">
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+        <!--vital info part starts here-->
+        <div id="vitalInfo" class="container tab-pane active"><br>
+            <form [formGroup]="selectCategoryForm" (ngSubmit)="onSubmitClick()">
+                <div class="card" style="border:1px solid #262F4E ">
+                    <div class="card-header" style="background-color:#262F4E">
+                        <h4 class="text-white text-center font-weight-bold">Vital Info</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="title">Title*</label>
+                            </div>
+                            <div>
+                                <input type="text" name="title" id="title" placeholder="xyz" class="form-control" formControlName="title" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.title').invalid && (selectCategoryForm.get('vitalInfo.title').dirty || selectCategoryForm.get('vitalInfo.title').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('vitalInfo.title').valid && (selectCategoryForm.get('vitalInfo.title').dirty || selectCategoryForm.get('vitalInfo.title').touched || submitted)}">
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.title').invalid && (selectCategoryForm.get('vitalInfo.title').dirty || selectCategoryForm.get('vitalInfo.title').touched ||submitted) && selectCategoryForm.get('vitalInfo.title').errors?.required">Title can't be blank.</span>
+                            </div>
+                        </div>
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="countryName">Country Of Origin*</label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="countryOfOriginId" name="countryOfOrigin" formControlName="countryOfOrigin" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.countryOfOrigin').invalid && (selectCategoryForm.get('vitalInfo.countryOfOrigin').dirty || selectCategoryForm.get('vitalInfo.countryOfOrigin').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('vitalInfo.countryOfOrigin').valid && (selectCategoryForm.get('vitalInfo.countryOfOrigin').dirty || selectCategoryForm.get('vitalInfo.countryOfOrigin').touched || submitted)}">
+                                    <option value="null" disabled selected>Select Country</option>
+                                    <option *ngFor="let countryNames of CountryName" [value]="countryNames.country">{{countryNames.country}}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.countryOfOrigin').invalid && (selectCategoryForm.get('vitalInfo.countryOfOrigin').dirty || selectCategoryForm.get('vitalInfo.countryOfOrigin').touched ||submitted) && selectCategoryForm.get('vitalInfo.countryOfOrigin').errors?.required">You must select Country.</span>
+                            </div>
+                        </div>
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="manufacturer">Manufacturer*</label>
+                            </div>
+                            <div>
+                                <input type="text" name="manuFacturer" id="manuFacturerId" placeholder="XYZ Pvt. Ltd." class="form-control" formControlName="manufacturer" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.manufacturer').invalid && (selectCategoryForm.get('vitalInfo.manufacturer').dirty || selectCategoryForm.get('vitalInfo.manufacturer').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('vitalInfo.manufacturer').valid && (selectCategoryForm.get('vitalInfo.manufacturer').dirty || selectCategoryForm.get('vitalInfo.manufacturer').touched || submitted)}">
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.manufacturer').invalid && (selectCategoryForm.get('vitalInfo.manufacturer').dirty || selectCategoryForm.get('vitalInfo.manufacturer').touched ||submitted) && selectCategoryForm.get('vitalInfo.manufacturer').errors?.required">Manufacturer Name must be specified.</span>
+                            </div>
+                        </div>
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="brandName">Brand Name*</label>
+                            </div>
+                            <div>
+
+                        <select class="form-control" id="brandNameId" name="brandName" formControlName="brandName" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                            [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.brandName').invalid && (selectCategoryForm.get('vitalInfo.brandName').dirty || selectCategoryForm.get('vitalInfo.brandName').touched || submitted),
+                                    'alert alert-success': selectCategoryForm.get('vitalInfo.brandName').valid && (selectCategoryForm.get('vitalInfo.brandName').dirty || selectCategoryForm.get('vitalInfo.brandName').touched || submitted)}">
+                           <option value="null" disabled selected>Select Brand</option>
+                           <option value="Generic">Generic</option>
+                            <option *ngFor="let brand of brandArray" [value]="brand.brandName+'@@'+brand.Percentage">{{brand.brandName}}</option>
+                        </select>
+            
+                        </div>
+                        </div>
+                    <!-----t--   <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="minimumAge">Minimum Recommended Age(In Yrs.)*</label>
+                            </div>
+                            <div>
+                                <input type="number" name="minRecommendedAge" id="minRecommendedAgeId" placeholder="6 Yrs." class="form-control" formControlName="minimumRecommendedAge" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.minimumRecommendedAge').invalid && (selectCategoryForm.get('vitalInfo.minimumRecommendedAge').dirty || selectCategoryForm.get('vitalInfo.minimumRecommendedAge').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('vitalInfo.minimumRecommendedAge').valid && (selectCategoryForm.get('vitalInfo.minimumRecommendedAge').dirty || selectCategoryForm.get('vitalInfo.minimumRecommendedAge').touched || submitted)}">
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.minimumRecommendedAge').invalid && (selectCategoryForm.get('vitalInfo.minimumRecommendedAge').dirty || selectCategoryForm.get('vitalInfo.minimumRecommendedAge').touched ||submitted) && selectCategoryForm.get('vitalInfo.minimumRecommendedAge').errors?.required">Brand Name can't be blank.</span>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.minimumRecommendedAge').invalid && (selectCategoryForm.get('vitalInfo.minimumRecommendedAge').dirty || selectCategoryForm.get('vitalInfo.minimumRecommendedAge').touched ||submitted) && selectCategoryForm.get('vitalInfo.minimumRecommendedAge').errors?.min">Minimum Recommended Age is atleast 6 yrs.</span>
+                            </div>
+                        </div>--> 
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="isProductFeatured">Is Featured ?*</label>
+                            </div>
+                            <div>
+                            <select class="form-control" id="isProductFeatured" name="isProductFeatured" formControlName="isProductFeatured" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                            [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.isProductFeatured').invalid && (selectCategoryForm.get('vitalInfo.isProductFeatured').dirty || selectCategoryForm.get('vitalInfo.isProductFeatured').touched || submitted),
+                            'alert alert-success': selectCategoryForm.get('vitalInfo.isProductFeatured').valid && (selectCategoryForm.get('vitalInfo.isProductFeatured').dirty || selectCategoryForm.get('vitalInfo.isProductFeatured').touched || submitted)}">
+                        <option value="null" disabled selected>Select Yes or No</option>
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+                <div>
+                    <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.isProductFeatured').invalid && (selectCategoryForm.get('vitalInfo.isProductFeatured').dirty || selectCategoryForm.get('vitalInfo.isProductFeatured').touched ||submitted) && selectCategoryForm.get('vitalInfo.isProductFeatured').errors?.required">You must select Yes or No.</span>
+                </div>       
+                       </div> 
+                        <div class="form-group" formGroupName="vitalInfo">
+                            <div>
+                                <label for="isProductExpirable">Is Product Expirable ?*</label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="isProductExpirableId" name="isProductExpirable" formControlName="isProductExpirable" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('vitalInfo.isProductExpirable').invalid && (selectCategoryForm.get('vitalInfo.isProductExpirable').dirty || selectCategoryForm.get('vitalInfo.isProductExpirable').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('vitalInfo.isProductExpirable').valid && (selectCategoryForm.get('vitalInfo.isProductExpirable').dirty || selectCategoryForm.get('vitalInfo.isProductExpirable').touched || submitted)}">
+                                    <option value="null" disabled selected>Select Yes or No</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('vitalInfo.isProductExpirable').invalid && (selectCategoryForm.get('vitalInfo.isProductExpirable').dirty || selectCategoryForm.get('vitalInfo.isProductExpirable').touched ||submitted) && selectCategoryForm.get('vitalInfo.isProductExpirable').errors?.required">You must select Yes or No.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--vital info part ends here-->
+
+        <!--offer part starts here-->
+        <div id="offer" class="container tab-pane fade"><br>
+            <form [formGroup]="selectCategoryForm" (ngSubmit)="onSubmitClick()">
+                <div class="card" style="border:1px solid #262F4E ">
+                    <div class="card-header" style="background-color:#262F4E">
+                        <h4 class="text-white text-center font-weight-bold">Offer</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group" formGroupName="offer">
+                            <div>
+                                <label for="condition">Condition*</label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="condition" name="condition" formControlName="condition" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('offer.condition').invalid && (selectCategoryForm.get('offer.condition').dirty || selectCategoryForm.get('offer.condition').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('offer.condition').valid && (selectCategoryForm.get('offer.condition').dirty || selectCategoryForm.get('offer.condition').touched || submitted)}">
+                                    <option value="null" disabled selected>Select Condition</option>
+                                    <!-- <option value="select">Select</option> -->
+                                    <option value="New">New</option>
+                                </select>
+                            </div>
+                           <!------t-- <div>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('offer.condition').invalid && (selectCategoryForm.get('offer.condition').dirty || selectCategoryForm.get('offer.condition').touched ||submitted) && selectCategoryForm.get('offer.condition').errors?.required">You must select Condition.</span>
+                                <span class="text-warning font-weight-bold float-right" style="font-size:12px">Once Submitted, This field can't be changed.</span>
+                            </div>-->
+                        </div>
+                        <div class="form-group" formGroupName="offer">
+                            <div>
+                                <label for="conditionNote">Condition Note</label>
+                            </div>
+                            <div>
+                                <textarea name="conditionNote" id="conditionNoteId" class="form-control" formControlName="conditionNote" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('offer.conditionNote').invalid && (selectCategoryForm.get('offer.conditionNote').dirty || selectCategoryForm.get('offer.conditionNote').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('offer.conditionNote').valid && (selectCategoryForm.get('offer.conditionNote').dirty || selectCategoryForm.get('offer.conditionNote').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('offer.conditionNote').invalid && (selectCategoryForm.get('offer.conditionNote').dirty || selectCategoryForm.get('offer.conditionNote').touched ||submitted) && selectCategoryForm.get('offer.conditionNote').errors?.required">Mention Condition Notes.</span>
+                            </div>
+                        </div>
+                       
+<!------t--
+                        <div class="form-group" formGroupName="offer">
+                            <div>
+                                <label for="AvailableOffer">Available Offer</label>
+                            </div>
+                            <div>
+                                <textarea name="AvailableOffer" id="AvailableOffer" class="form-control" formControlName="AvailableOffer" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('offer.AvailableOffer').invalid && (selectCategoryForm.get('offer.AvailableOffer').dirty || selectCategoryForm.get('offer.AvailableOffer').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('offer.AvailableOffer').valid && (selectCategoryForm.get('offer.AvailableOffer').dirty || selectCategoryForm.get('offer.AvailableOffer').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('offer.AvailableOffer').invalid && (selectCategoryForm.get('offer.AvailableOffer').dirty || selectCategoryForm.get('offer.AvailableOffer').touched ||submitted) && selectCategoryForm.get('offer.AvailableOffer').errors?.required">Mention Condition Notes.</span>
+                            </div>
+                        </div>-->
+                        <div class="form-group" formGroupName="offer">
+                            <div>
+                                <label for="productTaxCode">Product Tax Code</label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="productTaxCode" name="productTaxCode" formControlName="productTaxCode" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('offer.productTaxCode').invalid && (selectCategoryForm.get('offer.productTaxCode').dirty || selectCategoryForm.get('offer.productTaxCode').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('offer.productTaxCode').valid && (selectCategoryForm.get('offer.productTaxCode').dirty || selectCategoryForm.get('offer.productTaxCode').touched || submitted)}">
+                                    <option value="null" selected>Select Tax Code</option>
+                                    <option *ngFor="let taxCode of ProductTaxCode" [value]="taxCode.tax_code+'@'+taxCode.percentage">{{taxCode.tax_code+"
+                                        ("+taxCode.percentage+'%'+")"}}</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('offer.productTaxCode').invalid && (selectCategoryForm.get('offer.productTaxCode').dirty || selectCategoryForm.get('offer.productTaxCode').touched ||submitted) && selectCategoryForm.get('offer.productTaxCode').errors?.required">You must select Product Tax Code.</span>
+                            </div>
+                        </div>
+                       
+                        <div class="form-group" formGroupName="offer">
+                            <div>
+                                <label for="handlingPeriod">Handling Period*</label>
+                            </div>
+                            <div>
+                                <select class="form-control" id="handlingPeriodId" name="handlingPeriod" formControlName="handlingPeriod" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('offer.handlingPeriod').invalid && (selectCategoryForm.get('offer.handlingPeriod').dirty || selectCategoryForm.get('offer.handlingPeriod').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('offer.handlingPeriod').valid && (selectCategoryForm.get('offer.handlingPeriod').dirty || selectCategoryForm.get('offer.handlingPeriod').touched || submitted)}">
+                                    <option value="null" disabled selected>Select Days</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('offer.handlingPeriod').invalid && (selectCategoryForm.get('offer.handlingPeriod').dirty || selectCategoryForm.get('offer.handlingPeriod').touched ||submitted) && selectCategoryForm.get('offer.handlingPeriod').errors?.required">You must select Handling Period.</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <!--offer part ends here-->
+
+        <!--description part starts here-->
+        <div id="description" class="container tab-pane fade"><br>
+            <form [formGroup]="selectCategoryForm" (ngSubmit)="onSubmitClick()">
+                <div class="card" style="border:1px solid #262F4E ">
+                    <div class="card-header" style="background-color:#262F4E">
+                        <h4 class="text-white text-center font-weight-bold">Description</h4>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="form-group" formGroupName="description">
+                            <div>
+                                <label for="productDescription">Product Description*</label>
+                            </div>
+                            <div>
+                                <textarea name="productDescription" id="productDescription" class="form-control" formControlName="productDescription" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('description.productDescription').invalid && (selectCategoryForm.get('description.productDescription').dirty || selectCategoryForm.get('description.productDescription').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('description.productDescription').valid && (selectCategoryForm.get('description.productDescription').dirty || selectCategoryForm.get('description.productDescription').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('description.productDescription').invalid && (selectCategoryForm.get('description.productDescription').dirty || selectCategoryForm.get('description.productDescription').touched ||submitted) && selectCategoryForm.get('description.productDescription').errors?.required">Mention Description of Product.</span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" formGroupName="description">
+                            <div>
+                                <label for="howToUse">How To Use</label>
+                            </div>
+                            <div>
+                                <textarea name="howToUse" id="howToUse" class="form-control" formControlName="howToUse" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('description.howToUse').invalid && (selectCategoryForm.get('description.howToUse').dirty || selectCategoryForm.get('description.howToUse').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('description.howToUse').valid && (selectCategoryForm.get('description.howToUse').dirty || selectCategoryForm.get('description.howToUse').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('description.howToUse').invalid && (selectCategoryForm.get('description.howToUse').dirty || selectCategoryForm.get('description.howToUse').touched ||submitted) && selectCategoryForm.get('description.howToUse').errors?.required">Mention how To Use Product.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" formGroupName="description">
+                            <div>
+                                <label for="Ingredients">Product Ingredients</label>
+                            </div>
+                            <div>
+                                <textarea name="Ingredients" id="Ingredients" class="form-control" formControlName="Ingredients" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('description.Ingredients').invalid && (selectCategoryForm.get('description.Ingredients').dirty || selectCategoryForm.get('description.Ingredients').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('description.Ingredients').valid && (selectCategoryForm.get('description.Ingredients').dirty || selectCategoryForm.get('description.Ingredients').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('description.Ingredients').invalid && (selectCategoryForm.get('description.Ingredients').dirty || selectCategoryForm.get('description.Ingredients').touched ||submitted) && selectCategoryForm.get('description.Ingredients').errors?.required">Mention Product Ingredients.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" formGroupName="description">
+                            <div>
+                                <label for="legalDisclaimer">Legal Disclaimer</label>
+                            </div>
+                            <div>
+                                <textarea name="legalDisclaimer" id="legalDisclaimer" class="form-control" formControlName="legalDisclaimer" style="border:1px solid black"   
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('description.legalDisclaimer').invalid && (selectCategoryForm.get('description.legalDisclaimer').dirty || selectCategoryForm.get('description.legalDisclaimer').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('description.legalDisclaimer').valid && (selectCategoryForm.get('description.legalDisclaimer').dirty || selectCategoryForm.get('description.legalDisclaimer').touched || submitted)}">
+                                </textarea>
+                                <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="selectCategoryForm.get('description.legalDisclaimer').invalid && (selectCategoryForm.get('description.legalDisclaimer').dirty || selectCategoryForm.get('description.legalDisclaimer').touched ||submitted) && selectCategoryForm.get('description.legalDisclaimer').errors?.required">Mention Legal Disclaimer.</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group" formGroupName="description"> 
+                            <div *ngFor="let keyFeature of getKeyProductFeatures(); let i = index">
+                                <label> Product Key Features</label>&nbsp;    
+                                <input [formControl]="keyFeature" type="text">
+                                <button mat-icon-button color="warn"  (click)="onRemovekeyFeatures(i)">
+                                   <mat-icon>cancel</mat-icon>
+                                </button>    
+                            </div>
+                            <div>  
+                                <button mat-raised-button  class="mt-2 ml-2  text-white"  type="button"   (click)="onAddKeyFeature()" style="background-color:rgb(60,179,113)">
+                                    Add More
+                                </button>
+                            </div>
+                        </div>
+<!-------t--
+
+                        <div class="form-group" formGroupName="description">
+                            <div>
+                                <label for="firstBulletPoint">Bullet Point</label>
+                            </div>
+                            <div class="col-lg-6 col-10 pl-2">
+                                <input type="text" name="bulletPoint" id="bulletPointId" formControlName="bulletPoint" class="form-control" style="border:1px solid black"
+                                        [ngClass]="{'alert alert-danger': selectCategoryForm.get('description.bulletPoint').invalid && (selectCategoryForm.get('description.bulletPoint').dirty || selectCategoryForm.get('description.bulletPoint').touched || submitted),
+                                                    'alert alert-success': selectCategoryForm.get('description.bulletPoint').valid && (selectCategoryForm.get('description.bulletPoint').dirty || selectCategoryForm.get('description.bulletPoint').touched || submitted)}">
+                                <span class="text-danger text-justify font-weight-bold pl-2" style="font-size:12px" *ngIf="selectCategoryForm.get('description.bulletPoint').invalid && (selectCategoryForm.get('description.bulletPoint').dirty || selectCategoryForm.get('description.bulletPoint').touched ||submitted) && selectCategoryForm.get('description.bulletPoint').errors?.required">
+                                    Mention atleast One Bullet Point.
+                                </span>    
+                            </div>
+                        </div>
+                       
+                    -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--description part ends here-->
+
+        <!--keywords part starts here-->
+        <div id="keywords" class="container tab-pane fade"><br>
+           <form [formGroup]="selectCategoryForm" (ngSubmit)="onSubmitClick()">
+                <div class="card" style="border:1px solid #262F4E ">
+                    <div class="card-header" style="background-color:#262F4E">
+                        <h4 class="text-white text-center font-weight-bold">KeyWords</h4>
+                    </div>
+                    <div class="card-body">
+
+
+                        <div class="form-group" formGroupName="keywords">
+
+                            <div *ngFor="let searchTermses of getSearchTermFormControls(); let i = index">
+                                <label>Search Term</label>&nbsp;    
+                                <input [formControl]="searchTermses" type="text">
+                                <button mat-icon-button color="warn" (click)="onRemoveSearchTermClick(i)">
+                                   <mat-icon>cancel</mat-icon>
+                                </button>    
+                            </div>
+                            <div>  
+                                <button mat-raised-button  class="mt-2 ml-2  text-white"  type="button"  (click)="onAddSearchTermClick()" style="background-color:rgb(60,179,113)">
+                                    Add More
+                                </button>
+                            </div>
+                           
+                        </div>
+
+                    
+                        <div class="form-group" formGroupName="keywords"> 
+                            <div *ngFor="let targetAudience of getTargetAudienceFormControls(); let i = index">
+                                <label>Target Audience</label>&nbsp;    
+                                <input [formControl]="targetAudience" type="text">
+                                <button mat-icon-button color="warn"  (click)="onRemoveTargetAudienceClick(i)">
+                                   <mat-icon>cancel</mat-icon>
+                                </button>    
+                            </div>
+                            <div>  
+                                <button mat-raised-button  class="mt-2 ml-2  text-white"  type="button"   (click)="onAddTargetAudienceClick()" style="background-color:rgb(60,179,113)">
+                                    Add More
+                                </button>
+                            </div>
+                        </div>
+<!------t--
+                        <div class="form-group form-row" formGroupName="keywords">
+                            <label class="col-md-4">
+                                Shipping Charges*:
+                            </label>
+                            <div class="col-md-8">
+                                <div class="form-check-label form-check-inline">
+                                    <input type="radio" name="shippingCharges" id="free" value="free" class="form-check-input" formControlName="shippingCharges" (change)="onFreeClick()">
+                                    <label for="free" class="form-check-label">Free</label>
+                                </div>
+                                <div class="form-check-label form-check-inline">
+                                    <input type="radio" name="shippingCharges" id="charges" value="charges" class="form-check-input" formControlName="shippingCharges" (change)="onChargesClick()">
+                                    <label for="charges" class="form-check-label">Charges</label>
+                                </div>
+                                <span class="text-danger text-justify font-weight-bold pl-2" style="font-size:12px" *ngIf="selectCategoryForm.get('keywords.shippingCharges').invalid && (selectCategoryForm.get('keywords.shippingCharges').dirty || selectCategoryForm.get('keywords.shippingCharges').touched ||submitted) && selectCategoryForm.get('keywords.shippingCharges').errors?.required">
+                                    Select either Free or Charges.
+                                </span> 
+                            </div>
+                            <div *ngIf="enableCharges">
+                                <input type="text"  name="shippingChargesAmt" formControlName="shippingChargesAmt" class="form-control" style="border:1px solid black">
+                            </div>
+                        </div>-->
+                    </div>
+                    <button mat-raised-button color="primary" [disabled]="!selectCategoryForm.valid" type="submit" class="float-right">
+                        Submit
+                    </button>
+                    <!-- <div class="card-footer" style="background-color:#262F4E">
+                       
+                    </div> -->
+                  <!------t-- {{selectCategoryForm.value | json}}-->
+                </div>
+            </form> 
+        </div>
+        <!--keywords part ends here-->
+    </div>
+</div>
+<!--select category form ends here-->
+
+<!--footer starts here-->
+    <app-seller-footer></app-seller-footer>
+<!--footer ends here-->

@@ -1,0 +1,96 @@
+<app-front-header></app-front-header>
+
+
+
+<div class="container-fluid" style="background-color:  #f1f3f6;">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 mb-3">
+
+
+            <div class="container-fluid mt-3 mb-3 nm ">
+                <div class="row">
+
+                    <div class="col-sm-5 bcv">
+                        <span class="_36KMOx">
+                            <span>Upgrade your account to seller account!</span>
+                        </span>
+                        <p style="color: #dbdbdb; font-size: 18px; margin-top: 16px;
+          line-height: 150%;">
+                            <span>Fill the form and submit.</span>
+                        </p>
+                    </div>
+
+
+
+                    <div class=" col-sm-7">
+                        <div class="text-center top-padding heading ">
+                            <p>Upgrade your account</p>
+                        </div>
+                        <div *ngIf="!spinner">
+                            <form [formGroup]="upgradeForm" (ngSubmit)="onSubmit()">
+                                <div class="form-group text-field" style="margin-top: 2rem;">
+
+                                    <input type="text" name="username" autocomplete="off" formControlName="username"
+                                        [ngClass]="{'is-invalid':submitted && f.username.errors}" required>
+                                    <span></span>
+                                    <label for="username">
+                                        Enter your email or mobile number *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.username.errors" >
+                                    <div *ngIf="f.username.errors.required" class="invalid">
+                                        This field is required.
+                                    </div>
+                                </div>
+                                <div class="form-group text-field">
+
+                                    <input type="password" id="password" autocomplete="off" formControlName="password"
+                                        [ngClass]="{'is-invalid':submitted && f.password.errors}" required>
+                                    <span></span>
+                                    <label for="password">Enter Your password *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" class="invalid">
+                                    <div *ngIf="f.password.errors.required" class="invalid">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="f.password.errors.minlength" class="invalid">
+                                        Minimum length is 6
+                                    </div>
+                                    <div *ngIf="f.password.errors.maxlength" class="invalid">
+                                        Maximum length is 50
+                                    </div>
+                                </div>
+                                <div *ngIf="errorMessage" class="invalid" class="invalid">
+                                    <div class="invalid">
+                                        {{errorMessage}}
+                                    </div>
+                                </div>
+
+                                <div class="_1D1L_j mt-1 bottom-padding">
+                                    <button class="_2KpZ6l  " type="submit" style="background-color: #fb641b;">
+                                        CONTINUE
+                                    </button>
+                                </div>
+                                <div class="text-center top-padding bottom-padding ">
+                                    <a [routerLink]="'/login'">Already have an account ?
+                                        <b>Login.</b></a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="paginator otp-form" *ngIf="spinner">
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+
+<app-front-footer></app-front-footer>

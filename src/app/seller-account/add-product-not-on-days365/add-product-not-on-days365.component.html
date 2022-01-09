@@ -1,0 +1,136 @@
+<!-- <div class="container-fluid p-0" style="background-color:#262F4E;">
+    header starts here
+    <header class="row" fxHide.lt-md>
+        <div class="col-md-3 col-3 font-weight-bold">
+            <a class="navbar-brand font-weight-bold text-white" href="#" style="font-size:22px">
+                <img src="../.././assets/img/FDays365.png" alt="logo" style="width:80px">&nbsp;Days365
+            </a>
+        </div>
+        <div class="col-md-3 col-3 ml-auto mt-3 p-2 text-center text-white font-weight-bold" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            Seller Name | India
+        </div>
+        <div class="col-2 mt-3 p-1 ml-xl-5" style="height:40px">
+            <div class="input-group input-group-sm">
+                <input id="srch1" type="search" class="form-control border border-primary border-right-0" placeholder="Search Product">
+                <div class="input-group-append">
+                    <button id="srch2" class="btn text-info border border-primary border-left-0 bg-white" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-4 mt-3 text-center text-white pt-2 font-weight-bold" style="height:40px;font-size:10px">
+<a href="#" class="text-white">Help</a> | <a href="#" class="text-white">Messages</a> | <a href="#" class="text-white">Settings</a>
+   </div>
+    </header>
+    
+    navigation starts here
+    <app-navigation></app-navigation>
+    navigation ends here
+
+    header on sm device starts here
+    <div class="row mt-2 mx-1 mb-2" fxHide.gt-sm>
+        <div class=" fnt col-6 text-center pt-2 font-weight-bold text-white" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            Seller Name | India
+        </div>
+      -t mobile--<div class=" col-6 text-center pt-2 font-weight-bold text-white" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            <a href="#" class=" fnt text-white">Help</a> | <a href="#" class="fnt text-white">Messages</a> | <a href="#" class="fnt text-white">Settings</a>
+        </div>
+    </div>
+    header on sm device ends here here-->
+ <!-- header ends here
+
+</div> -->
+
+  <!--header starts here-->
+  <app-seller-header></app-seller-header>
+  <!--header starts here-->
+
+<!--select product category form starts here-->
+<div class="container col-md-8 mx-auto mt-3 mb-3" style="min-height: 700px;">
+    
+        <div class="card" style="border:1px solid #262F4E; height: auto; ">
+            <div class="card-header" style="background-color:#262F4E">
+                <h4 class="text-white font-weight-bold">Select a Product Category</h4>
+            </div>
+            <div class="card-body">
+                <form [formGroup] = "formdata" (ngSubmit) = "onClickSubmit(formdata.value)" >
+               <!------t-- <div class="form-group">
+                    <div>
+                        <label for="CategoryName">Search a Category</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="CategoryName" id="CategoryName" placeholder="Search a Category" class="form-control" style="border:1px solid black"  formControlName="CategoryName">
+                        <div class="input-group-append">
+                            <button class="btn" type="submit" style="border:1px solid black"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>-->
+                </form>
+                <!------t-<p>{{searchDataArr.length}} matching categories found</p>-->
+                <div id="accordion1">
+                    <div class="card" *ngFor="let searchDataArr of searchDataArr; let i=index">
+                        <div class="card-header">
+                            <a #appliances class="card-link" data-toggle="collapse">
+                                {{searchDataArr.category_name}}
+                            </a>
+
+                            <div *ngIf="searchDataArr.is_leaf==true; then coursesList else noCoursesList">
+                            </div>
+
+                            <ng-template #coursesList>
+                               <button mat-raised-button color="primary" (click)="onSelectCategoriesClick(searchDataArr._id)" class="float-right">
+                                Select Category
+                                </button>
+                            </ng-template>
+                            <ng-template #noCoursesList></ng-template>
+                            
+                            <!-- <a mat-raised-button color="primary" class="float-right" (click)="onSelectCategoriesClick(searchDataArr._id)">
+                                Select Category
+                            </a> -->
+                        </div>
+                
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="browse">Browse a Category</label>
+                    </div>
+                    <div id="browse" class="py-md-2 py-3 form-control text-primary" (click)="selectCategories('6087df08d80dde18cb1a4036')" formControlName="browse" style="cursor: pointer;">
+                        {{selectCategory}}
+                    </div>
+
+
+                    <div id="accordion">
+                        <div class="card" *ngFor="let browseCategory of BrowseCategory; let i=index">
+                            <div class="card-header">
+                                <a #appliances class="card-link" data-toggle="collapse" (click)="selectCategories(browseCategory._id)" style="cursor: pointer;">
+                                    {{browseCategory.category_name}}
+                                </a>
+                                <div *ngIf="browseCategory.is_leaf==true; then coursesList else noCoursesList">
+                                </div>
+
+                                <ng-template #coursesList>
+                                   <button mat-raised-button color="primary" (click)="onSelectCategoriesClick(browseCategory._id)" class="float-right">
+                                    Select Category
+                                </button>
+                                  </ng-template>
+                                  <ng-template #noCoursesList>
+                                   
+                                  </ng-template>
+                   
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- </form> -->
+</div>
+<!--select product category form ends here-->
+<!--footer part starts here-->
+    <app-seller-footer></app-seller-footer>
+<!--footer part ends here-->
+
+
+
+

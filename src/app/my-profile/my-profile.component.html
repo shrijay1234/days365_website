@@ -1,0 +1,87 @@
+<app-front-header></app-front-header>
+<div class="container-fluid" style="background-color: #f1f3f6;;">
+    <div class="row">
+        <div class="col-sm-8 col-lg-6 col-12 mt-4 mb-4" style="margin: auto; text-align: center;  box-shadow: 0px 15px 15px 15px #5D86BC38;background-color: #fff;">
+            <img src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/profile-pic-male_4811a1.svg" style="width:70px; height:70px; padding-top:6px"><br>
+            <span style="font-weight: bold;">
+            {{userDetail.fullname}}
+            </span>
+            <div *ngIf="!editModeToggle" style="margin-top: 2rem; margin-bottom: 2rem;" >
+                <span style="font-weight: bold; font-size: 18px;"> Personal Information</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a (click)="edit(userDetail)" style="color:#2874f0; font-weight: bold;">Edit</a>
+            </div>
+            <div *ngIf="editModeToggle" style="margin-top: 4rem; margin-bottom: 3rem;" >
+                <span style="font-weight: bold; font-size: 18px;"> Personal Information</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a (click)="cancelEdit()" style="color:#2874f0; font-weight: bold;">Cancel</a>
+            </div>
+            <div *ngIf="editModeToggle" >
+                <div>
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="form-group col-6">
+                            <input type="text" formControlName="fullname" placeholder="Full Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullname.errors }"  />
+                            <div *ngIf="submitted && f.fullname.errors" class="invalid-feedback">
+                                <div *ngIf="f.fullname.errors.required">Full Name is required</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-6">
+                            <input type="number" formControlName="number" placeholder="Number" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.number.errors }" />
+                            <div *ngIf="submitted && f.number.errors" class="invalid-feedback">
+                                <div *ngIf="f.number.errors.required">Number is required</div>
+                                <div *ngIf="f.number.errors.minlength">Number must be at least 10 characters</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group col-6 ">
+                            <input type="text" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="col-12" style="margin:auto">
+                            <div *ngIf="editModeToggle" class="mt-3 mb-2 ;">
+                                <button type="button" class="btn btn-primary mr-1" (click)="onSubmit()">Update</button>
+                                <button type="button" class="btn btn-primary mr-1" (click)="back()">Back</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <div *ngIf="!editModeToggle">
+                <div class="row">
+                    <div class="col-lg-8  col-sm-10 col-12 mb-3" style="margin: auto;">
+                        <table class="table table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td  class="col-5"style="color: black;"> Name</td>
+                                    <td class="col-7" style="color: black;">{{userDetail.fullname}}</td>
+                                </tr>
+                                <!--<tr>
+                                    <td class="col-5" style="color: black;"> Last Name</td>
+                                    <td class="col-7" style="color: black;">{{item.lastname}}</td>
+                                    </tr>
+                                    <tr>
+                                    
+                                    <td class="col-5" style="color: black;">Address</td>
+                                    <td class="col-7" style="color: black;"> {{item.address}}</td>
+                                    </tr>-->
+                                <tr>
+                                    <td class="col-5" style="color: black;"> Mobile No.</td>
+                                    <td class="col-7" style="color: black;">{{userDetail.number}}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-5" style="color: black;">Email id</td>
+                                    <td class="col-7" style="color: black;">{{userDetail.email}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-front-footer></app-front-footer>

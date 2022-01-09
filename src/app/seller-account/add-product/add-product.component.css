@@ -1,0 +1,119 @@
+.form-control-file{float: right;
+}
+
+.lfvv{
+    width:158px;
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    box-shadow:0 0 8px 0#aaa;
+    padding: 3px 0px;
+}.lfvv:focus{
+    border-color: dodgerblue;
+    box-shadow:0 0 8px 0 dodgerblue;
+}
+.yagg{
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    box-shadow:0 0 8px 0#aaa;
+    padding: 3px;
+}
+
+.date_pic{
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    box-shadow:0 0 8px 0#aaa;
+    padding: 3px;
+}
+.yagg:focus{
+    border-color: dodgerblue;
+    box-shadow:0 0 8px 0 dodgerblue;
+}
+._expdata{
+    outline: none;
+    box-sizing: border-box;
+    border: 2px solid #aaa;
+    border-radius: 4px;
+    box-shadow:0 0 8px 0#aaa;
+    padding: 3px;
+    width:50%
+}
+._expdata:focus{
+    border-color: dodgerblue;
+    box-shadow:0 0 8px 0 dodgerblue; 
+}
+.labo{
+    margin:auto
+    
+}
+._kjhh{
+    align-items: center;
+}
+@media(min-width:480px){
+    .yagg{
+        float: right;
+    }
+    .labo{
+        font-weight: bold;
+        vertical-align: middle;
+    }
+    ._kjhh{
+display: flex; margin: auto;padding: 10px 200px;
+}
+}
+.example-user-input {
+    margin-right: 8px;
+  }
+  @media(min-width:700px){
+
+
+.form-control-file{
+    width: 130px;
+}
+
+
+  }
+  @media(max-width:1300px){
+    .yagg{width:140px}  
+    ._expdata{
+        width:100px
+    }
+    .labo{
+        font-size: 13px;
+    }
+    .lfvv{
+        width:140px
+    }
+  }
+  @media(max-width:500px){
+    .yagg{width:120px} 
+    ._expdata{
+        width:70px
+    }
+    .lfvv{
+        width:100px
+    }
+    .labo{
+        font-size: 13px;
+    }}
+    @media(min-width:1300px){
+        .lfvv{
+            width:180px 
+    }
+    .demo-inline-calendar-card {
+        width: 300px;
+      }
+}
+td,th{
+    width:12.5%
+  }
+  td{
+    
+    word-break: break-all;
+  
+    }

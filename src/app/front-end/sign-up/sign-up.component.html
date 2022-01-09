@@ -1,0 +1,220 @@
+<app-front-header></app-front-header>
+
+
+
+<div class="container-fluid" style="background-color:  #f1f3f6;">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 mb-3">
+
+
+            <div class="container-fluid mt-3 mb-3 nm ">
+                <div class="row">
+
+                    <div class="col-sm-5 bcv">
+                        <span class="_36KMOx">
+                            <span>Looks like you're new here!</span>
+                        </span>
+                        <p style="color: #dbdbdb; font-size: 18px; margin-top: 16px;
+          line-height: 150%;">
+                            <span>Sign up with your mobile number & Email Id to get started.</span>
+                        </p>
+                        <div class="account-options text-center">
+                            <button type="button" class="btn btn-light" [ngClass]="{'active':isUserActive}"
+                                (click)="enableUserAccount()" [disabled]="isUserActive">User
+                                Account</button>
+                            <br>
+                            <button type="button" class="btn btn-light" [ngClass]="{'active':!isUserActive}"
+                                (click)="enableVendorAccount()" [disabled]="!isUserActive">Seller
+                                Account</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class=" col-sm-7">
+                        <div class="text-center top-padding heading ">
+                            <p>{{isUserActive ? "User Account" : "Seller Account"}}</p>
+                        </div>
+                        <div *ngIf="step === 1 &&  !spinner">
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+
+                                <div class="form-group text-field" style="margin-top: 2rem;">
+
+                                    <input type="text" id="fullname" autocomplete="off" formControlName="fullname"
+                                        [ngClass]="{'is-invalid':submitted && f.fullname.errors}" required>
+                                    <span></span>
+                                    <label for="fullname">
+                                        Enter Your Name *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.fullname.errors">
+                                    <div *ngIf="f.fullname.errors.required"  class="invalid">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="f.fullname.errors.pattern"  class="invalid">
+                                        Please provide a valid name
+                                    </div>
+                                    <div *ngIf="f.fullname.errors.minlength"  class="invalid">
+                                        Minimum length is 3
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-field" style="margin-top: 2rem;">
+
+                                    <input type="text" id="number" autocomplete="off" formControlName="number"
+                                        [ngClass]="{'is-invalid':submitted && f.number.errors}" required>
+                                    <span></span>
+                                    <label for="number">
+                                        Enter Your Mobile Number *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.number.errors" >
+                                    <div *ngIf="f.number.errors.required"  class="invalid">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="f.number.errors.pattern"  class="invalid">
+                                        Please provide a valid mobile number
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-field">
+
+                                    <input type="email" id="email" autocomplete="off" formControlName="email"
+                                        [ngClass]="{'is-invalid':submitted && f.email.errors}" placeholder=" ">
+                                    <span></span>
+                                    <label for="email">
+                                        Enter Your Email Id
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.email.errors">
+                                    <div *ngIf="f.email.errors.pattern" class="invalid">
+                                        Please provide a valid email
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-field">
+
+                                    <input type="password" id="password" autocomplete="off" formControlName="password"
+                                        [ngClass]="{'is-invalid':submitted && f.password.errors}" required
+                                        (keyup)="comparePasswords()">
+                                    <span></span>
+                                    <label for="password">Enter Your Password *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && f.password.errors" >
+                                    <div *ngIf="f.password.errors.required"  class="invalid">
+                                        This field is required
+                                    </div>
+                                    <div *ngIf="f.password.errors.minlength"  class="invalid">
+                                        Minimum length is 6
+                                    </div>
+                                    <div *ngIf="f.password.errors.maxlength"  class="invalid">
+                                        Maximum length is 50
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group text-field">
+
+                                    <input type="password" id="confirmPassword" autocomplete="off"
+                                        formControlName="confirmPassword"
+                                        [ngClass]="{'is-invalid':submitted && f.confirmPassword.errors}" required
+                                        (keyup)="comparePasswords()">
+                                    <span></span>
+                                    <label for="confirmPassword">
+                                        Re-Enter Your Password *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted && !pass" class="invalid" >
+                                    <div  class="invalid">
+                                        Passwords mismatched
+                                    </div>
+                                </div>
+
+                                <div *ngIf="errorMessage" class="invalid">
+                                    <div  class="invalid">
+                                        {{errorMessage}}
+                                    </div>
+                                </div>
+
+
+                                <div class="_1Ijv5h">By continuing, you agree to Days365
+                                    <a target="_blank" href="#">Terms of Use</a> and
+                                    <a target="_blank" href="#">Privacy Policy</a>.
+                                </div>
+                                <div class="_1D1L_j mt-1 ">
+                                    <button class="_2KpZ6l  pointer" type="submit" style="background-color: #fb641b;">
+                                        CONTINUE
+                                    </button>
+                                </div>
+
+                                <div class="text-center top-padding bottom-padding ">
+                                    <a [routerLink]="'/login'">Already have an account ?
+                                        <b>Login.</b></a>
+                                </div>
+
+                                <div class="text-center top-padding bottom-padding ">
+                                   
+                                </div>
+
+
+
+                            </form>
+
+
+                        </div>
+
+                        <div *ngIf="step === 2 && !spinner" class="otp-form">
+                            <div class="reset">
+                                <button type="button" class="btn btn-primary" (click)="resendOTP()">Resend OTP</button>
+                                <button type="button" class="btn btn-success  float-right" (click)="resetForm()">Reset
+                                    Form</button>
+
+                            </div>
+                            <div>
+
+                                <div class=" text-field otp-style">
+
+                                    <input type="text" name="otp" autocomplete="off" required pattern="[0-9]{6}"
+                                        [(ngModel)]="otp">
+                                    <span></span>
+                                    <label for="confirmPassword">
+                                        Enter OTP *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="errorMessage2">
+                                    <div  class="invalid">
+                                        {{errorMessage2}}
+                                    </div>
+                                </div>
+                                <div class="_1D1L_j mt-1">
+                                    <button class="_2KpZ6l pointer " type="button" style="background-color: #fb641b;"
+                                        (click)="verifyUser()">
+                                        CONTINUE
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paginator otp-form" *ngIf="spinner">
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+
+<app-front-footer></app-front-footer>

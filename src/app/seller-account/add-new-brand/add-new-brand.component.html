@@ -1,0 +1,222 @@
+<!-- <div class="container-fluid p-0" style="background-color:#262F4E">
+    header starts here
+    <header class="row" fxHide.lt-md>
+        <div class="col-md-3 col-3 font-weight-bold">
+            <a class="navbar-brand font-weight-bold text-white" href="#" style="font-size:22px">
+                <img src="../.././assets/img/FDays365.png" alt="logo" style="width:80px">&nbsp;Days365
+            </a>
+        </div>
+        <div class="col-md-3 col-3 ml-auto mt-3 p-2 text-center text-white font-weight-bold" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            Seller Name | India
+        </div>
+        <div class="col-2 mt-3 p-1 ml-xl-5" style="height:40px">
+           
+            <div class="input-group input-group-sm">
+                <input id="srch1" type="search" class="form-control border border-primary border-right-0" placeholder="Search Product">
+                <div class="input-group-append">
+                    <button id="srch2" class="btn text-info border border-primary border-left-0 bg-white" type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-4 mt-3 text-center text-white pt-2 font-weight-bold" style="height:40px;font-size:10px">
+      <a href="#" class="text-white">Help</a> | <a href="#" class="text-white">Messages</a> | <a href="#" class="text-white">Settings</a>
+        
+    
+    </div>
+    </header>
+    
+    navigation starts here
+    <app-navigation></app-navigation>
+    navigation ends here
+
+    header on sm device starts here
+    <div class="row mt-2 mx-1 mb-2" fxHide.gt-sm>
+        <div class=" fnt col-6 text-center pt-2 font-weight-bold text-white" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            Seller Name | India
+        </div>
+       <div class=" col-6 text-center pt-2 font-weight-bold text-white" style="height:40px; border-radius:10px; background-color:#7CBCE2">
+            <a href="#" class=" fnt text-white">Help</a> | <a href="#" class="fnt text-white">Messages</a> | <a href="#" class="fnt text-white">Settings</a>
+        </div>
+    </div>
+    header on sm device ends here here
+header ends here
+</div> -->
+
+
+
+
+
+
+
+
+
+ <!--header starts here-->
+ <app-seller-header></app-seller-header>
+ <!--header starts here-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--new brand registration form starts here-->
+<div class="container col-md-7 mx-auto mt-3 mb-3" style="height:1500px">
+    <form [formGroup]="newBrandForm" (ngSubmit)="onSubmitClick()">
+        <div class="card" style="border:1px solid #262F4E ">
+            <div class="card-header" style="background-color:#262F4E">
+                <h4 class="text-white font-weight-bold">New Brand Registration Form</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <div>
+                        <label for="brandName">Brand Name*</label>
+                    </div>
+                    <div>
+                        <input type="text" name="brandName" id="brandName" placeholder="Enter Your Brand Name" class="form-control" formControlName="brandName" style="border:1px solid black"   
+                            [ngClass]="{'alert alert-danger': newBrandForm.get('brandName').invalid && (newBrandForm.get('brandName').dirty || newBrandForm.get('brandName').touched || submitted),
+                                        'alert alert-success': newBrandForm.get('brandName').valid && (newBrandForm.get('brandName').dirty || newBrandForm.get('brandName').touched || submitted)}">
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('brandName').invalid && (newBrandForm.get('brandName').dirty || newBrandForm.get('brandName').touched ||submitted) && newBrandForm.get('brandName').errors?.required">Brand Name can't be blank.</span>
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('brandName').invalid && (newBrandForm.get('brandName').dirty || newBrandForm.get('brandName').touched ||submitted) && newBrandForm.get('brandName').errors?.maxlength">Brand Name should contain at most 15 characters.</span>
+                    </div>
+                </div>
+               <!------t- <div class="form-group">
+                    <div>
+                        <label for="registrationNo">Registration No./Serial No.*</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="registrationNo." id="registrationNo" placeholder="Search Product" class="form-control" formControlName="registrationNo" style="border:1px solid black"
+                            [ngClass]="{'alert alert-danger': newBrandForm.get('registrationNo').invalid && (newBrandForm.get('registrationNo').dirty || newBrandForm.get('registrationNo').touched || submitted),
+                                        'alert alert-success': newBrandForm.get('registrationNo').valid && (newBrandForm.get('registrationNo').dirty || newBrandForm.get('registrationNo').touched || submitted)}">
+                    -->    <!-----t---<div class="input-group-append">
+                            <button class="btn" type="button" style="border:1px solid black"><i class="fas fa-search"></i></button>
+                        </div>-->
+                 <!------  </div>
+                    <div>
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('registrationNo').invalid && (newBrandForm.get('registrationNo').dirty || newBrandForm.get('registrationNo').touched ||submitted) && newBrandForm.get('registrationNo').errors?.required">You must specify Registration No./Serial No.</span>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <div>
+                        <label for="brandWebsite">Brand Website(Optional)</label>
+                    </div>
+                    <div>
+                        <input type="text" name="brandWebsite" id="brandWebsite" placeholder="Enter Your Brand Website" class="form-control" formControlName="brandWebsite" style="border:1px solid black">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <label for="can_reuse_by_other">Can be used by other seller ?*</label>
+                    </div>
+                    <div>
+                        <select class="form-control" id="can_reuse_by_other" name="can_reuse_by_other" formControlName="can_reuse_by_other" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                            [ngClass]="{'alert alert-danger': newBrandForm.get('can_reuse_by_other').invalid && (newBrandForm.get('can_reuse_by_other').dirty || newBrandForm.get('can_reuse_by_other').touched || submitted),
+                                        'alert alert-success': newBrandForm.get('can_reuse_by_other').valid && (newBrandForm.get('can_reuse_by_other').dirty || newBrandForm.get('can_reuse_by_other').touched || submitted)}">
+                            <option value="null" disabled selected>Select</option>
+                            <option value="0">No</option>
+                            <option value="1">Yes</option>
+                            
+                        </select>
+                    </div>
+                    <div>
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('can_reuse_by_other').invalid && (newBrandForm.get('can_reuse_by_other').dirty || newBrandForm.get('can_reuse_by_other').touched ||submitted) && newBrandForm.get('can_reuse_by_other').errors?.required">You must select Option.</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <div>
+                        <label for="category">Category*</label>
+                    </div>
+                    <div>
+                        <select class="form-control" id="category" name="category" formControlName="category" style="border:1px solid black; margin-left:0; height:50px; -webkit-appearance:auto"
+                            [ngClass]="{'alert alert-danger': newBrandForm.get('category').invalid && (newBrandForm.get('category').dirty || newBrandForm.get('category').touched || submitted),
+                                        'alert alert-success': newBrandForm.get('category').valid && (newBrandForm.get('category').dirty || newBrandForm.get('category').touched || submitted)}">
+                            <option value="null" disabled selected>Select Category</option>
+                            <option *ngFor="let categorie of Categories" [value]="categorie._id">{{categorie.category_name}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('category').invalid && (newBrandForm.get('category').dirty || newBrandForm.get('category').touched ||submitted) && newBrandForm.get('category').errors?.required">You must select category.</span>
+                    </div>
+                </div>
+
+               <!-------t-- <div class="form-group">
+                    <div>
+                        <label for="brandName">Percentage Of Product*</label>
+                    </div>
+                    <div>
+                        <input type="text" name="Percentage" id="Percentage" placeholder="Enter Percentage" class="form-control" formControlName="Percentage" style="border:1px solid black"   
+                            [ngClass]="{'alert alert-danger': newBrandForm.get('Percentage').invalid && (newBrandForm.get('Percentage').dirty || newBrandForm.get('Percentage').touched || submitted),
+                                        'alert alert-success': newBrandForm.get('Percentage').valid && (newBrandForm.get('Percentage').dirty || newBrandForm.get('Percentage').touched || submitted)}">
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('Percentage').invalid && (newBrandForm.get('Percentage').dirty || newBrandForm.get('Percentage').touched ||submitted) && newBrandForm.get('Percentage').errors?.required">Brand Name can't be blank.</span>
+                        <span class="text-danger font-weight-bold" style="font-size:12px" *ngIf="newBrandForm.get('Percentage').invalid && (newBrandForm.get('Percentage').dirty || newBrandForm.get('Percentage').touched ||submitted) && newBrandForm.get('Percentage').errors?.maxlength">Brand Name should contain at most 15 characters.</span>
+                    </div>
+                </div>
+            -->
+
+               <div class="form-group">
+                    <div>
+                        <label for="firstImage">Product Image*</label>
+                    </div>
+                    <div class="font-weight-bold text-justify alert alert-warning">
+                        Provide atleast one image of your product or packaging that clearly shows your brand's name or logo.
+                    </div>
+                   <div class="pl-sm-2">
+                        <input type="file" accept="image/png,image/jpeg,image/jpg,image/x-png" name="image" id="firstImage" formControlName="image" class="form-control" (change)="fileChange($event)"
+                            [ngClass]="{'is-invalid': newBrandForm.get('image').invalid && (newBrandForm.get('image').dirty || newBrandForm.get('image').touched || submitted),
+                                        'is-valid': newBrandForm.get('image').valid && (newBrandForm.get('image').dirty || newBrandForm.get('image').touched || submitted)}">
+                        <span class="text-danger text-justify font-weight-bold pl-lg-3 pl-2" style="font-size:12px" *ngIf="newBrandForm.get('image').invalid && (newBrandForm.get('image').dirty || newBrandForm.get('image').touched ||submitted) && newBrandForm.get('image').errors?.required">
+                            Choose an Image file.
+                        </span>    
+                    </div>
+                    
+                </div>
+                
+                <!--<div class="form-group">    
+                    <div formArrayName="addedProductImages">
+                        <div class="row" *ngFor="let productImage of newBrandForm.get('addedProductImages')['controls']; let i=index" [formGroupName]="i">
+                            <div class="col-lg-6 col-10  pl-lg-3 pl-2">
+                                <input type="file" accept="image/png,image/jpeg,image/jpg,image/x-png" name="image" formControlName="image" class="form-control"
+                                    [ngClass]="{'is-invalid': productImage.get('image').invalid && (productImage.get('image').dirty || productImage.get('image').touched || submitted),
+                                                'is-valid': productImage.get('image').valid && (productImage.get('image').dirty || productImage.get('image').touched || submitted)}">
+                                <span class="text-danger pl-lg-3 pl-2" style="font-size:12px" *ngIf="productImage.get('image').invalid && (productImage.get('image').dirty || productImage.get('image').touched ||submitted) && productImage.get('image').errors?.required">You must choose an image file.</span>
+                            </div>
+                            <div class="col-lg-6 col-2">
+                                <button mat-icon-button color="warn" type="button" (click)="onRemoveClick(i)">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <button mat-raised-button  class="mt-2 ml-lg-3 ml-2 text-white" [ngClass]="{'bg-danger':disabled}" type="button" [disabled]="disabled" (click)="onAddClick()" style="background-color:rgb(60,179,113)">
+                        Add Images
+                    </button>
+                    <div *ngIf="disabled" class="mt-2 alert alert-danger alert-dismissable fade show font-weight-bold">{{errorMessage}}</div>
+                    
+                </div>-->
+                
+            </div>
+            <div class="card-footer">
+                <button mat-raised-button color="primary"  type="submit" class="float-right">
+                    Submit for Review
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<!--new brand registration form ends here-->
+
+<!--footer starts here-->
+<app-seller-footer></app-seller-footer>
+<!--footer ends here-->
+
+
+
+
+

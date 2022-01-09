@@ -1,0 +1,24 @@
+
+input{
+    border: 2px solid grey
+}
+.card{
+    background-color: #e5e4e2;
+}
+
+.form-control{
+    border-color: 1px solid black;
+}
+td{
+text-align: left;
+    margin: auto;
+}
+tr{
+    margin: auto;
+}
+table{
+    width: 100%;
+}
+.swal-wide{
+    width:850px !important;
+}

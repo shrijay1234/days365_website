@@ -1,0 +1,156 @@
+<app-front-header></app-front-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="container-fliud">
+        <div class="row">
+          <div class="col-sm-12">
+            <h3 class="ram text-center" style="margin-top: 1rem">
+              <b>Wish List</b>
+            </h3>
+          </div>
+          <div class="col-sm-12 col-12 col-lg-12 col-md-12 ghhhhh">
+            <div
+              class="card text-dark mb-4 mt-4"
+              *ngIf="itemsCount"
+              style="border: none; box-shadow: 0px 15px 15px 15px #5d86bc38"
+            >
+              <div class="container-fluid text-center border-bottom">
+                <div class="row" style="font-weight: bold">
+                  <div class="col-sm-4 col-12 col-lg-4 col-md-4 ngar mb-2">
+                    <b>Product</b>
+                  </div>
+                  <div class="col-sm-4 col-12 col-lg-4 col-md-4 mb-2">
+                    <b>About Product</b>
+                  </div>
+                  <div class="col-sm-2 col-12 col-lg-2 col-md-2 mb-2">
+                    <b>Price</b>
+                  </div>
+                  <div class="col-sm-2 col-12 col-lg-2 col-md-2 mb-2">
+                    <b>Action</b>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="container-fluid m-0 p-0 text-center border-bottom"
+                *ngFor="let row of items; index as index"
+              >
+                <div *ngFor="let subrow of row.cartData.productVariant">
+                  <div *ngIf="subrow._id == row.varientId">
+                    <div class="row">
+                      <div class="col-sm-12 col-lg-4 col-12 col-md-4">
+                        <div class="container-fluid">
+                          <div class="row">
+                            <div class="col-sm-12 col-12 col-md-12 col-lg-4">
+                              <div
+                                class="card bvn mt"
+                                style="
+                                  width: 100px;
+                                  height: auto;
+                                  background-image: url('assets/img/pp.Jpeg');
+                                  background-repeat: no-repeat;
+                                  background-size: cover;
+                                "
+                              >
+                                <img src="{{ subrow.MainImg }}" />
+                              </div>
+                            </div>
+                            <div
+                              class="col-sm-8 col-12 col-md-12 rfghj"
+                              style="color: black; margin: auto"
+                            >
+                              <b>{{ row.cartData.brandName }}</b>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="col-sm-4 col-sm-12 col-lg-4 col-12 col-md-4 mt-4"
+                      >
+                        <p>{{ subrow.title }}</p>
+                      </div>
+
+                      <div class="col-sm-2 mt-4">₹{{ subrow.yourPrice }}</div>
+
+                      <div
+                        class="col-sm-2 col-12 kabb mt-4"
+                        style="margin-left: -10px"
+                      >
+                        <ul>
+                          <li style="background-color: #008080">
+                            <button
+                              (click)="wishToCart(newitems[index])"
+                             
+                            >
+                              <i class="fa fa-refresh" aria-hidden="true"></i>
+                            </button>
+                          </li>
+                          <li style="margin-left: 4px">
+                            <button
+                            (click)="deleteToCart(newitems[index])"
+                          
+                            ><i class="fa fa-trash-o" aria-hidden="true"></i
+                          ></button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container-fluid border-top mt-4">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-12 col-lg-12 mt-3"
+                    style="align-items: center"
+                  >
+                    <a [routerLink]="'/'">
+                      <button
+                        class="btn moh"
+                        style="
+                          background-color: #ffa500;
+                          color: #fff;
+                          margin-bottom: 10px;
+                        "
+                      >
+                        <b>Continue Shopping</b>
+                      </button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="col-md-12 card mt-4 text-center mb-4"
+              *ngIf="!itemsCount"
+              style="border: none; box-shadow: 0px 15px 15px 15px #5d86bc38"
+            >
+              <h4>Wishlist is empty.</h4>
+              <div class="container-fluid border-top mt-4 mb-4">
+                <div class="row">
+                  <div class="col-md-12 col-sm-4 col-12 rajj mt-4">
+                    <a routerLink="/"
+                      ><button
+                        class="btn ggjjjj"
+                        style="background-color: #ffa500; color: #fff"
+                      >
+                        <b> Continue Shopping </b>
+                      </button></a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-1"></div>
+  </div>
+</div>
+
+<app-front-footer></app-front-footer>

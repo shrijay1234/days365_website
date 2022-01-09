@@ -1,0 +1,119 @@
+<app-front-header></app-front-header>
+<div style="height: 1050px;">
+
+    <div class="container-fluid">
+        <div class="row">
+            <br>
+            <aside class="col-sm-3">                 
+             
+                <div class="filter">
+                    <div class="card backcard" >
+                        <div class="card-header">
+                         <h3> Filters</h3> 
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">
+                            <div class="card">
+                                <h4 class="card-header">Price Range</h4>
+                                <div class="card-body">
+                                    <ngx-slider [(value)]="minValue" [(ngModel)]="sliderValue" [(highValue)]="maxValue" [options]="options"  (mouseup)="sliderEvent()"></ngx-slider>                                   
+                                </div>
+                              </div>
+
+                          </li>
+                          <li class="list-group-item">
+                            <div class="card " (scroll)="divScroll($event)">
+                                <h4 class="card-header">Brand</h4>
+                                <cdk-virtual-scroll-viewport itemSize="5" class="example-viewport card-body">
+                                <div *ngFor = "let item of BrandList">
+                                    <div class="form-check">
+                                        
+                                        <label class="form-check-label" for="flexCheckDefault"><input class="form-check-input" type="checkbox"   value="{{item }}"
+                                            
+                                            > {{item}}</label>
+                                      </div>
+                                </div>
+                            </cdk-virtual-scroll-viewport>
+                                <div class="card-body">
+                                   
+                                     
+                                    </div>
+                                    </div>
+                               
+                        
+                        </li>
+                        </ul>
+                      </div>
+                </div>
+                
+            </aside> 
+            <div class=" col-sm-8  product_bar">
+                <div class="row product_header ">
+                    <p class="desc">{{productListArray.length}} Results</p>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle dropdown_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Sort By                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Price</a>
+                          <hr>
+                          <a class="dropdown-item" href="#">Popularity</a>
+                            <hr>
+
+                          <a class="dropdown-item" href="#">
+                              Discount
+                          </a>
+                        </div>
+                      </div>
+                </div>
+                    <div class="row">
+
+                        <div class="col-md-4"  *ngFor="let product of productListArray |paginate: { itemsPerPage: 6, currentPage: p } ;let index as i ">
+                            <div class="card product_card " style="width: 18rem;">
+								<div class="product-grid">
+									<div class="product-image ">
+										<a>
+											<img style="cursor: pointer;" class="setimages img-responsive" [src]="product.productVariant[0]?.MainImg" (click)="openProductDetail(product._id,product.title)">
+										</a>
+										<ul class="social">
+											
+											<li><a (click)="addToCart(product, 1)" [routerLink]="" data-tip="Add to Wishlist"><i
+												class="fa fa-shopping-bag"></i></a>
+											</li>
+											<li><a (click)="addToCart(product, 2)" [routerLink]="" data-tip="Add to Cart"><i
+												class="fa fa-shopping-cart"></i></a>
+											</li>
+										</ul>
+									</div>
+									<div class="product-content text-center" style="padding:0 5px ; height: auto;">
+										<h5 class="title">
+											<span class="tyjee">
+											{{product.title}}</span> 
+										</h5>
+										<h6  style="float: left;">
+											<b >Rs.{{product.productVariant[0]?.yourPrice}}</b>
+										</h6>
+									</div>
+								</div>
+                              </div>                     
+    
+                            </div>
+
+                    </div>                  
+                <div class="paginator">
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                </div>
+            </div>
+            </div>
+            </div>
+            </div>
+                         
+<div class="container-fluid mt-4">
+   
+        <!-- left sidebar -->
+       
+        <!-- right sidebar -->
+      
+</div>
+
+<app-front-footer></app-front-footer>

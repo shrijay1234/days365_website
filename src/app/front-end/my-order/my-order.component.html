@@ -1,0 +1,63 @@
+
+<app-front-header></app-front-header>
+
+
+
+<div class="container-fluid" *ngFor="let row of items; index as index">
+    <div class="row">
+  <div class="col-10 mt-2 mb-2" style=" margin: auto; border:none;  box-shadow: 0px 15px 15px 15px #5D86BC38;">
+  <div class="card  mt-3 mb-3">
+      
+      <div class="card-body">
+          <div class="container-fluid ">
+              <div class="row">
+                 
+        <div class="col-6">
+            <!-- <div class="card  _mayank mb-3" style=" float: left; border: none;">
+              <img src="assets/img/pr1.jpg">
+              
+            </div> -->
+            <p class="card-text _tanmal " style="color:black; font-weight: bold;">Order ID: <b>{{row._id}}</b></p>
+              <p class="_tushar">Creation Date:{{row.createdAt}}</p>
+              <p  class="_tushar"style="padding-bottom: ">Quantity: {{row.quentiy}}</p>
+              <p  class="_tushar"style="padding-bottom: ">Amount: {{row.price}}</p>
+            </div>
+            <div class="col-6 ">
+             
+              <!-- <p class="card-text _rav" ><b>₹{{row.price}}</b></p>  -->
+
+              </div>
+        </div>
+        </div>
+        </div>
+       
+        <mat-divider></mat-divider>
+        <section>
+              <div class="example-button-row">
+                <a mat-raised-button color="primary"  style="float: right; outline: none;" (click)="orderDetails(row._id)">Order Detail</a>
+        </div>
+        </section>
+        
+        
+    
+    </div>
+  
+  </div>
+  
+  </div>
+  </div>
+
+  <div class="col-md-12 card mt-4 text-center mb-4" *ngIf="!items.length" style=" border:none;  box-shadow: 0px 15px 15px 15px #5D86BC38;">
+                        
+	<h4>No Orders Available. </h4>
+	<div class="container-fluid mt-4 mb-4">
+		<div class="row">
+			<div class="col-md-12 col-sm-4 col-12  rajj" ><a routerLink="/"><button class="btn ggjjjj " style="background-color:  #FFA500; color:#fff;"> <b> Continue Shopping </b></button></a>
+			</div>
+		</div>
+
+
+	</div>
+
+</div>
+<app-front-footer></app-front-footer>

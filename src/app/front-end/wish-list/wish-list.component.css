@@ -1,0 +1,51 @@
+li{
+  display:inline-block;
+  background-color:red;
+  width:25px;
+border-radius: 2px;
+}
+li .fa{
+
+ color:#fff;
+
+  }
+
+
+  @media ( width: 768px) {
+    .rfghj{font-size: 10px;}
+    
+    
+  }
+  @media ( width:360px) {
+    .kabb{
+      margin-bottom: 1rem;
+    }
+    .btn .moh{
+    margin-right: 1rem;
+    }
+
+  
+  }
+  @media ( width: 1024px) {
+  }
+  @media ( width: 411px) {
+    .kabb{
+      margin-bottom: 1rem;
+    }
+  }
+  @media(max-width:480px){
+    .bvn{
+    margin-left:90px
+    } 
+    .moh{
+      margin-left: 40px;
+      margin-bottom: 10px;
+    }
+    .rfghj{
+      padding-top: 10px;
+    }
+    .kabb {
+      margin-bottom: 4px;
+    }
+  }
+ 

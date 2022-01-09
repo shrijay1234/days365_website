@@ -1,0 +1,83 @@
+.filter{
+    margin-top: 20px;
+   
+    
+}
+
+.title{
+    overflow: hidden;
+}
+.category{
+    margin: 20px 20px 20px 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.button {
+    height: 40px;
+    width: 130px;
+    background-color: black; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius:30px
+  }
+  
+
+.backcard
+{
+    margin: 10px;
+    
+}
+.product_bar{
+    margin-left: 20px;
+
+}
+.setimages {
+    height: 250px !important;
+    width: 100% !important;
+}
+.paginator{
+    margin: 20px 20px 20px 20px;
+}
+.product_card{
+    margin:40px
+}
+.form_check{
+    padding: 0px 30px 0px 30px;
+}
+.product_header{
+    border: 1px solid rgb(192, 186, 186);
+    height: 65px;
+    width: 955px;
+    margin: 20px 0px 0px 43px;
+    background-color: rgba(0,0,0,.03);
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+.dropdown{
+    position: relative;
+    left: 725px;
+    top: 14px;
+}
+.dropdown_btn{
+    color:black;
+    background-color: white;
+}
+.desc{
+    top: 20px;
+    left: 20px;
+    position: relative;
+}
+
+.btn.btn-social-icon {
+    width: 40px;
+    height: 40px;
+    padding: 0
+}
+.setimages:hover .social{
+    color:wheat
+}

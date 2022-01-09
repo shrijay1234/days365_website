@@ -1,0 +1,292 @@
+.mcf {
+    color: #e91e63;
+    font-size: 18px;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
+    padding: 16px 0 0 0;
+    text-align: center;
+    width: 100%; 
+}
+
+.mt-6 {
+    margin-bottom: -0.5rem !important;
+}
+
+ul {
+    list-style: disc !important;
+}
+
+.rl {
+    margin-bottom: 1rem;
+}
+
+.mty {
+    margin-top: 1rem;
+}
+
+.mat-step-label {
+    font-size  : 17px !important;
+    font-weight: 500 !important;
+}
+
+.hc {
+    margin-top : 10px;
+    margin-left: 4px;
+    color      : rgb(22, 102, 139);
+    font-size  : large;
+    font-weight: bold;
+}
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+.mat-radio-button {
+    display                    : block !important;
+    -webkit-tap-highlight-color: transparent;
+    outline                    : 0;
+}
+
+.sl {
+    margin-top: 2rem;
+}
+
+.form-container {
+    display       : flex;
+    flex-direction: column;
+}
+
+.form-container>* {
+    width: 100%;
+}
+
+h5 {
+    color: black;
+}
+
+
+
+.mbtt {
+    margin-bottom: 1rem !important;
+}
+
+.mat-expansion-panel-header {
+    background-color: #eae8e8 !important;
+    /* margin-bottom: 1rem!important; */
+    border          : 1px solid #d6d2d2 !important;
+}
+
+.mat-expansion-panel {
+    margin-bottom: 1rem !important;
+}
+
+.br {
+    border: 1px solid gray;
+    height: 10rem;
+}
+
+.fxd {
+   
+    margin   : auto;
+    /* height: 700px; */
+    height: auto;
+}
+
+.error-div {
+    color: red;
+}
+
+select {
+    margin: 0;
+}
+
+.choice {
+    padding-left: 10px;
+}
+
+.success {
+    color: rgb(10, 161, 10);
+}
+
+.failure {
+    color: rgb(228, 9, 9);
+}
+
+.margin-top {
+    margin-top: 10px;
+}
+
+.margin-left {
+    margin-left: 8px;
+}
+
+.margin-bottom {
+    margin-bottom: 15px;
+}
+
+.invalid {
+    color: rgb(228, 9, 9);
+}
+
+
+
+.my-signature {
+    margin: 10px;
+}
+
+.my-signature img {
+    width : 500px;
+    height: 200px;
+    margin-left: 10px;
+    background-color: rgb(206, 224, 226);
+}
+
+
+.signature-pad {
+    background-color: rgb(241, 239, 240);
+}
+
+@media(min-width:500px){
+._steppes{
+    font-size: 20px;
+    color:black;
+    font-weight: bold;
+    
+
+}
+
+.mat-card .mat-card-content {
+    font-size: 1rem;
+    line-height: 23px;
+    padding: 24px;
+}
+.mat-horizontal-content-container {
+    overflow: hiddens;
+    padding: 0 24px 24px 24px;
+}
+.my-signature img {
+    width : 500px;
+    height: 200px;
+    margin-left: 10px;
+    background-color: rgb(206, 224, 226);
+}
+
+.form-control{
+    width:40%!important;
+}
+.form-control {
+    border     : 1px solid gray !important;
+    line-height: 15px;
+    padding    : 11px;
+    width      : 22rem !important;
+    font-size  : 14px;
+}
+._sellse{
+float: right;
+}
+._selfoot{
+    float: left;
+}
+
+.navbar-brand img{
+    width:60px
+}
+
+.ggg{
+    padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 35px;
+}
+}
+@media(max-width:500px){
+
+    ._steppes{
+        font-size: 16px;
+
+        font-weight: bold;
+        display: block;
+        overflow: visible;
+        
+
+    }
+    .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
+        padding: 16px 0 0 0;
+        text-align: center;
+        width: 100% !important; 
+    }
+    .my-signature img {
+        width : 200px;
+        height: 200px;
+        margin:auto;
+        background-color: rgb(206, 224, 226);
+    }
+    .mat-card .mat-card-content {
+        font-size: 1rem;
+        line-height: 23px;
+        padding: 2px;
+    }
+    
+    .mat-form-field {
+        width: 100%;
+        min-width: 30px;
+    }
+    .mat-horizontal-content-container {
+        overflow: hidden;
+    padding: 0 24px 24px 24px !important; 
+    }
+    ._sellse{
+        text-align: center;
+    }
+   
+.ggg{
+    padding-top: 7px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 45px;
+}
+    .form-control {
+        border     : 1px solid gray !important;
+        line-height: 15px;
+        padding    : 11px;
+      
+        font-size  : 14px;
+    }
+    .mcf {
+        color: #e91e63;
+        font-size: 12px;
+    }
+    ._selfoot{
+        text-align: center;
+    }
+    .navbar-brand {
+        font-size: 14px;
+    }
+    
+    .navbar-brand img{
+        width:40px
+    }
+}
+
+.launch-vendor{
+    font-size: large;
+    color: blue;
+}
+.invalid {
+    color        : red;
+    margin-bottom: 5px;
+    font-size: 13px;
+  }
+  
+  @media(max-width:600px){
+  .mat-checkbox-layout{
+
+    white-space: normal!important;
+}
+._checkk {
+    white-space: normal !important;
+}
+  }

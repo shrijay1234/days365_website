@@ -1,0 +1,136 @@
+<app-front-header></app-front-header>
+
+
+
+<div id="container-fluid  mt-4" style="background-color:#f1f3f6; ">
+
+    <div class="row">
+        <div class="  col-sm-2"></div>
+        <div class="col-sm-8 ">
+            <div class="container-fluid mt-3 mb-3 nm">
+                <div class="row">
+
+                    <div class="col-sm-5 bcv">
+                        <span class="_36KMOx">
+                            <span>Login</span>
+                        </span>
+                        <p style="color: #dbdbdb; font-size: 18px; margin-top: 16px;
+                line-height: 150%;">
+                            <span>Get access to your Orders, Wishlist and Recommendations</span>
+                        </p>
+                        <div class="account-options text-center">
+                            <button type="button" class="btn btn-light" [ngClass]="{'active':isUserActive}"
+                                (click)="enableUserAccount()" [disabled]="isUserActive">User
+                                Account</button>
+                            <br>
+                            <button type="button" class="btn btn-light" [ngClass]="{'active':!isUserActive}"
+                                (click)="enableVendorAccount()" [disabled]="!isUserActive">Seller
+                                Account</button>
+                        </div>
+                    </div>
+
+
+
+                    <div class=" col-sm-7">
+                        <!-- <div class="text-center top-padding heading ">
+                            <p>{{isUserActive ? "User Account" : "Seller Account"}}</p>
+                        </div> -->
+                        <div *ngIf="!isExists && !spinner" class="login-form">
+
+
+                            <form [formGroup]="preLoginForm" (ngSubmit)="verifyUsername()">
+
+
+                                <div class="form-group text-field" style="margin-top: 2rem;">
+
+                                    <input type="text" name="username" autocomplete="off" formControlName="username"
+                                        [ngClass]="{'is-invalid':submitted1 && f1.username.errors}" required>
+                                    <span></span>
+                                    <label for="username">
+                                        Enter Your Email or Mobile Number *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted1 && f1.username.errors" >
+                                    <div *ngIf="f1.username.errors.required" class="invalid">
+                                        This field is required.
+                                    </div>
+                                </div>
+
+                                <div *ngIf="errorMessage" >
+                                    <div class="invalid">
+                                        {{errorMessage}}
+                                    </div>
+                                </div>
+
+                                <div class="_1D1L_j mt-1">
+                                    <button class="_2KpZ6l  " type="submit" style="background-color: #fb641b;">
+                                        CONTINUE
+                                    </button>
+                                </div>
+
+                            </form>
+                            <div class="text-center top-padding">
+                                <a [routerLink]="'/sign-up'">New to Days365 ?
+                                    <b>Create an account.</b></a>
+                            </div>
+                            <div class="text-center top-padding bottom-padding">
+                                <a [routerLink]="'/forgot-password'">
+                                    <b>Forgot Password ?</b></a>
+                            </div>
+
+                        </div>
+                        <div *ngIf="isExists && !spinner" class="login-form">
+                            <div>
+                                <br>
+                                {{field.type}} : {{field.type =='MOBILE'?"+91 "+field.value:field.value}}
+                            </div>
+                            <form [formGroup]="loginForm" (ngSubmit)="userLogin()">
+
+                                <div class="form-group text-field">
+
+                                    <input type="password" name="password" autocomplete="off" formControlName="password"
+                            
+                            
+                            
+                                    [ngClass]="{'is-invalid':submitted2 && f2.password.errors}" required>
+                                    <span></span>
+                                    <label for="password">Enter Your Password *
+                                    </label>
+
+                                </div>
+                                <div *ngIf="submitted2 && f2.password.errors" >
+                                    <div *ngIf="f2.password.errors.required" class="invalid">
+                                        This field is required.
+                                    </div>
+                                </div>
+
+                                <div *ngIf="errorMessage" >
+                                    <div class="invalid">
+                                        {{errorMessage}}
+                                    </div>
+                                </div>
+
+                                <div class="_1D1L_j mt-1">
+                                    <button class="_2KpZ6l  " type="submit" style="background-color: #fb641b;">
+                                        CONTINUE
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                        <div class="paginator" *ngIf="spinner">
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<app-front-footer></app-front-footer>

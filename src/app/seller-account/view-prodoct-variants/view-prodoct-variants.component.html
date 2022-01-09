@@ -1,0 +1,188 @@
+
+
+  <div class="container-fluid p-0" style="background-color:#F4F4F4">
+    <app-seller-header></app-seller-header>
+    
+  <div class="scrollll">
+
+<!--table-->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mt-4">
+  
+    <ng-container matColumnDef="productId">
+      <th mat-header-cell *matHeaderCellDef class="_tab"> <b>P.Id</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.productId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="productIdType">
+        <th mat-header-cell *matHeaderCellDef class="_tab"> <b>P.Type</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows" style="float: center;"> {{element.productIdType}} </td>
+      </ng-container>
+      
+    
+    <ng-container matColumnDef="color">
+      <th mat-header-cell *matHeaderCellDef class="_tab"> <b>Color</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows "> {{element.color}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="flavour">
+      <th mat-header-cell *matHeaderCellDef class="_tab">Flavour</th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.flavour}} </td>
+    </ng-container>
+    <ng-container matColumnDef="expiryDate">
+      <th mat-header-cell *matHeaderCellDef class="_tab">exp.Date</th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.expiryDate| date:'dd/MM/yyyy'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="size">
+        <th mat-header-cell *matHeaderCellDef class="_tab"> <b>Size</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.size}} </td>
+      </ng-container>
+    
+    <ng-container matColumnDef="stock">
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Stock</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.stock}} </td>
+    </ng-container>
+    <ng-container matColumnDef="SKUId">
+        <th mat-header-cell *matHeaderCellDef class="_tab"><b>SKU Id</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.SKUId}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="maximumRetailPrice">
+        <th mat-header-cell *matHeaderCellDef class="_tab"><b>MRP</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.maximumRetailPrice}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="yourPrice">
+        <th mat-header-cell *matHeaderCellDef class="_tab"><b>Your Price</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.yourPrice}} </td>
+      </ng-container>
+      
+  
+    <ng-container matColumnDef="expiryDate_Img" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Exp. Img</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"><img [src]=element.expiryDate_Img  (click)="showImage(element.expiryDate_Img)" data-toggle="modal" data-target="#exampleModal" style="height: 40px; width:60px">
+      
+<!-- Modal expiryDate_Img  -->
+<div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  
+  <div class="modal-dialog  modal-lg modal-dialog-centered " role="document">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <img [src]=globalUrl style="width: 300px; height:300px; margin: auto;">
+       
+        
+      </div>
+      <div class="modal-footer" style="border: none;">
+        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+        
+        </button>
+      </div>
+    </div>
+  </div>
+</div></td>
+    </ng-container>
+  
+    <ng-container matColumnDef="importerMRP_Img" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>MRP Img </b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"><img [src]=element.importerMRP_Img (click)="showImage(element.importerMRP_Img)"  data-toggle="modal"  data-target="#impModal"  style="height: 40px; width:60px">
+      
+
+<!-- Modal importerMRP_Img -->
+<div class="modal fade  bd-example-modal-lg " id="impModal" tabindex="-1" role="dialog" aria-labelledby="impModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <img [src]=globalUrl  style="width: 300px; height:300px; margin: auto;" >
+       
+      </div>
+      <div class="modal-footer" style="border: none;">
+        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+        
+        </button>
+      </div>
+    </div>
+  </div>
+</div></td>
+    </ng-container>
+
+    <ng-container matColumnDef="productSeal_Img" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Seal Img </b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"><img [src]=element.productSeal_Img (click)="showImage(element.productSeal_Img)" data-toggle="modal"  data-target="#sealModal"  style="height: 40px; width:60px">
+     
+
+<!--  productSeal_Img -->
+<div class="modal fade  bd-example-modal-lg" id="sealModal"  tabindex="-1" role="dialog" aria-labelledby="sealModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+     
+      <div class="modal-body">
+        <img [src]=globalUrl  style=" width: 300px; height:300px; margin: auto;">
+       
+      </div>
+      <div class="modal-footer" style="border: none;">
+        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+        
+        </button>
+      </div>
+    </div>
+  </div>
+</div> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="product_Img1" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Front Img</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"><img [src]="element.MainImg" (click)="showImage(element.MainImg)" data-toggle="modal"  data-target="#mainModal"  style="height: 40px; width:60px">
+        
+
+<!-- Modal  MainImg  -->
+<div class="modal fade  bd-example-modal-lg" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        <img [src]="globalUrl"  style=" width: 300px; height:300px; margin: auto;" >
+      
+      </div>
+      <div class="modal-footer" style="border: none;">
+        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+        
+        </button>
+    </div>
+  </div>
+</div>
+</div></td>
+    </ng-container>
+
+    <ng-container matColumnDef="MainImg" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Back Img</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"><img [src]=element.product_Img1  data-toggle="modal" (click)="showImage(element.product_Img1)" data-target="#productleModal"  style="height: 40px; width:60px">
+        <!-- Modal e\ product_Img1-->
+        <div class="modal fade  bd-example-modal-lg" id="productleModal" tabindex="-1" role="dialog" aria-labelledby="productleModalLabel" aria-hidden="true">
+          <div class="modal-dialog  modal-lg modal-dialog-centered col-8" role="document" style="height:auto">
+            <div class="modal-content">
+             
+              <div class="modal-body">
+                <img [src]=globalUrl  style=" width: 300px; height:300px; margin: auto;">
+              </div>
+              <div class="modal-footer" style="border: none;">
+                <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                
+                </button>
+            </div>
+          </div>
+        </div>
+      </div></td>
+    </ng-container>
+  
+   
+  
+   
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  </div>
+  <button class="btn btn-primary mt-2" routerLink="/viewProductsForAddVariants" style="float: right; padding: 3px 15px;">🡐 back</button>
+  </div>
+  <app-seller-footer></app-seller-footer>

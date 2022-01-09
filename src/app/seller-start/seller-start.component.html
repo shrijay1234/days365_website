@@ -1,0 +1,876 @@
+<div style="height: auto;">
+    <div class="container-fluid bg-info">
+    
+        <nav class="navbar navbar-expand-lg navbar-light ">
+    
+            <a class="navbar-brand text-light" href=""><img src="assets/img/FDays365.png">Days365
+                Seller Central</a>
+    
+           
+    
+    
+    
+            <div class="collapse navbar-collapse" id="demo-navbar">
+    
+                <ul class="navbar-nav mr-auto">
+    
+                    <!-- <li class="nav-item active">
+         
+                <a class="nav-link text-light" href="https://www.jquery-az.com/">Tutorials <span class="sr-only">(current)</span></a>
+         
+              </li>
+         
+              <li class="nav-item">
+         
+                <a class="nav-link text-light" href="https://www.jquery-az.com/bootstrap-4/">Bootstrap</a>
+         
+              </li>
+         
+              <li class="nav-item dropdown">
+         
+                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         
+                  Web
+         
+                </a>
+         
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+         
+                  <a class="dropdown-item" href="https://www.jquery-az.com/jquery-tips/">jQuery Tutorials</a>
+         
+                  <a class="dropdown-item" href="https://www.jquery-az.com/php-tutorials/">PHP Tutorials</a>
+         
+                  <a class="dropdown-item" href="https://www.jquery-az.com/javascript-tutorials/">JavaScript Tutorials</a>
+         
+                  <a class="dropdown-item" href="https://www.jquery-az.com/css-tutorials/">CSS Tutorials</a>
+         
+                  <div class="dropdown-divider"></div>
+         
+                  <a class="dropdown-item" href="https://www.jquery-az.com/alerts-js-bootstrap-jquery/">Alerts</a>
+         
+                </div>
+         
+              </li>
+         
+              <li class="nav-item">
+         
+                <a class="nav-link disabled text-warning" href="#">Disabled</a>
+         
+              </li> -->
+    
+                </ul>
+    
+               
+            </div>
+    
+        </nav>
+    
+    </div>
+    
+    
+    <div class="fxd" fxLayout="row" fxLayoutWrap="wrap" style="height: auto;"> 
+        <!-- Card column -->
+        <div fxFlex.gt-sm="100%" fxFlex="100">
+            <mat-card>
+                <mat-card-content>
+                    <mat-card-title></mat-card-title>
+                    <mat-vertical-stepper [linear]="isLinear" labelPosition="bottom" #stepper>
+                        <mat-step [completed]="statusList.is_mobile_verified" [editable]='!statusList.is_mobile_verified'>
+                            <form>
+                                <ng-template matStepLabel> <span class="_steppes" style="word-break: break-all;">Phone Verification</span></ng-template>
+    
+                                <!-- <div class="col-md-6">
+                                    <mat-form-field>
+                                        <input matInput placeholder="Enter Phone Number" formControlName="firstCtrl"
+                                            required>
+                                    </mat-form-field>
+                                    <div>
+                                        <button mat-raised-button color="warn" matStepperNext>Next</button>
+                                    </div>
+                                </div> -->
+                            </form>
+                        </mat-step>
+    
+    
+                        <mat-step [completed]="statusList.is_seller_info_collected"
+                            [editable]='!statusList.is_seller_info_collected'>
+    
+                            <form>
+                                <ng-template matStepLabel><span class="_steppes">Seller Information</span></ng-template>
+    
+                                <mat-vertical-stepper [linear]="isLinear" #sellerStepper class="m-t-20">
+                                    <mat-step [completed]='vendorData' [editable]='!vendorData'>
+                                        <div *ngIf="companyNameForm">
+                                            <form [formGroup]="companyNameForm">
+                                                <ng-template matStepLabel><span class="_steppes">Register and Start Selling</span></ng-template>
+                                                <div class="col-md-12">
+                                                    <!-- <mat-card-title class="mcf">Register and Start Selling</mat-card-title> -->
+                                                    <p>Please have the following ready before you begin</p>
+                                                    <ul>
+                                                        <li>Your bank account details for receiving payments from Days365
+                                                        </li>
+                                                        <li>Tax(GST/PAN) details of your business</li>
+                                                    </ul>
+    
+                                                    <p>Please ensure that all information your is accurate</p>
+                                                    <h4>Enter details below to continue registration</h4>
+    
+                                                    <div class="form-group">
+                                                        <label for="usr">Company Business Name:</label>
+                                                        <input type="text" class="form-control" id="usr"
+                                                            formControlName="companyName"
+                                                            [ngClass]="{'is-invalid':submitted[0] && companyNameControl.companyName.errors}"
+                                                            required>
+                                                        <div *ngIf="submitted[0] && companyNameControl.companyName.errors"
+                                                            class="invalid">
+                                                            <div *ngIf="companyNameControl.companyName.errors.required">
+                                                                This field is required.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p>Enter the company business name registered as GST/PAN</p>
+                                                    <p>Seller Agreement</p>
+                                                    <mat-checkbox [(ngModel)]="isChecked[0]"
+                                                        [ngModelOptions]="{standalone: true}" (change)="checkBoxChange1()"></mat-checkbox>
+                                                        <span class="_checkk ml-2 " style="color: black; font-size: 12px; font-weight:bold;">I have read and agreed to comply and/or be bound by the terms and condition of Days365 Business Solution Agreement.
+                                                        </span>
+                                                    
+                                                    <div *ngIf="errorMessage[0] !== '' " class="error-div">
+                                                        {{errorMessage[0]}}
+                                                    </div>
+                                                    <div>
+                                                        <br>
+                                                        <button mat-raised-button color="accent" type="button"
+                                                            (click)="createVendorRecord()"
+                                                            [disabled]='spinner[0]'>Continue</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </mat-step>
+                                    <mat-step [completed]='statusList.is_seller_info_collected'
+                                        [editable]='!statusList.is_seller_info_collected'>
+                                        <div *ngIf="registerSellerForm">
+                                            <form [formGroup]="registerSellerForm">
+                                                <ng-template matStepLabel><span class="_steppes">Tell us About Your Business</span></ng-template>
+                                                <section>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="">
+    
+                                                                <div class="row align-items-center">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">Store Name* :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Store Name"
+                                                                            formControlName="storeName"
+                                                                            (keyup)="isStoreNameAvailable($event)"
+                                                                            [ngClass]="{'is-invalid':submitted[1] && sellerRegisterControl.storeName.errors}"
+                                                                            required>
+                                                                        <div *ngIf="submitted[1] && sellerRegisterControl.storeName.errors"
+                                                                            class="invalid">
+                                                                            <div
+                                                                                *ngIf="sellerRegisterControl.storeName.errors.required">
+                                                                                This field is required.
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div *ngIf="isNameAvailable === 1"
+                                                                    class="success margin-top margin-left">
+                                                                    Store Name Available.
+                                                                </div>
+                                                                <div *ngIf='isNameAvailable === 2'
+                                                                    class="failure  margin-top margin-left">
+                                                                    Store Name Unavailable.
+                                                                </div>
+                                                                <!-- <div class="row align-items-center mt-4">
+                                                                    <div class="col">
+                                                                        <label for="usr">Select Product Category:</label>
+                                                                        <select class="form-control sl" id="sel1">
+                                                                            <option>Automative</option>
+                                                                            <option>2</option>
+                                                                            <option>3</option>
+                                                                            <option>4</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div> -->
+                                                                <br>
+                                                                <p class="hc">Enter your address details</p>
+                                                                <div class="row align-items-center rl">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">Pincode* :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="pincode" placeholder="Pincode"
+                                                                            [ngClass]="{'is-invalid':submitted[1] && sellerRegisterControl.pincode.errors}"
+                                                                            required>
+                                                                        <div *ngIf="submitted[1] && sellerRegisterControl.pincode.errors"
+                                                                            class="invalid">
+                                                                            <div
+                                                                                *ngIf="sellerRegisterControl.pincode.errors.required">
+                                                                                This field is required.
+                                                                            </div>
+                                                                            <div
+                                                                                *ngIf="sellerRegisterControl.pincode.errors.pattern">
+                                                                                Please enter a valid pincode.
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center rl">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">Address Line 1 :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="addressLine1"
+                                                                            placeholder="Address Line 1">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center rl">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">Address Line 2 :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="addressLine2"
+                                                                            placeholder="Address Line 2">
+                                                                    </div>
+                                                                </div>
+
+
+                                                                
+                                                                <div class="row align-items-center rl">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">City* :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            formControlName="city" placeholder="City"
+                                                                            [ngClass]="{'is-invalid':submitted[1] && sellerRegisterControl.city.errors}"
+                                                                            required>
+                                                                        <div *ngIf="submitted[1] && sellerRegisterControl.city.errors"
+                                                                            class="invalid">
+                                                                            <div
+                                                                                *ngIf="sellerRegisterControl.city.errors.required">
+                                                                                This field is required.
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center rl">
+                                                                    <div class="col mt-6">
+                                                                        <label for="usr">State* :</label>
+                                                                        <select class="form-control" formControlName="state"
+                                                                            required>
+                                                                            <option [value]="state"
+                                                                                *ngFor="let state of stateList">{{state}}
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row align-items-center mt-4">
+                                                                    <div class="col">
+                                                                        <label for="usr">Country* :</label>
+                                                                        <input type="text" class="form-control"
+                                                                            placeholder="Country" formControlName="country">
+                                                                    </div>
+                                                                </div>
+                                                               
+                                                                
+                                                                
+                                                                <br>
+                                                                <p class="hc">Select your shipping method</p>
+                                                                <div class="row align-items-center mt-4">
+                                                                    <div class="col">
+                                                                        <input type="radio" id="choice1"
+                                                                            value="Fulfillment by Days365"
+                                                                            formControlName="shippingMethod">
+                                                                        <label for="choice1" class="choice"> Fulfillment by
+                                                                            Days365</label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                                <div *ngIf="errorMessage[1] !== '' " class="error-div">
+                                                    {{errorMessage[1]}}
+                                                </div>
+                                                <div class="row ml-5 pl-5">
+                                                    <br>
+                                                    <button mat-raised-button color="accent" (click)="updateSellerDetails()"
+                                                        type="button" [disabled]='spinner[1]'>Continue</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </mat-step>
+                                </mat-vertical-stepper>
+    
+                            </form>
+                        </mat-step>
+                        <mat-step [completed]="statusList.is_tax_details_collected"
+                            [editable]=' !statusList.is_tax_details_collected'>
+                            <form>
+                                <ng-template matStepLabel><span class="_steppes">Tax Details</span></ng-template>
+                                <div class="col-md-6">
+                                    <!-- <mat-card-title class="mcf">Update your Tax details</mat-card-title> -->
+    
+                                    <mat-radio-group [(ngModel)]="selectedRadio" [ngModelOptions]="{standalone: true}">
+                                        <mat-radio-button [value]="taxOptions[0]" color="warn">
+                                            I have GST number
+                                        </mat-radio-button>
+                                        <br>
+                                        <div *ngIf="selectedRadio === '0' && taxDetailsForm">
+                                            <form [formGroup]="taxDetailsForm" #taxForm1='ngForm'>
+                                                <p class="hc">Enter your TAX details </p>
+                                                <p>
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Select state</mat-label>
+                                                        <mat-select formControlName='state' required>
+                                                            <mat-option [value]="state" *ngFor="let state of stateList">
+                                                                {{state}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Seller Legal Name</mat-label>
+                                                        <input matInput formControlName="sellerName" required>
+                                                        <mat-error *ngIf="taxHasError('sellerName','required')">This field
+                                                            is required.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="standard">
+                                                        <mat-label>GST Number</mat-label>
+                                                        <input matInput formControlName="gstNumber" required>
+                                                        <mat-error *ngIf="taxHasError('gstNumber','required')">This field
+                                                            is required.</mat-error>
+                                                        <mat-error *ngIf="taxHasError('gstNumber','pattern')">Please enter a
+                                                            valid GST number.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="standard">
+                                                        <mat-label>PAN Number</mat-label>
+                                                        <input matInput formControlName="panNumber" required>
+                                                        <mat-error *ngIf="taxHasError('panNumber','required')">This field
+                                                            is required.</mat-error>
+                                                        <mat-error *ngIf="taxHasError('panNumber','pattern')">Please enter a
+                                                            valid PAN number.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                            </form>
+                                        </div>
+                                        <mat-radio-button [value]="taxOptions[1]" color="warn">
+                                            I sell in GST exempted category
+                                        </mat-radio-button>
+                                        <mat-radio-button [value]="taxOptions[2]" color="warn">
+                                            I will update later
+                                        </mat-radio-button>
+                                        <div *ngIf="errorMessage[2] !== '' " class="error-div">
+                                            {{errorMessage[2]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="routeTaxUpdate()"
+                                                type="button" [disabled]='spinner[2]'>Continue</button>
+                                        </div>
+                                    </mat-radio-group>
+    
+                                </div>
+                            </form>
+                        </mat-step>
+                        <mat-step>
+                            <ng-template matStepLabel><span class="_steppes">Dashboard</span></ng-template>
+                            <div class="col-md-11 mx-auto">
+                                <div class="mbtt">
+                                    <mat-card-title class="mcf">Hi {{sellerName | uppercase}}, You are almost there
+                                    </mat-card-title>
+    
+                                </div>
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Products Category
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                        <div *ngIf="productCategoryForm">
+    
+                                            <form [formGroup]="productCategoryForm" (ngSubmit)="updateProductCategory()">
+    
+    
+                                                <label formArrayName="orders" *ngFor="let browseCategory of orders; let i = index">
+                                                    <input type="checkbox" [formControlName]="i">
+                                                    {{browseCategory.category_name}}
+                                                </label>
+                                                <!-- <div *ngIf="!productCategoryForm.valid">form error</div> -->
+                                                <div *ngIf="productCategoryForm.get('orders').hasError('min')">
+                                                    At least one Category must be selected
+                                                </div>
+                                                <div *ngIf="productCategoryForm.get('orders').hasError('max')">
+                                                    Max three Category Can be selected
+                                                </div>
+                                                <br>
+                                                <button mat-raised-button color="accent"
+                                                    [disabled]="!productCategoryForm.valid">submit</button>
+            
+                                            </form>
+    
+                                        <!-- <form [formGroup]="productCategoryForm" (ngSubmit)="updateProductCategory()">
+           
+                                           
+                                                <label formArrayName="orders" *ngFor="let browseCategory of orders; let i = index">
+                                                    <input type="checkbox" [formControlName]="i">
+                                                    {{browseCategory.category_name}}
+                                                </label>
+                                                <div *ngIf="!productCategoryForm.valid">form error</div>
+                                                <div *ngIf="productCategoryForm.get('orders').hasError('min')">
+                                                    At least one Category must be selected
+                                                </div>
+                                                <div *ngIf="productCategoryForm.get('orders').hasError('max')">
+                                                    Max three Category Can be selected
+                                                </div>
+                                                <br>
+                                                <button mat-raised-button color="accent" [disabled]="!productCategoryForm.valid">submit</button>
+                                            </form> -->
+                                        </div>     
+                                    <!-- <p>Set shipping fee you want to charge your customers</p> -->
+                                    <!-- <mat-radio-button value="m">Offer free shipping</mat-radio-button>
+                                    <mat-radio-button value="m">Set free</mat-radio-button>
+                                    <mat-action-row>
+                                        <button mat-button>Save</button>
+                                    </mat-action-row> -->
+    
+                                </mat-expansion-panel>
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Shipping Fee Details
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+    
+                                    <p>Set shipping fee you want to charge your customers</p>
+    
+    
+                                    <div *ngIf="shippingFeeForm">
+                                        <form [formGroup]="shippingFeeForm" (ngSubmit)="updateShippingFee()">
+                                            <p class="">Enter Shipping Fee in INR.</p>
+                                            <p>
+                                                <mat-form-field appearance="legacy">
+                                                    <mat-label>Rs. </mat-label>
+                                                    <input matInput formControlName="shippingFee" type="number" min="0"
+                                                        required>
+                                                    <mat-error *ngIf="shippingHasError('shippingFee','required')">This field
+                                                        is required.</mat-error>
+                                                    <mat-error *ngIf="shippingHasError('shippingFee','min')">Minimum value
+                                                        is 0.</mat-error>
+                                                </mat-form-field>
+                                            </p>
+                                            <div>
+                                                <div *ngIf="errorMessage[3] !== '' " class="error-div">
+                                                    {{errorMessage[3]}}
+                                                </div>
+                                                <br>
+                                                <button mat-raised-button color="accent" type="submit" [disabled]="!shippingFeeForm.valid"
+                                                    >Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+    
+    
+                                </mat-expansion-panel>
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Bank Account Details
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="bankAccountForm">
+                                        <form [formGroup]="bankAccountForm" (ngSubmit)="updateBankDetails()">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Enter Account Holder Name</mat-label>
+                                                        <input matInput formControlName='accountHolderName' type="text"
+                                                            required>
+                                                        <mat-error
+                                                            *ngIf="bankAccountHasError('accountHolderName','required')">
+                                                            This field is required.</mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Select Account Type</mat-label>
+                                                        <mat-select formControlName='accountType' required>
+                                                            <mat-option [value]='accountType'
+                                                                *ngFor='let accountType of bankAccountTypes'>{{accountType}}
+                                                            </mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Enter Account Number</mat-label>
+                                                        <input matInput formControlName='accountNumber' type="text"
+                                                            required>
+                                                        <mat-error *ngIf="bankAccountHasError('accountNumber','required')">
+                                                            This field is required.</mat-error>
+                                                        <mat-error *ngIf="bankAccountHasError('accountNumber','pattern')">
+                                                            Please enter a valid account number.</mat-error>
+                                                    </mat-form-field>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Enter IFSC Code </mat-label>
+                                                        <input matInput formControlName='ifscCode' type="text" required>
+                                                        <mat-error *ngIf="bankAccountHasError('ifscCode','pattern')" >
+                                                            Please enter a valid IFSC code.</mat-error>
+                                                        <mat-error *ngIf="bankAccountHasError('ifscCode','required')">This field is required.</mat-error>
+    
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div *ngIf="errorMessage[4] !== '' " class="error-div">
+                                                    {{errorMessage[4]}}
+                                                </div>
+                                                <br>
+                                                <button mat-raised-button color="accent" type="submit" [disabled]="!bankAccountForm.valid"
+                                                   >Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+    
+                                </mat-expansion-panel>
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Enter TAX Details
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <mat-radio-group [(ngModel)]="taxOption">
+                                        <mat-radio-button [value]="true" color="warn">
+                                           <span>I sell in GST exempted category</span>
+                                        </mat-radio-button>
+                                        <mat-radio-button [value]="false" color="warn">
+                                            I have GST number
+                                        </mat-radio-button>
+                                        <div *ngIf="taxOption === false && taxDetailsForm2">
+                                            <form [formGroup]="taxDetailsForm2" #taxForm2='ngForm'>
+                                                <p class="hc">Your TAX details </p>
+                                                <p>
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Select state</mat-label>
+                                                        <mat-select formControlName='state' required>
+                                                            <mat-option [value]="state" *ngFor="let state of stateList">
+                                                                {{state}}</mat-option>
+                                                        </mat-select>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="legacy">
+                                                        <mat-label>Seller Legal Name</mat-label>
+                                                        <input matInput formControlName="sellerName" required>
+                                                        <mat-error *ngIf="tax2HasError('sellerName','required')">This
+                                                            field
+                                                            is required.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="standard">
+                                                        <mat-label>GST Number</mat-label>
+                                                        <input matInput formControlName="gstNumber" required>
+                                                        <mat-error *ngIf="tax2HasError('gstNumber','required')">This
+                                                            field
+                                                            is required.</mat-error>
+                                                        <mat-error *ngIf="tax2HasError('gstNumber','pattern')"> Please
+                                                            enter a
+                                                            valid GST number.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                                <p>
+                                                    <mat-form-field appearance="standard">
+                                                        <mat-label>PAN Number</mat-label>
+                                                        <input matInput formControlName="panNumber" required>
+                                                        <mat-error *ngIf="tax2HasError('panNumber','required')">This
+                                                            field
+                                                            is required.</mat-error>
+                                                        <mat-error *ngIf="tax2HasError('panNumber','pattern')">
+                                                            Please enter a valid PAN number.</mat-error>
+                                                    </mat-form-field>
+                                                </p>
+                                            </form>
+                                        </div>
+                                        <div *ngIf="errorMessage[5] !== '' " class="error-div">
+                                            {{errorMessage[5]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="routeTaxUpdate2()" [disabled]="!taxDetailsForm2.valid"
+                                                type="button">Save</button>
+                                        </div>
+                                    </mat-radio-group>
+    
+                                </mat-expansion-panel>
+    
+                                
+    
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Signature
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="!updateFlags[4]" class="my-signature">
+                                        <b> My signature : </b><img [src]="mySignature" alt="my-signature">
+                                        <br>
+                                        <br>
+                                        <button mat-raised-button color="accent" (click)="updateFlags[4]=true"
+                                            type="button">Edit</button>
+                                    </div>
+                                    <mat-radio-group [(ngModel)]="selectedImageUploadOption" *ngIf="updateFlags[4]">
+                                        <mat-radio-button [value]="0" color="warn">
+                                            Upload your signature
+                                        </mat-radio-button>
+                                        <div *ngIf="selectedImageUploadOption === 0" class="margin-top margin-bottom">
+                                            <div class="form-group">
+                                                <label for="signature">Upload Signature :</label>
+                                                <input type="file" id="signature" class="form-control" required
+                                                    (change)="fileChange($event)" accept="image/png,image/jpeg">
+                                            </div>
+                                            <div class="form-group">
+                                                <div *ngIf="sizeExceed[0]" class="form-group" class="error-div">
+                                                    {{sizeExceed[0]}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <mat-radio-button [value]="1" color="warn">
+                                            Draw my signature on the screen
+                                        </mat-radio-button>
+                                        <div *ngIf="selectedImageUploadOption === 1"
+                                            class="margin-top margin-bottom signature-pad">
+                                            <signature-pad [options]="signaturePadOptions">
+                                            </signature-pad>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="clearSignaturePad()"
+                                                type="button">Clear</button>
+                                        </div>
+                                        <div *ngIf="errorMessage[7] !== '' " class="error-div">
+                                            {{errorMessage[7]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="routeImageUpload()"
+                                                type="button">Save</button>
+                                        </div>
+                                    </mat-radio-group>
+    
+                                </mat-expansion-panel>
+    
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Food License
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="!updateFlags[5]" class="my-signature">
+                                        <b> Food License : </b><img [src]="myFoodLicense" alt="Food-License">
+                                        <br>
+                                        <br>
+                                        <button mat-raised-button color="accent" (click)="updateFlags[5]=true"
+                                            type="button">Edit</button>
+                                    </div>
+                                    <div *ngIf="updateFlags[5]==true" class="margin-top margin-bottom">
+                                        <div class="form-group">
+                                            <label for="foodLicense">Upload Food License :</label>
+                                            <input type="file" id="foodLicense" class="form-control" required
+                                                (change)="fileChange2($event)" accept="image/png,image/jpeg">
+                                        </div>
+                                        <div class="form-group">
+                                            <div *ngIf="sizeExceed[1]" class="form-group" class="error-div">
+                                                {{sizeExceed[1]}}
+                                            </div>
+                                        </div>
+                                        <div *ngIf="errorMessage[8] !== '' " class="error-div">
+                                            {{errorMessage[8]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="uploadFoodLicense()"
+                                                type="button" >Save</button>
+                                        </div>
+                                    </div>
+                                </mat-expansion-panel>
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            GST License
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="!updateFlags[6]" class="my-signature">
+                                        <b> GST License : </b><img [src]="myGstLicense" alt="GST-License" class="img-responsive">
+                                        <br>
+                                        <br>
+                                        <button mat-raised-button color="accent" (click)="updateFlags[6]=true"
+                                            type="button" >Edit</button>
+                                    </div>
+                                    <div *ngIf="updateFlags[6]==true" class="margin-top margin-bottom">
+                                        <div class="form-group">
+                                            <label for="gstLicense">Upload GST License :</label>
+                                            <input type="file" id="gstLicense" class="form-control" required
+                                                (change)="fileChange3($event)" accept="image/png,image/jpeg">
+                                        </div>
+                                        <div class="form-group">
+                                            <div *ngIf="sizeExceed[2]" class="form-group" class="error-div">
+                                                {{sizeExceed[2]}}
+                                            </div>
+                                        </div>
+                                        <div *ngIf="errorMessage[9] !== '' " class="error-div">
+                                            {{errorMessage[9]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="uploadGSTLicense()"
+                                                type="button" >Save</button>
+                                        </div>
+    
+                                    </div>
+    
+                                </mat-expansion-panel>
+    
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Shop License
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="!updateFlags[7]" class="my-signature">
+                                        <b> Shop License : </b><img [src]="myShopLicense" alt="Shop-License" >
+                                        <br>
+                                        <br>
+                                        <button mat-raised-button color="accent" (click)="updateFlags[7]=true"
+                                            type="button">Edit</button>
+                                    </div>
+                                    <div *ngIf="updateFlags[7]==true" class="margin-top margin-bottom">
+                                        <div class="form-group">
+                                            <label for="shopLicense">Upload Shop License :</label>
+                                            <input type="file" id="shopLicense" class="form-control" required
+                                                (change)="fileChange4($event)" accept="image/png,image/jpeg">
+                                        </div>
+                                        <div class="form-group">
+                                            <div *ngIf="sizeExceed[3]" class="form-group" class="error-div">
+                                                {{sizeExceed[3]}}
+                                            </div>
+                                        </div>
+                                        <div *ngIf="errorMessage[10] !== '' " class="error-div">
+                                            {{errorMessage[10]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="uploadShopLicense()"
+                                                type="button" >Save</button>
+                                        </div>
+    
+                                    </div>
+    
+                                </mat-expansion-panel>
+    
+    
+                                <mat-expansion-panel>
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title>
+                                            Cancelled Cheque
+                                        </mat-panel-title>
+    
+                                    </mat-expansion-panel-header>
+                                    <br>
+                                    <div *ngIf="!updateFlags[8]" class="my-signature">
+                                        <b> Cancelled Cheque : </b><img [src]="myBlankCheque" alt="cheque">
+                                        <br>
+                                        <br>
+                                        <button mat-raised-button color="accent" (click)="updateFlags[8]=true"
+                                            type="button">Edit</button>
+                                    </div>
+                                    <div *ngIf="updateFlags[8]==true" class="margin-top margin-bottom">
+                                        <div class="form-group">
+                                            <label for="cheque">Upload Cancelled Cheque :</label>
+                                            <input type="file" id="cheque" class="form-control" required
+                                                (change)="fileChange5($event)" accept="image/png,image/jpeg">
+                                        </div>
+                                        <div class="form-group">
+                                            <div *ngIf="sizeExceed[4]" class="form-group" class="error-div">
+                                                {{sizeExceed[4]}}
+                                            </div>
+                                        </div>
+                                        <div *ngIf="errorMessage[11] !== '' " class="error-div">
+                                            {{errorMessage[11]}}
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <button mat-raised-button color="accent" (click)="uploadBlankCheque()"
+                                                type="button" >Save</button>
+                                        </div>
+    
+                                    </div>
+    
+                                </mat-expansion-panel>
+    
+                                <div>
+                                    <p *ngIf="this.vendorData && this.vendorData.account_status ==='Pending'" class="launch-vendor">Your Account Verification is Pending. Click here to Verify.<br></p>
+                                    <p *ngIf="this.vendorData && this.vendorData.account_status ==='Approved'" class="launch-vendor">Your Account is Verified.<br></p>
+                                    <p *ngIf="this.vendorData && this.vendorData.account_status ==='Rejected'" class="launch-vendor">Your Account Verification is Failed.<br>Remark: {{this.vendorData.remark}}<br> Provide valid details and click here to verify.</p>
+                                    <p *ngIf="this.vendorData && this.vendorData.account_status ==='Requested'" class="launch-vendor">Your Account is under Verification.<br></p>
+    
+    
+                                    <button mat-raised-button color="accent" matStepperPrevious (click)="requestForAdminApprove()" *ngIf="this.vendorData && (this.vendorData.account_status ==='Pending' || this.vendorData.account_status ==='Rejected')">Launch your
+                                        business</button>
+                                    <button mat-raised-button color="accent" matStepperPrevious (click)="onLaunchYourBusinessClick()" *ngIf="this.vendorData && this.vendorData.account_status ==='Approved'">Launch your
+                                        business</button>
+                                </div>
+                            </div>
+    
+                        </mat-step>
+                    </mat-vertical-stepper>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <footer class="page-footer font-small elegant-color">
+    
+    
+    
+    
+        <!-- Copyright -->
+        <div class="footer-copyright ggg ">
+            <div class="_selfoot" style=" font-size: 12px;">
+    
+                <a href="https://mdbootstrap.com/" class="ffc"> Copyright 2020 VirtualGain. All rights reserved. </a>
+            </div>
+            <div class="_sellse" style=" font-size: 12px;">
+                <span class="ffc">Call Us: 1800 200 6568 </span>
+                <span class="ffc">Mail Us: info@days365.com </span>
+            </div>
+        </div>
+        <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer --></div>
